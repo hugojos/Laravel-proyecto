@@ -20,5 +20,5 @@ Auth::routes();
 Route::get('/article','ArticleController@index');
 Route::post('/article','ArticleController@store')->name('add');
 
-Route::get('/ver','ArticleController@show');
+Route::get('/ver','ArticleController@show')->name('mostrar');
 Route::get('/home', 'HomeController@index')->name('home');

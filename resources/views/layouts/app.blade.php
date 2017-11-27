@@ -61,7 +61,12 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                                        <a href="#"></a>
+                                    </li>
+                                    <li>
+                                      <a href="{{ route('add')}}">Añadir nuevo articulo</a>
+                                    </li>
+                                    <li>
+                                      <a href="{{ route('mostrar')}}">Mis publicaciones</a>
                                     </li>
                                 </ul>
                             </li>
