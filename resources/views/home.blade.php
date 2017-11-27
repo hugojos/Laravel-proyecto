@@ -6,6 +6,7 @@
     <div class="" style="display:flex; flex-wrap:wrap;">
       @foreach ($post as $product)
         <div class="" style="margin: 0 20px; min-width:150px;">
+          {{$product->alias}}
           <h1>{{ $product->title }}</h1>
           <p>{{$product->description}}</p>
           <p>Precio: <span style="color:green;">{{$product->price}}</span></p>

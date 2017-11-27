@@ -53,21 +53,21 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Cerrar sesion
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                    <li>
                                       <a href="{{ route('add')}}">Añadir nuevo articulo</a>
                                     </li>
                                     <li>
                                       <a href="{{ route('mostrar')}}">Mis publicaciones</a>
                                     </li>
+                                    <li>
+                                      <a href="{{ route('logout') }}"
+                                      onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                                      Cerrar sesion
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                      {{ csrf_field() }}
+                                    </form>
+                                  </li>
                                 </ul>
                             </li>
                         @endguest

@@ -23,9 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(10);
-        //$post= Post::find(1);
-        //$user = $post->user()->get();
-        return view('home',['post'=>$posts]);
+        //$posts = Post::paginate(10);
+        $users = Post::leftJoin('users', 'posts.user_id', '=', 'users.id')
+        ->select('*')
+        ->paginate(10);
+        return view('home',['post'=>$users]);
     }
 }
