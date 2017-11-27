@@ -45,7 +45,7 @@ class ArticleController extends Controller
         'price'=>$request->price,
         'user_id'=>Auth::user()->id
       ]);
-      return view('home');
+      return redirect()->route('home');
     }
 
     /**
