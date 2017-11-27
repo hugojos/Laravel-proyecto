@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         //$posts = Post::paginate(10);
         $users = Post::leftJoin('users', 'posts.user_id', '=', 'users.id')
-        ->select('*')
+        ->select('alias','user_id','description','title','price')
         ->paginate(10);
         return view('home',['post'=>$users]);
     }

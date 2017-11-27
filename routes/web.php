@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/users/{id}', 'UserController@show');
 
 Route::get('/article','ArticleController@index');
 Route::post('/article','ArticleController@store')->name('add');
