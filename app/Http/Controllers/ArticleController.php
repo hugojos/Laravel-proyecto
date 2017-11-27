@@ -58,8 +58,8 @@ class ArticleController extends Controller
     {
         $id = Auth::user()->id;
         $user = User::find($id);
-        $das = $user->posts()->get();
-        return $das;
+        $posts = $user->posts()->get();
+        return view('ver',['articulos'=>$posts]);
     }
 
     /**
