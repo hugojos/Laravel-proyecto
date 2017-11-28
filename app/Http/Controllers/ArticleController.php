@@ -15,10 +15,11 @@ class ArticleController extends Controller
     public function __construct(){
       $this->middleware('auth');
     }
-    
+
     public function index()
     {
-        return view('article');
+        $user = Auth::user()->id;
+        return view('article',['user'=>$user]);
     }
 
     /**
@@ -60,7 +61,7 @@ class ArticleController extends Controller
         $id = Auth::user()->id;
         $user = User::find($id);
         $posts = $user->posts()->get();
-        return view('ver',['articulos'=>$posts]);
+        return view('ver',['articulos'=>$posts,'user'=>$id]);
     }
 
     /**

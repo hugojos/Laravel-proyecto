@@ -53,6 +53,12 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
+                                      <a href="{{route('home')}}">Home</a>
+                                    </li>
+                                    <li>
+                                      <a href="/users/{{$user}}">Mi perfil</a>
+                                    </li>
+                                    <li>
                                       <a href="{{ route('add')}}">Añadir nuevo articulo</a>
                                     </li>
                                     <li>

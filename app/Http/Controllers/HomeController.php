@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
-
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -23,10 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user= Auth::user()->id;
         //$posts = Post::paginate(10);
         $users = Post::leftJoin('users', 'posts.user_id', '=', 'users.id')
         ->select('alias','user_id','description','title','price')
         ->paginate(10);
-        return view('home',['post'=>$users]);
+        return view('home',['post'=>$users,'user'=>$user]);
     }
 }
