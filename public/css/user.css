@@ -1,0 +1,36 @@
+.form input {
+  border: none;
+}
+#art {
+  margin: 20px;
+  border: 1px solid black;
+  text-align: center;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.articulo {
+  width: 80%;
+  margin: 0 auto;
+  display: flex
+}
+.articulo h1 {
+  text-decoration: underline;
+}
+.articulo h2 {
+  color:green;
+}
+.articulo p {
+  font-size: 20px;
+}
+.izq {
+  width: 70%;
+}
+.der {
+  width: 30%;
+}
+.comentarios {
+  width: 80%;
+  margin: 0 auto;
+}

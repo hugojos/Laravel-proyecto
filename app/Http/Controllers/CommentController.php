@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class CommentController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -46,9 +45,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = \App\User::find($id);
-        $post = \App\Post::where('user_id','=',$id)->get();
-        return view('user',['user'=>$user,'posts'=>$post,'asd'=>'1']);
+        //
     }
 
     /**
@@ -59,9 +56,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $user = \App\User::find($id);
-      $post = \App\Post::where('user_id','=',$id)->get();
-      return view('user',['user'=>$user,'posts'=>$post,'asd'=>'2']);
+        //
     }
 
     /**
@@ -73,19 +68,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-          'first_name'=>'required',
-          'last_name'=>'required',
-          'email'=>'required|unique:users'
-        ]);
-        $user= \App\User::find($id);
-        $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
-        $user->email = $request->input('email');
-        $user->save();
-        $post = \App\Post::where('user_id','=',$id)->get();
-        return view('user',['user'=>$user,'posts'=>$post,'asd'=>1]);
+        //
     }
+
     /**
      * Remove the specified resource from storage.
      *

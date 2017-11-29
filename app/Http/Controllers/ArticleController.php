@@ -16,10 +16,11 @@ class ArticleController extends Controller
       $this->middleware('auth');
     }
 
-    public function index()
+    public function index($id)
     {
-        $user = Auth::user()->id;
-        return view('article',['user'=>$user]);
+      $post = Post::find($id);
+      $user= Auth::user()->id;
+      return view('article',['user'=>$user,'post'=>$post]);
     }
 
     /**
@@ -29,7 +30,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+      $user = Auth::user()->id;
+      return view('articleForm',['user'=>$user]);
     }
 
     /**

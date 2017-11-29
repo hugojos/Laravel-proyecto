@@ -1,12 +1,18 @@
 @extends('layouts.app')
 @section('content')
-  <form class="" action="{{ route('add')}}" method="post" style="text-align:center;">
-    {{ csrf_field() }}
-    <input type="text" name="title" value="" placeholder="Titulo">
-    <input type="text" name="price" value="" placeholder="Precio">
-    <br>
-    <textarea name="description" rows="8" cols="80" placeholder="Descipcion"></textarea><br>
-
-    <input type="submit" name="" value="Añadir">
-  </form>
+  <div class="articulo">
+    <div class="izq">
+      <h1>{{$post->title}}</h1>
+      <br><br><br>
+      <h3>Descripcion del articulo</h3>
+      <p>{{$post->description}}</p>
+    </div>
+    <div class="der">
+      <h2>${{$post->price}}</h2>
+    </div>
+  </div>
+  <div class="comentarios">
+    <h3>Comentarios</h3>
+    <textarea name="name" rows="8" cols="80" style="resize: none;"></textarea>
+  </div>
 @endsection

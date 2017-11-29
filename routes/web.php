@@ -17,9 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/users/{id}', 'UserController@show');
+Route::post('users/{id}','UserController@edit')->name('edit');
+Route::put('/users/{id}','UserController@update');
 
-Route::get('/article','ArticleController@index');
-Route::post('/article','ArticleController@store')->name('add');
+Route::get('/articles','ArticleController@create');
+Route::post('/articles','ArticleController@store')->name('add');
+Route::get('/articles/{id}', 'ArticleController@index');
 
-Route::get('/ver','ArticleController@show')->name('mostrar');
+Route::get('/post','ArticleController@show')->name('mostrar');
 Route::get('/home', 'HomeController@index')->name('home');
