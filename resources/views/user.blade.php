@@ -29,6 +29,7 @@
         <p>Nombre: <input type="text" name="first_name" value="{{$user->first_name}}"></p>
         <p>Apellido: <input type="text" name="last_name" value="{{$user->last_name}}"></p>
         <p>Correo: <input type="email" name="email" value="{{$user->email}}"></p>
+        <p>Su constraseña: <input type="password" name="password" value=""></p>  
         <input type="submit" name="" value="Guardar">
       </form>
     </div>

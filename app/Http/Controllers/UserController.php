@@ -76,21 +76,24 @@ class UserController extends Controller
         $this->validate($request,[
           'first_name'=>'required',
           'last_name'=>'required',
-          'email'=>'required|unique:users'
+          'email'=>'required|unique:users,email,'.$id
         ]);
 
-        /*$user= \App\User::find($id);
-        $confirmar = $request->input('confirmar');
-        dd($user);
+        $user= \App\User::find($id);
+        $confirmar = $request->input('password');
 
-        if(password_verify())*/
-
-        $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
-        $user->email = $request->input('email');
-        $user->save();
         $post = \App\Post::where('user_id','=',$id)->get();
-        return view('user',['user'=>$user,'posts'=>$post,'asd'=>1]);
+
+        if(password_verify($confirmar,$user->password)){
+          $user->first_name = $request->input('first_name');
+          $user->last_name = $request->input('last_name');
+          $user->email = $request->input('email');
+          $user->save();
+          return view('user',['user'=>$user,'posts'=>$post,'asd'=>1]);
+        } else {
+          return view('user',['user'=>$user,'posts'=>$post,'asd'=>1]);
+        }
+
     }
     /**
      * Remove the specified resource from storage.
