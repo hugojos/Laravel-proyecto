@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
+use App\Comment;
 class CommentController extends Controller
 {
     /**
@@ -32,9 +33,15 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $user_id = Auth::user()->id;
+        Comment::create([
+          'content'=>$request->input('comment'),
+          'user_id'=>$user_id,
+          'post_id'=>$id,
+        ]);
+        return redirect()->route('mostrarArticulo',['id'=>$id]);
     }
 
     /**

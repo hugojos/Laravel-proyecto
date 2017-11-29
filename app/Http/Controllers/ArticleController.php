@@ -5,6 +5,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\Comment;
 class ArticleController extends Controller
 {
     /**
@@ -18,9 +19,15 @@ class ArticleController extends Controller
 
     public function index($id)
     {
+      $comments = Comment::leftJoin('users','users.id','=','user_id')
+      ->leftJoin('posts','posts.id','=','post_id')
+      ->select('content','alias','comments.created_at','post_id','comments.user_id')
+      ->where('post_id','=',$id)
+      ->orderBy('created_at','desc')
+      ->get();
       $post = Post::find($id);
       $user= Auth::user()->id;
-      return view('article',['user'=>$user,'post'=>$post]);
+      return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments]);
     }
 
     /**

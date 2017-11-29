@@ -22,7 +22,8 @@ Route::put('/users/{id}','UserController@update');
 
 Route::get('/articles','ArticleController@create');
 Route::post('/articles','ArticleController@store')->name('add');
-Route::get('/articles/{id}', 'ArticleController@index');
+Route::get('/articles/{id}', 'ArticleController@index')->name('mostrarArticulo');
+Route::post('/articles/{id}','CommentController@store');
 
 Route::get('/post','ArticleController@show')->name('mostrar');
 Route::get('/home', 'HomeController@index')->name('home');
