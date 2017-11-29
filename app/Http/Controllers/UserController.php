@@ -76,9 +76,15 @@ class UserController extends Controller
         $this->validate($request,[
           'first_name'=>'required',
           'last_name'=>'required',
-          'email'=>'required|unique:users'
+          'email'=>'required|unique:users,email,'.$id.''
         ]);
-        $user= \App\User::find($id);
+
+        /*$user= \App\User::find($id);
+        $confirmar = $request->input('confirmar');
+        dd($user);
+
+        if(password_verify())*/
+
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');

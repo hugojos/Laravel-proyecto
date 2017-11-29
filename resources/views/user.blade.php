@@ -9,12 +9,14 @@
       @guest
 
       @else
+      @if($user->id == Auth::user()->id)
       <div class="">
         <form class="" action="/users/{{$user->id}}" method="post">
           {{ csrf_field() }}
           <input type="submit" name="" value="Editar">
         </form>
       </div>
+      @endif
     </div>
     @endguest
   @endif
