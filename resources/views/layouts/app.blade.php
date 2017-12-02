@@ -57,7 +57,7 @@
                                       <a href="{{route('home')}}">Home</a>
                                     </li>
                                     <li>
-                                      <a href="/users/{{$user}}">Mi perfil</a>
+                                      <a href="/users/{{$user->id}}">Mi perfil</a>
                                     </li>
                                     <li>
                                       <a href="{{ route('add')}}">Añadir nuevo articulo</a>

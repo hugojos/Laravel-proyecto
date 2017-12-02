@@ -41,7 +41,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-      $user = Auth::user()->id;
+      $user = Auth::user();
       return view('articleForm',['user'=>$user]);
     }
 
@@ -74,7 +74,7 @@ class ArticleController extends Controller
         $id = Auth::user()->id;
         $user = User::find($id);
         $posts = $user->posts()->get();
-        return view('ver',['articulos'=>$posts,'user'=>$id]);
+        return view('ver',['articulos'=>$posts,'user'=>$user]);
     }
 
     /**
