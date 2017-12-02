@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['except'=>['index']]);
     }
 
     /**
@@ -23,11 +23,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+      $users = Post::leftJoin('users', 'posts.user_id', '=', 'users.id')
+      ->select('alias','user_id','description','title','price','posts.id')
+      ->paginate(8);
+      if (Auth::user()) {
         $user= Auth::user()->id;
         //$posts = Post::paginate(10);
-        $users = Post::leftJoin('users', 'posts.user_id', '=', 'users.id')
-        ->select('alias','user_id','description','title','price','posts.id')
-        ->paginate(10);
-        return view('home',['post'=>$users,'user'=>$user]);
+        return view('index',['post'=>$users,'user'=>$user,'title'=>'HugoSajama']);
+        # code...
+      } else {
+        return view('index',['post'=>$users,'title'=>'HugoSajama']);
+      }
     }
 }

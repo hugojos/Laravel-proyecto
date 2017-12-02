@@ -14,7 +14,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct(){
-      $this->middleware('auth');
+      $this->middleware('auth',['except'=>['index']]);
     }
 
     public function index($id)
@@ -26,8 +26,12 @@ class ArticleController extends Controller
       ->orderBy('created_at','desc')
       ->get();
       $post = Post::find($id);
-      $user= Auth::user()->id;
-      return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments]);
+      if (Auth::user()) {
+        $user= Auth::user()->id;
+        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments]);
+      } else {
+        return view('article',['post'=>$post,'comments'=>$comments]);
+      }
     }
 
     /**

@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 Route::get('/users/{id}', 'UserController@show');
 Route::post('users/{id}','UserController@edit')->name('edit');
@@ -26,4 +22,4 @@ Route::get('/articles/{id}', 'ArticleController@index')->name('mostrarArticulo')
 Route::post('/articles/{id}','CommentController@store');
 
 Route::get('/post','ArticleController@show')->name('mostrar');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

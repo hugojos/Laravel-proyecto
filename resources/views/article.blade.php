@@ -14,11 +14,15 @@
   </div>
   <div class="comentarios">
     <h3>Comentarios</h3>
-    <form class="" action="/articles/{{$post->id}}" method="post">
-      {{ csrf_field() }}
-      <textarea name="comment" rows="4" cols="80" style="resize: none;" placeholder="Escribe un comentario"></textarea>
-      <input type="submit" name="" value="Publicar">
-    </form>
+    @if (Auth::user())
+      <form class="" action="/articles/{{$post->id}}" method="post">
+        {{ csrf_field() }}
+        <textarea name="comment" rows="4" cols="80" style="resize: none;" placeholder="Escribe un comentario"></textarea>
+        <input type="submit" name="" value="Publicar">
+      </form>
+    @else
+      <h1>Registrate para poder añadir comentarios</h1>  <br><br><br>
+    @endif
     @foreach ($comments as $key => $value)
       <div class="comentario">
         <div class="top">

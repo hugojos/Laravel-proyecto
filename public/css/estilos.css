@@ -1,0 +1,258 @@
+/*
+reseteo de las clases de bootstrap
+*/
+.btn-primary{
+  background-color: rgb(236, 154, 79);
+  border-style: none;
+}
+.btn-primary:focus{
+  background-color:rgb(247, 97, 32);
+}
+.btn-primary:hover{
+  background-color: white;
+  color: red;
+  border: 1px black solid;
+}
+
+.bg-light {
+    background-color: rgb(94, 94, 94)!important;
+}
+
+
+/* NOTE: INDEX */
+.cabecera{
+  position: relative;
+}
+.cabecera .container {
+  height: 100vh;
+  padding-top: 30vh;
+}
+.cabecera .container h1 h3 {
+  position: absolute;
+}
+
+#div-video video{
+  filter:brightness(0.50);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+
+}
+#div-video h1 h3{
+  position:relative;
+  z-index: 10;
+
+}
+
+.flecha-bajar a{
+  display: inline-block;
+  color: #fff;
+  font-size: 4rem;
+  animation: flecha-animada 2s ease-in-out infinite;
+
+}
+
+@keyframes flecha-animada {
+  from{
+    transform: translateY(0);
+  }
+  25%{
+    transform: translateY(6px);
+  }
+  50%{
+    transform: translateY(0px);
+  }
+  75%{
+    transform: translateY(6px);
+  }
+  to{
+    transform: translateY(0);
+  }
+}
+
+.seccionUno{
+ margin: 0px;
+ height: 85vh !important;
+ background-image: url("../images/invierno1.jpg");
+ background-size: content;
+ background-position: center;
+ background-repeat: no-repeat;
+ position: relative;
+}
+.parallaxUno{
+ margin: 0px;
+ height: 85vh !important;
+ width: 100%;
+ background-image: url("../images/parallax3.jpg");
+ background-size: cover;
+ background-position-y: 60px;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ position: relative;
+
+}
+.secciones{
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 10px;
+  border-radius: 6px;
+}
+.ofertas{
+ height: auto;
+ background-color: rgb(255, 255, 255);
+}
+.ofertas .card {
+  margin: 10px;
+  padding: 10px;
+}
+.ofertas .card img{
+    width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.ofertas .card i {
+    font-size: 30px;
+    margin: 10px;
+}
+.ofertas .card a{
+  color: black;
+  text-decoration: none;
+}
+
+/* NOTE: footer */
+
+footer .footer-wrapper{
+   padding: 48px 16px 32px 16px;
+   background-color: #484848;
+
+}
+
+div.cabecera img.logo{
+   width: 210px;
+   position: relative;
+   left: 50%;
+   transform: translate(-50%);
+   overflow: hidden;
+}
+
+div.links-terminos {
+  text-align: center;
+  width: 50%;
+}
+
+div.links-terminos a {
+    margin: 0px 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* NOTE:  */
+div.news{
+   width: 100%;
+}
+div.news form{
+   display: flex;
+   justify-content: center;
+}
+div.news span{
+    display: flex;
+    justify-content: center;
+}
+
+
+div.columnas-footer{
+   width: 100%;
+   /*display: flex; */
+   margin-top: 30px;
+   text-align: center;
+}
+div.columnas-footer span h3{
+   margin: 20px;
+   font-size: 20px;
+}
+div.columnas-footer ul{
+   list-style: none;
+
+}
+div.columnas-footer ul li{
+   padding: 10px;
+   font-size: 18px;
+   transition: 0.3s;
+}
+div.columnas-footer ul li a{
+   color: rgb(166, 166, 166);
+   text-decoration: none;
+
+}
+article.col-izquierda{
+
+}
+article.col-derecha{
+
+}
+
+hr.linea-footer {
+   margin-top: 20px;
+   width: 30%;
+   position: relative;
+}
+
+div.columnas-footer span h3{
+   color: white;
+   font-family: monospace;
+   font-weight: bold;
+}
+
+div.columnas-footer ul li:active{
+    transform: scale(1.5,1.5);
+}
+
+
+div.footer-wrapper p{
+   margin-top: 10px;
+   text-align: center;
+   color: rgb(106, 106, 106);
+
+}
+
+
+footer p a{
+   text-decoration: none;
+   color: #B9A88E;
+
+}
+
+
+@media (min-width: 460px) {
+
+    /*div.social{
+      display: none;
+   }*/
+   div.columnas-footer{
+      display: flex;
+
+   }
+   div.columnas-footer span h3{
+      color: white;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 18px;
+   }
+   div.columnas-footer ul li a {
+    font-size: 16px;
+}
+   .col-derecha, .col-izquierda{
+      width: 50%;
+
+   }
+
+   hr.linea-footer{
+      width: 65%;
+   }
+
+
+}
