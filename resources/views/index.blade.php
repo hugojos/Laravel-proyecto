@@ -60,7 +60,7 @@
                 <p class="card-text">
                   {{$product->description}}
                 </p>
-                <a href="/articles/{{$product->id}}" class="btn btn-primary">Lo quiero!</a>
+                <a href="/articles/{{$product->id}}" class="btn btn-primary1">Lo quiero!</a>
               </div>
             </div>
           </article>

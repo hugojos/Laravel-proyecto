@@ -28,9 +28,9 @@ class ArticleController extends Controller
       $post = Post::find($id);
       if (Auth::user()) {
         $user= Auth::user()->id;
-        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments]);
+        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title]);
       } else {
-        return view('article',['post'=>$post,'comments'=>$comments]);
+        return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title]);
       }
     }
 

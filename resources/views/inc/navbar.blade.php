@@ -1,7 +1,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-inverse bg-inverse">
-  <a class="navbar-brand" href="{{ url('/') }}"><img src="images/hs-logo.png" alt="Logo" width="100px"></a>
+  <a class="navbar-brand" href="{{ url('/') }}"><img src="/images/hs-logo.png" alt="Logo" width="100px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,7 +30,7 @@
           <li class="dropdown">
               <a href="#" class="dropdown-toggle nav-link" style="text-transform: uppercase" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                   {{ Auth::user()->alias}} <span class="caret"></span></a>
-              <ul class="dropdown-menu nav-item">
+              <ul class="dropdown-menu nav-item background">
                   <li class="nav-item">
                     <a class="nav-link" href="{{route('home')}}">Home</a>
                   </li>

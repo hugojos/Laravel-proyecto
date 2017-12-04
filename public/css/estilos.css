@@ -2,14 +2,14 @@
 reseteo de las clases de bootstrap
 */
 
-.btn-primary{
+.btn-primary1{
   background-color: rgb(236, 154, 79);
   border-style: none;
 }
-.btn-primary:focus{
+.btn-primary1:focus{
   background-color:rgb(247, 97, 32);
 }
-.btn-primary:hover{
+.btn-primary1:hover{
   background-color: white;
   color: red;
   border: 1px black solid;
@@ -297,4 +297,8 @@ nav a {
   margin: 0 auto;
   margin: 0 auto;
   align-items: center;
+}
+.background {
+  background: rgba(34,54,63,0.6)!important;
+  border: none;
 }
