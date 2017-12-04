@@ -7,7 +7,13 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto border-top">
+      <form class="form-inline my-2 my-lg-0 none">
+        <div class="form-div" >
+          <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </div>
+      </form>
       <li class="nav-item active">
         <a class="nav-link" href="{{ url('/') }}">HOME <span class="sr-only">(current)</span></a>
       </li>
@@ -31,9 +37,11 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/users/{{$user}}">Mi perfil</a>
                   </li>
-                  <li class="nav-item">
-                    <a  class="nav-link" href="{{ route('add')}}">Añadir nuevo articulo</a>
-                  </li>
+      @if (Auth::user()->role == 1)
+        <li class="nav-item">
+          <a  class="nav-link" href="{{ route('add')}}">Añadir nuevo articulo</a>
+        </li>
+      @endif
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('mostrar')}}">Mis publicaciones</a>
                   </li>
@@ -52,9 +60,11 @@
       @endguest
     </ul>
     <!-- Aca podria ir el nombre del usuario logueado-->
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    <form class="form-inline my-2 my-lg-0 none1">
+      <div class="" style="margin: 0 auto;">
+        <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      </div>
     </form>
   </div>
 </nav>

@@ -30,8 +30,8 @@
   </div>
 
   <div class="parallaxUno">
-    <div class="container">
-      <div id="parallaxUno" class="row text-center text-light">
+    <div class="container" id="parallaxUno">
+      <div class="row text-center text-light">
         <div class="col-xs-12 col-sm-6 secciones">
           <h3>Kids</h3>
           <h3>Otoño-Invierno</h3>
@@ -65,9 +65,10 @@
             </div>
           </article>
         </div>
-    @endforeach
+  @endforeach
   </div>
-  </div>
+</div>
+
 <!-- CARROUSEL (ubicar todo en INCLUDES)-->
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
@@ -83,5 +84,6 @@
     </div>
   </div>
 </div>
+
 
 @endsection
