@@ -49,7 +49,7 @@
     <hr>
     <div class="padding-bottom-1x mb-2">
       <span class="text-medium">Categoria: </span>
-      <a class="" href="#">Mujer</a>
+      <a class="" href="#">{{$category->name}}</a>
     </div>
     <div class="compartir">
       <span class="text-muted">Compartir:</span>
@@ -65,7 +65,6 @@
 <h3 class="text-center">Comentarios</h3>
 <hr>
 @foreach ($comments as $key => $value)
-
   <div class="comentarios row text-left">
     <div class="col-xs-10 col-md-10">
       <div class="jumbotron m-3">
@@ -86,7 +85,7 @@
             </div>
           </div>
           <p class="comment-text">{{$value->content}}</p>
-          <div class="comment-footer"><a href="/users/{{$value->user_id}}"><span class="text-muted">{{$value->alias}}</span></a></div>
+          <div class="comment-footer"><a href="/users/{{$value->user->id}}"><span class="text-muted">{{$value->user->alias}}</span></a></div>
           <hr>
         </div>
       </div>

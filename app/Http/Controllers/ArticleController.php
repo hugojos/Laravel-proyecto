@@ -14,23 +14,33 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct(){
-      $this->middleware('auth',['except'=>['index']]);
+      $this->middleware('auth',['except'=>['index','search']]);
     }
-
+    /*Funcion buscador, le falta vista */
+    public function search(Request $request){
+      $post = Post::where('title','LIKE','%'.$request->input('buscador').'%')->paginate(10);
+      if (Auth::user()) {
+        $user= Auth::user()->id;
+      }
+      return $post;
+    }
     public function index($id)
     {
-      $comments = Comment::leftJoin('users','users.id','=','user_id')
+      /*Logre hacerlo de una forma mas prolija usando relaciones en los modelos*/
+      /*$comments = Comment::leftJoin('users','users.id','=','user_id')
       ->leftJoin('posts','posts.id','=','post_id')
       ->select('content','alias','comments.created_at','post_id','comments.user_id')
       ->where('post_id','=',$id)
       ->orderBy('created_at','desc')
-      ->get();
+      ->get();*/
       $post = Post::find($id);
+      $category = $post->category;
+      $comments = $post->comments;
       if (Auth::user()) {
         $user= Auth::user()->id;
-        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title]);
+        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category]);
       } else {
-        return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title]);
+        return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category]);
       }
     }
 
@@ -58,7 +68,8 @@ class ArticleController extends Controller
         'title'=>$request->title,
         'description'=>$request->description,
         'price'=>$request->price,
-        'user_id'=>Auth::user()->id
+        'user_id'=>Auth::user()->id,
+        'category_id'=>$request->category
       ]);
       return redirect()->route('home');
     }
