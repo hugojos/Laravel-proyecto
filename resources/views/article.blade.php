@@ -42,7 +42,7 @@
       <i class="fa fa-star" aria-hidden="true"></i>
       <i class="fa fa-star-half-o" aria-hidden="true"></i>
     </div>
-    <span class="text-muted aling-middle">  4.5 | 3 Comentarios</span>
+    <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentarios</span>
     <h2 class="padding-top d-block">{{$post->title}}</h2>
     <span class="precio">${{$post->price}}</span>
     <p>{{$post->description}}</p>

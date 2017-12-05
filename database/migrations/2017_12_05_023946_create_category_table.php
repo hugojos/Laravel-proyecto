@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreatePostsTable extends Migration
+use \App\Category;
+class CreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('description');
-            $table->string('price');
-            $table->string('user_id');
-            $table->integer('category_id');
+            $table->string('name');
             $table->timestamps();
         });
+        $hombre= new Category;
+        $hombre->name='Hombre';
+        $hombre->save();
+
+        $mujer= new Category;
+        $mujer->name='Mujer';
+        $mujer->save();
 
     }
 
@@ -32,6 +35,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('categories');
     }
 }
