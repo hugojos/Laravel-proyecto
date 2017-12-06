@@ -17,9 +17,9 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('description');
-            $table->string('price');
-            $table->string('user_id');
-            $table->integer('category_id');
+            $table->integer('price');
+            $table->integer('user_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->timestamps();
         });
 
