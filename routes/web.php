@@ -22,4 +22,5 @@ Route::get('/articles/{id}', 'ArticleController@index')->name('mostrarArticulo')
 Route::post('/articles/{id}','CommentController@store');
 Route::post('/search','ArticleController@search')->name('search'); /*BUSCADOR*/
 Route::get('/post','ArticleController@show')->name('mostrar');
+
 Route::get('/', 'HomeController@index')->name('home');

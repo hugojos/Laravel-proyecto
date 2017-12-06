@@ -302,3 +302,6 @@ nav a {
   background: rgba(34,54,63,0.6)!important;
   border: none;
 }
+.row {
+  margin-right: 0!important;
+}
