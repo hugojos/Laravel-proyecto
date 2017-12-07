@@ -54,7 +54,7 @@
         <div class="col-xs-6 col-sm-6 col-xl-3">
           <article class="articuloUno">
             <div class="card">
-              <img class="card-img-top" src="images/foto1.png" alt="Imagen producto uno" >
+              <img class="card-img-top" src="/storage/products/{{$product->img1}}" alt="Imagen producto uno" >
               <div class="card-body">
                 <h4 class="card-title">{{$product->title }}</h4>
                 <p class="card-text">

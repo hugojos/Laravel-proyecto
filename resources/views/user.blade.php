@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 @section('content')
   @if ($asd==1)
     <div class="mostrar" style="padding: 0 50px;">
@@ -29,7 +29,7 @@
         <p>Nombre: <input type="text" name="first_name" value="{{$user->first_name}}"></p>
         <p>Apellido: <input type="text" name="last_name" value="{{$user->last_name}}"></p>
         <p>Correo: <input type="email" name="email" value="{{$user->email}}"></p>
-        <p>Su constraseña: <input type="password" name="password" value=""></p>  
+        <p>Su constraseña: <input type="password" name="password" value=""></p>
         <input type="submit" name="" value="Guardar">
       </form>
     </div>
@@ -37,9 +37,9 @@
   @endif
     <hr style="border: 0.3px solid black!important;">
       <h1>Sus publicaciones</h1>
-      <div class="" style="display:flex;">
+      <div class="" style="display:flex; flex-wrap:wrap;">
         @foreach ($posts as $key => $value)
-          <div class="" style="margin:20px; max-width:200px;border: 1px solid black;text-align:center; width:200px;">
+          <div class="" style="margin:20px; max-width:200px;border: 1px solid black;text-align:center; width:200px; ">
             <h1>{{$value->title }}</h1>
             <p>{{$value->description}}</p>
             <p>Precio: <span style="color:green;">{{$value->price}}</span></p>
