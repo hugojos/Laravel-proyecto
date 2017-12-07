@@ -5,6 +5,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\Category;
 use App\Comment;
 class ArticleController extends Controller
 {
@@ -51,9 +52,11 @@ class ArticleController extends Controller
      */
     public function create()
     {
+      $category = Category::all();
       $user = Auth::user();
       return view('articleForm')->with('user', $user)
-                                ->with('title', 'Agregar producto');
+                                ->with('title', 'Agregar producto')
+                                ->with('category',$category);
     }
 
     /**
