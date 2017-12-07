@@ -52,7 +52,8 @@ class ArticleController extends Controller
     public function create()
     {
       $user = Auth::user();
-      return view('articleForm',['user'=>$user]);
+      return view('articleForm')->with('user', $user)
+                                ->with('title', 'Agregar producto');
     }
 
     /**
@@ -64,12 +65,31 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
+      $this->validate($request, [
+          'img1' => 'image|nullable|max:1999',
+          'img2' => 'image|nullable|max:1999'
+        ]);
+
+      $fileNameWithExt = $request->file('img1')->getClientOriginalName();
+      $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+      $extension = $request->file('img1')->getClientOriginalExtension();
+      $fileNameToStore = $filename.'_'.time().'1.'.$extension;
+      $path1 = $request->file('img1')->storeAs('public/products', $fileNameToStore);
+
+      $fileNameWithExt2 = $request->file('img2')->getClientOriginalName();
+      $filename2 = pathinfo($fileNameWithExt2, PATHINFO_FILENAME);
+      $extension2 = $request->file('img2')->getClientOriginalExtension();
+      $fileNameToStore2 = $filename2.'_'.time().'2.'.$extension2;
+      $path2 = $request->file('img2')->storeAs('public/products', $fileNameToStore2);
+
       Post::create([
         'title'=>$request->title,
         'description'=>$request->description,
         'price'=>$request->price,
         'user_id'=>Auth::user()->id,
-        'category_id'=>$request->category
+        'category_id'=>$request->category,
+        'img1' =>$fileNameToStore,
+        'img2' =>$fileNameToStore2
       ]);
       return redirect()->route('home');
     }
@@ -85,7 +105,7 @@ class ArticleController extends Controller
         $id = Auth::user()->id;
         $user = User::find($id);
         $posts = $user->posts()->get();
-        return view('ver',['articulos'=>$posts,'user'=>$user]);
+        return view('ver',['articulos'=>$posts,'user'=>$user, 'title'=>'Tus artículos publicados']);
     }
 
     /**
