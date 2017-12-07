@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
         $admin->first_name= 'Arya';
         $admin->last_name= 'Stark';
         $admin->email= 'arya@gmail.com';
-        $admin->password = '$10$9vq.6CM/d2YlyQhwEA/Lxu.QQwb4PTqYf7tUkmeNJwD8SGTn5hlNa';//123456
+        $admin->password = bcrypt('123456');//123456
         $admin->role = 1;
         $admin->save();
 
