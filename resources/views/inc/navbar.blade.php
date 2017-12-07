@@ -24,8 +24,8 @@
         <a class="nav-link" href="{{ url('/faqs') }}">FAQ</a>
       </li>
       @guest
-          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" style="text-transform: uppercase">Login</a></li>
-          <li class="nav-item"><a  class="nav-link" href="{{ route('register') }}" style="text-transform: uppercase;">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" style="text-transform: uppercase">Ingresar</a></li>
+          <li class="nav-item"><a  class="nav-link" href="{{ route('register') }}" style="text-transform: uppercase;">Registrarse</a></li>
       @elseif (Auth::user())
           <li class="dropdown">
               <a href="#" class="dropdown-toggle nav-link" style="text-transform: uppercase" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
