@@ -16,17 +16,17 @@
          <article class="col-izquierda">
             <span><h3>AYUDA</h3></span>
             <ul>
-               <li><a href="#">Soporte</a></li>
-               <li><a href="nosotros.php">Acerca de Nosotros</a></li>
-               <li><a href="#">Contacto</a></li>
-               <li><a href="#">Otro Item</a></li>
+               <li><a href="">Soporte</a></li>
+               <li><a href="">Acerca de Nosotros</a></li>
+               <li><a href="">Contacto</a></li>
+               <li><a href="">Otro Item</a></li>
             </ul>
          </article>
 
          <article class="col-derecha">
             <span><h3>CONTENIDO</h3></span>
             <ul>
-               <li><a href="#">Primavera-Verano</a></li>
+               <li><a href="">Primavera-Verano</a></li>
                <li><a href="#">Otoño-Inverno</a></li>
                <li><a href="#">Hombres</a></li>
                <li><a href="#">Mujeres</a></li>

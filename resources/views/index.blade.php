@@ -58,7 +58,8 @@
               <div class="card-body">
                 <h4 class="card-title">{{$product->title }}</h4>
                 <p class="card-text">
-                  {{$product->description}}
+                  {{$product->description}} <br>
+                  <p class="text-muted">Vendedor: {{$product['alias']}}</p>
                 </p>
                 <a href="/articles/{{$product->id}}" class="btn btn-primary1">Lo quiero!</a>
               </div>
