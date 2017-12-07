@@ -59,7 +59,7 @@
                 <h4 class="card-title">{{$product->title }}</h4>
                 <p class="card-text">
                   {{$product->description}} <br>
-                  <p class="text-muted">Vendedor: {{$product['alias']}}</p>
+                  <p class="text-muted">Vendedor: {{$product->user->alias}}</p>
                 </p>
                 <a href="/articles/{{$product->id}}" class="btn btn-primary1">Lo quiero!</a>
               </div>
