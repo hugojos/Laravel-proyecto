@@ -65,6 +65,7 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
+
       $this->validate($request, [
           'img1' => 'image|nullable|max:1999',
           'img2' => 'image|nullable|max:1999'

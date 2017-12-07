@@ -26,7 +26,7 @@
 
       <div class="form-group">
         <label for="img1">Subir imagen 1</label><br>
-        <input type="file" id="file" name="img1">
+        <input type="file" id="file" name="img1" multiple= "multiple">
         <label for="img2">Subir imagen 2</label><br>
         <input type="file" id="file1" name="img2">
         <span class="custom-file-control"></span>
