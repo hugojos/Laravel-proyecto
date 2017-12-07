@@ -24,3 +24,7 @@ Route::post('/search','ArticleController@search')->name('search'); /*BUSCADOR*/
 Route::get('/post','ArticleController@show')->name('mostrar');
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/faqs', 'PagesController@faqs');
+Route::get('/productos', 'PagesController@products');
+Route::get('/soporte', 'PagesController@soporte');
+Route::get('/nosotros', 'PagesController@nosotros');
