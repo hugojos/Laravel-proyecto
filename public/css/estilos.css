@@ -305,3 +305,12 @@ nav a {
 .row {
   margin-right: 0!important;
 }
+.f2f2f2 {
+  background-color: #f2f2f2;
+}
+.login {
+  margin-top: 25vh ;
+  margin-bottom: 15vh;
+  padding:30px;
+  height: 60vh;
+}
