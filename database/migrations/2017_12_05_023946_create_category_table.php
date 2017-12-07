@@ -27,7 +27,7 @@ class CreateCategoryTable extends Migration
         $mujer->save();
 
         $infantiles = new Category;
-        $infantiles->name='infantiles';
+        $infantiles->name='Infantiles';
         $infantiles->save();
 
     }

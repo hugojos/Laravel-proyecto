@@ -15,11 +15,11 @@
       <span class="custom-file-control"></span>
     </label> --}}
     <input type="text" name="title" value="" placeholder="Titulo">
-    <input type="text" name="price" value="" placeholder="Precio"><br>
+    $<input type="text" name="price" value="" placeholder="Precio"><br>
     <select class="" name="category">
-      <option value="1">Hombre</option>
-      <option value="2">Mujer</option>
-      <option value="3">Niños</option>
+      @foreach ($category as $key => $value)
+        <option value="{{$value->id}}">{{$value->name}}</option>
+      @endforeach
     </select>
     <br>
     <textarea name="description" rows="8" cols="80" placeholder="Descripcion"></textarea><br>
