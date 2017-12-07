@@ -21,7 +21,7 @@
         <a class="nav-link" href="{{ url('/productos') }}">PRODUCTOS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
+        <a class="nav-link" href="{{ url('/faqs') }}">FAQ</a>
       </li>
       @guest
           <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" style="text-transform: uppercase">Login</a></li>
@@ -35,7 +35,7 @@
                     <a class="nav-link" href="{{route('home')}}">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/users/{{$user}}">Mi perfil</a>
+                    <a class="nav-link" href="/users/{{Auth::user()->id}}">Mi perfil</a>
                   </li>
       @if (Auth::user()->role == 1)
         <li class="nav-item">
