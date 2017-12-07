@@ -1,7 +1,16 @@
 @extends('layouts.app')
+
 @section('content')
+  <style media="screen">
+
+  </style>
+
   <form class="" action="{{ route('add')}}" method="post" style="text-align:center;">
     {{ csrf_field() }}
+    <label class="custom-file">
+      <input type="file" id="file" class="custom-file-input">
+      <span class="custom-file-control"></span>
+    </label>
     <input type="text" name="title" value="" placeholder="Titulo">
     <input type="text" name="price" value="" placeholder="Precio"><br>
     <select class="" name="category">
