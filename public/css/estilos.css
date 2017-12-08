@@ -322,3 +322,34 @@ nav a {
   margin-bottom: 15vh;
   padding: 30px;
 }
+.misproductos {
+  margin-top: 83.42px;
+  background-color: #f2f2f2;
+  margin-bottom: 83.42px;
+}
+.misproductos .articulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.misproductos .articulo .der {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.misproductos .articulo {
+  margin-left: 100px;
+  border-bottom: 1px solid black;
+  width:80%;
+}
+.articulo .der .forms{
+  text-align: right;
+  margin-bottom: 20px;
+}
+.articulo .der .datos p{
+  margin: 0;
+}
+/*vista user*/
+.mostrar {
+  margin-top: 83.23px;
+}

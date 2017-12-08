@@ -32,9 +32,6 @@
                   {{ Auth::user()->alias}} <span class="caret"></span></a>
               <ul class="dropdown-menu nav-item background">
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('home')}}">Home</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="/users/{{Auth::user()->id}}">Mi perfil</a>
                   </li>
       @if (Auth::user()->role == 1)

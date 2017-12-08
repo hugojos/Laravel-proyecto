@@ -61,7 +61,7 @@ class UserController extends Controller
     {
       $user = \App\User::find($id);
       $post = \App\Post::where('user_id','=',$id)->get();
-      return view('user',['user'=>$user,'posts'=>$post,'asd'=>'2']);
+      return view('user',['user'=>$user,'posts'=>$post,'asd'=>'2','title'=>'Mi perfil']);
     }
 
     /**
@@ -89,9 +89,9 @@ class UserController extends Controller
           $user->last_name = $request->input('last_name');
           $user->email = $request->input('email');
           $user->save();
-          return view('user',['user'=>$user,'posts'=>$post,'asd'=>1]);
+          return view('user',['user'=>$user,'posts'=>$post,'asd'=>1,'title'=>'Mi perfil']);
         } else {
-          return view('user',['user'=>$user,'posts'=>$post,'asd'=>1]);
+          return view('user',['user'=>$user,'posts'=>$post,'asd'=>1,'title'=>'Mi perfil']);
         }
 
     }

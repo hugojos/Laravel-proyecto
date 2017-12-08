@@ -39,9 +39,9 @@ class ArticleController extends Controller
       $comments = $post->comments;
       if (Auth::user()) {
         $user= Auth::user()->id;
-        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category]);
+        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0]);
       } else {
-        return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category]);
+        return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0]);
       }
     }
 
@@ -120,7 +120,11 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user= Auth::user()->id;
+      $post = Post::find($id);
+      $category = $post->category;
+      $comments = $post->comments;
+      return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>1]);
     }
 
     /**
@@ -130,9 +134,22 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+      $this->validate($request,[
+        'title'=>'string|max:20',
+        'description'=>'string',
+        'price'=>'integer'
+      ]);
+      $post= Post::find($request->id);
+      if ($post->user_id == Auth::user()->id) {
+        $post->title=$request->title;
+        $post->description=$request->descriptio;
+        $post->price=$request->price;
+        $post->save();
+      }
+      return redirect()->route('mostrar');
+
     }
 
     /**
@@ -141,8 +158,14 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+      $post= Post::find($request->input('id_producto'));
+        if (Auth::user()->id== $post->user_id) {
+          $post->delete();
+          return back();
+        } else {
+          return back();
+        }
     }
 }

@@ -67,48 +67,97 @@ img {
 
 </style>
 
+@if ($asd==0)
+  <div class="producto row p-3">
+    <div class="foto-producto col-xs-12 col-md-6 col-xl-6">
 
-<div class="producto row p-3">
-  <div class="foto-producto col-xs-12 col-md-6 col-xl-6">
-
-    <div class="carrousel ">
-      <div class="carrousel-images">
-        <img src="/storage/products/{{$post->img1}}" alt="">
-        <img src="/storage/products/{{$post->img2}}" alt="">
+      <div class="carrousel ">
+        <div class="carrousel-images">
+          <img src="/storage/products/{{$post->img1}}" alt="">
+          <img src="/storage/products/{{$post->img2}}" alt="">
+        </div>
+        <button type="button" class="prev">&lt;</button>
+        <button type="button" class="next">&gt;</button>
       </div>
-      <button type="button" class="prev">&lt;</button>
-      <button type="button" class="next">&gt;</button>
-    </div>
 
+    </div>
+    <div class="descripcion col-xs-12 col-md-6 col-xl-6">
+      <div class="rating-star">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+      </div>
+      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentarios</span>
+      <h2 class="padding-top d-block">{{$post->title}}</h2>
+      <span class="precio" style="color:#85bb65;">${{$post->price}}</span>
+      <p>{{$post->description}}</p>
+      <hr>
+      <div class="padding-bottom-1x mb-2">
+        <span class="text-medium">Categoria: </span>
+        <a class="" href="#">{{$category->name}}</a>
+      </div>
+      <div class="compartir">
+        <span class="text-muted">Compartir:</span>
+        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+      </div>
+      <hr>
+      <button type="button" name="button" class="btn btn-danger">Comprar</button>
+      <button type="button" name="button" class="btn btn-light">Agregar al carrito</button>
+    </div>
   </div>
-  <div class="descripcion col-xs-12 col-md-6 col-xl-6">
-    <div class="rating-star">
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star-half-o" aria-hidden="true"></i>
+@endif
+@if ($asd==1)
+  <div class="producto row p-3">
+    <div class="foto-producto col-xs-12 col-md-6 col-xl-6">
+
+      <div class="carrousel ">
+        <div class="carrousel-images">
+          <img src="/storage/products/{{$post->img1}}" alt="">
+          <img src="/storage/products/{{$post->img2}}" alt="">
+        </div>
+        <button type="button" class="prev">&lt;</button>
+        <button type="button" class="next">&gt;</button>
+      </div>
+
     </div>
-    <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentarios</span>
-    <h2 class="padding-top d-block">{{$post->title}}</h2>
-    <span class="precio">${{$post->price}}</span>
-    <p>{{$post->description}}</p>
-    <hr>
-    <div class="padding-bottom-1x mb-2">
-      <span class="text-medium">Categoria: </span>
-      <a class="" href="#">{{$category->name}}</a>
+    <div class="descripcion col-xs-12 col-md-6 col-xl-6">
+      <div class="rating-star">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+      </div>
+      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentarios</span>
+      <form class="" action="{{route('editArticle')}}" method="post">
+        {{ csrf_field() }}
+        {{method_field('PUT')}}
+      <h2 class="padding-top d-block"><input style="border:none; border-bottom: 1px solid black" type="text" name="title" value="{{$post->title}}"></h2>
+      <span class="precio">$<input type="text" name="price" style="border:none; border-bottom: 1px solid black"value="{{$post->price}}"></span>
+      <textarea name="descriptio" rows="5" cols="80" style="border:none; border-bottom: 1px solid black">{{$post->description}}</textarea>
+      <hr>
+      <div class="padding-bottom-1x mb-2">
+        <span class="text-medium">Categoria: </span>
+        <a class="" href="#">{{$category->name}}</a>
+      </div>
+      <div class="compartir">
+        <span class="text-muted">Compartir:</span>
+        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+      </div>
+      <hr>
+        <input type="hidden" name="id" value="{{$post->id}}">
+        <button type="submit" name="" class="btn btn-primary">Listo</button>
+      </form>
+      <a href="{{route('mostrar')}}" class="btn btn-danger">Cancelar</a>
     </div>
-    <div class="compartir">
-      <span class="text-muted">Compartir:</span>
-      <i class="fa fa-facebook-square" aria-hidden="true"></i>
-      <i class="fa fa-twitter-square" aria-hidden="true"></i>
-      <i class="fa fa-instagram" aria-hidden="true"></i>
-    </div>
-    <hr>
-    <button type="button" name="button" class="btn btn-danger">Comprar</button>
-    <button type="button" name="button" class="btn btn-light">Agregar al carrito</button>
   </div>
-</div>
+@endif
 <hr>
 <h3 class="text-center">Comentarios</h3>
 <hr>
