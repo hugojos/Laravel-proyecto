@@ -153,8 +153,8 @@ img {
       <hr>
         <input type="hidden" name="id" value="{{$post->id}}">
         <button type="submit" name="" class="btn btn-primary">Listo</button>
+        <a href="{{route('mostrar')}}" class="btn btn-danger">Cancelar</a>
       </form>
-      <a href="{{route('mostrar')}}" class="btn btn-danger">Cancelar</a>
     </div>
   </div>
 @endif
