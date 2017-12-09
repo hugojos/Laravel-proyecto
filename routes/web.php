@@ -27,12 +27,16 @@ Route::delete('/delete','ArticleController@destroy')->name('deleteArticle');/*El
 Route::post('/articles/edit/{id}','ArticleController@edit');/*Muestra la vista para editar el aritculo*/
 Route::put('/articles/update','ArticleController@update')->name('editArticle');/*Guarda los cambios del articulo*/
 
+Route::get('/categorias', 'ArtCategoriesController@categories');/**/
+Route::get('/categorias/mujeres', 'ArtCategoriesController@womenCategory')->name('women');
+Route::get('/categorias/hombres', 'ArtCategoriesController@menCategory')->name('men');
+Route::get('/categorias/kids', 'ArtCategoriesController@kidsCategory')->name('kids');
+
 
 
 Route::get('/', 'HomeController@index')->name('home');/*INDEX*/
 
 Route::get('/faqs', 'PagesController@faqs');/**/
 Route::get('/productos', 'PagesController@products');/**/
-Route::get('/categorias', 'PagesController@categories');/**/
 Route::get('/soporte', 'PagesController@soporte');/**/
 Route::get('/nosotros', 'PagesController@nosotros');/**/

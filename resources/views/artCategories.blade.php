@@ -102,7 +102,7 @@
       <div class="img-container1">
         <h3 class="cat-title1">Mujeres</h3>
         <p class="cat-descripcion1">COLECCIÓN 2018</p>
-        <a href=""><div class="black-filter">
+        <a href="{{ route('women')}}"><div class="black-filter">
         </div></a>
         <img class="img-cat" src="images/cat3.jpeg" alt="">
       </div>
@@ -114,7 +114,7 @@
         </div></a>
         <img class="img-cat" src="images/cat1.jpeg" alt="">
       </div>
-
+      
 
       <div class="img-container3">
         <h3 class="cat-title3">Niños</h3>
