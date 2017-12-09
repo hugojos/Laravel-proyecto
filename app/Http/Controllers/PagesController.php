@@ -13,4 +13,8 @@ class PagesController extends Controller
     public function products() {
       return view('products')->with('title', 'Productos');
     }
+
+    public function categories() {
+      return view('artCategories')->with('title', 'Categorías de productos');
+    }
 }

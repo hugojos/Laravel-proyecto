@@ -33,5 +33,6 @@ Route::get('/', 'HomeController@index')->name('home');/*INDEX*/
 
 Route::get('/faqs', 'PagesController@faqs');/**/
 Route::get('/productos', 'PagesController@products');/**/
+Route::get('/categorias', 'PagesController@categories');/**/
 Route::get('/soporte', 'PagesController@soporte');/**/
 Route::get('/nosotros', 'PagesController@nosotros');/**/
