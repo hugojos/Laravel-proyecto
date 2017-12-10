@@ -24,7 +24,7 @@
 
     .w-banner-container {
         height: 100vh;
-        background-image: url("../images/banner-women.jpeg");
+        background-image: url("../images/cat-banner-women.jpeg");
         background-position: 67% 83px;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -69,7 +69,7 @@
         top: 0;
         z-index: 2;
         opacity: 0;
-        transition: opacity 0.35s;
+        transition: opacity 0.4s;
     }
     .ver-mas {
         position: absolute;
