@@ -6,6 +6,7 @@
 @section('content')
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
 <style media="screen">
 
     .container{
@@ -43,7 +44,7 @@
                             <label for="email" class="col-xs-12 col-md-8 control-label">E-Mail</label>
 
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="&#128231;">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -57,7 +58,7 @@
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-12">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password" required placeholder=" &#128272;">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -88,6 +89,7 @@
                                 </a>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
