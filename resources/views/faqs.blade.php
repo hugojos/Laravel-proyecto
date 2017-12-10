@@ -1,7 +1,21 @@
 @extends('layouts.app1')
 
 @section('content')
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<style media="screen">
 
+  .container{
+    margin-top: 130px;
+    margin-bottom: 100px;
+
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  p{
+    font-family: Nunito;
+  }
+</style>
 
   <div class="faq-background">
     <div class="container">
@@ -51,7 +65,7 @@
       <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingOne">
         <div class="card-body">
           Para registrarte en nuestro sitio seguí los siguientes pasos:
-          Crea tu cuenta haciendo click <a href="{{ url('/registro') }}">aqui</a>
+          Crea tu cuenta haciendo click <a href="{{ url('/register') }}">aqui</a>
           Hacé click en Ingresá.
           En "Nuevos Clientes" completá el formulario con tus datos personales y creá tu cuenta. Hugo Sajama posee una política de privacidad por la cual ningún dato personal será divulgado a terceros bajo ninguna circunstancia.</p>
 

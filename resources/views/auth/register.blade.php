@@ -41,7 +41,7 @@
     <div class="row">
           <div class="col-md-12">
               <div class="panel panel-default">
-                  <div class="panel-heading">REGISTRATE</div>
+                  <div class="panel-heading text-center">REGISTRATE</div>
 
                   <div class="panel-body">
                       <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -116,7 +116,7 @@
                           </div>
 
                           <div class="form-group">
-                              <label for="password-confirm" class="col-md-4 control-label">Confirmar contraseña</label>
+                              <label for="password-confirm" class="col-md-12 control-label">Confirmar contraseña</label>
 
                               <div class="col-md-12">
                                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
