@@ -110,7 +110,7 @@
       <div class="img-container2">
         <h3 class="cat-title2">Hombres</h3>
         <p class="cat-descripcion2">COLECCIÓN 2018</p>
-        <a href=""><div class="black-filter">
+        <a href="{{ route('men')}}"><div class="black-filter">
         </div></a>
         <img class="img-cat" src="images/cat1.jpeg" alt="">
       </div>
@@ -119,7 +119,7 @@
       <div class="img-container3">
         <h3 class="cat-title3">Niños</h3>
         <p class="cat-descripcion3">COLECCIÓN 2018</p>
-        <a href=""><div class="black-filter">
+        <a href="{{ route('kids')}}"><div class="black-filter">
         </div></a>
         <img class="img-cat"" src="images/cat2.jpeg" alt="">
       </div>

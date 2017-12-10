@@ -16,15 +16,23 @@ class ArtCategoriesController extends Controller
 
         $products = Post::where('category_id', 2)->paginate(9);
 
-      return view('artCategoriesWomen')->with('title', 'Mujeres')
+        return view('artCategoriesWomen')->with('title', 'Mujeres')
                                        ->with('products', $products);
     }
 
     public function menCategory () {
-      return view('artCategoriesMen')->with('title', 'Hombres');
+
+        $products = Post::where('category_id', 1)->paginate(9);
+
+        return view('artCategoriesMen')->with('title', 'Hombres')
+                                     ->with('products', $products);
     }
 
     public function kidsCategory () {
-      return view('artCategoriesKids')->with('title', 'Kids');
+
+         $products = Post::where('category_id', 3)->paginate(9);
+
+        return view('artCategoriesKids')->with('title', 'Kids')
+                                     ->with('products', $products);
     }
 }
