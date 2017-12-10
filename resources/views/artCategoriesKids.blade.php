@@ -25,7 +25,7 @@
     .w-banner-container {
         height: 100vh;
         background-image: url("../images/cat-banner-kids.jpg");
-        background-position: 67% 83px;
+        background-position: center 16px;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -34,7 +34,7 @@
         display: inline-block;
         position: relative;
         padding: 2%;
-        background-color: rgba(224, 218, 218, 0.233);
+        background-color: rgba(224, 218, 218, 0.4);
         top: 30%;
         left: 5%;
     }
