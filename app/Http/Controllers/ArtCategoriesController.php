@@ -14,7 +14,7 @@ class ArtCategoriesController extends Controller
 
     public function womenCategory () {
 
-        $products = Post::where('category_id', 2)->paginate(10);
+        $products = Post::where('category_id', 2)->paginate(9);
 
       return view('artCategoriesWomen')->with('title', 'Mujeres')
                                        ->with('products', $products);
