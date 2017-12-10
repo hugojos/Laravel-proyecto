@@ -4,20 +4,45 @@
 @extends('layouts.app1')
 
 @section('content')
-<div class="container f2f2f2 login">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<style media="screen">
+
+    .container{
+      margin-top: 130px;
+      margin-bottom: 100px;
+      display: flex;
+      justify-content: center;
+      box-shadow: 2px 2px 5px #999;
+
+    }
+    .panel-heading{
+      font-family: Montserrat;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    label, button, a{
+      font-family: Montserrat;
+    }
+
+</style>
+<div class="row">
+
+<div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="">
             <div class="panel panel-default">
-                <div class="panel-heading">Ingresar</div>
+                <div class="panel-heading text-center">INGRESAR</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail</label>
+                            <label for="email" class="col-xs-12 col-md-8 control-label">E-Mail</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
@@ -31,7 +56,7 @@
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -53,7 +78,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col-xs-12">
                                 <button type="submit" class="btn btn-primary">
                                     Ingresar
                                 </button>
@@ -68,5 +93,8 @@
             </div>
         </div>
     </div>
-</div>
+  </div> <!-- cierro row -->
+</div> <!-- fin container-->
+
+
 @endsection
