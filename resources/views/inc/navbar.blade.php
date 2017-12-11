@@ -38,10 +38,10 @@
         <li class="nav-item">
           <a  class="nav-link" href="{{ route('add')}}">Añadir nuevo articulo</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('mostrar')}}">Mis publicaciones</a>
+        </li>
       @endif
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('mostrar')}}">Mis publicaciones</a>
-                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault();

@@ -13,9 +13,8 @@
     margin-bottom: 100px;
     display: flex;
     justify-content: center;
-    box-shadow: 14px 0px 10px rgba(0, 0, 0, 0.6);
-
-
+    box-shadow: 2px 2px 5px #999;
+    background: white;
   }
   .panel-heading{
     font-family: Montserrat;
