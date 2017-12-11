@@ -13,12 +13,15 @@
     margin-bottom: 100px;
     display: flex;
     justify-content: center;
-    box-shadow: 2px 2px 5px #999;
+    box-shadow: 14px 0px 10px rgba(0, 0, 0, 0.6);
+
+
   }
   .panel-heading{
     font-family: Montserrat;
     font-size: 25px;
     margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   label, button, a{
@@ -27,18 +30,29 @@
   #registro-facebook{
     background-color: #3b5998;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     justify-content: center;
   }
   #registro-facebook i{
     margin-right: 10px;
   }
+  #background-form{
+    background-color: white;
 
+  }
+
+  body{
+    background-image: url("/images/parallax.jpg");
+    background-repeat: no-repeat;
+    background-size:100% auto;
+    background-position-y: 60px;
+    background-attachment: fixed;
+  }
   </style>
 
 <div class="row">
-  <div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5">
+  <div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5" id="background-form">
     <div class="row">
           <div class="col-md-12">
               <div class="panel panel-default">
@@ -126,7 +140,7 @@
 
                           <div class="form-group">
                               <div class="col-md-12">
-                                  <button type="submit" class="btn btn-primary d-flex justify-content-center">
+                                  <button type="submit" class="btn btn-success justify-content-center">
                                       Registrarse
                                   </button>
 
@@ -145,7 +159,7 @@
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                              Registrarse con facebook
                           </button>
->>>>>>> cef66b85f0197398dfd6399145354bbef7071246
+
                         </div>
                       </div>
                     </div>
