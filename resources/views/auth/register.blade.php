@@ -14,6 +14,7 @@
     display: flex;
     justify-content: center;
     box-shadow: 2px 2px 5px #999;
+    background: white;
   }
   .panel-heading{
     font-family: Montserrat;
@@ -34,10 +35,12 @@
   #registro-facebook i{
     margin-right: 10px;
   }
-
+  .f2 {
+    background: #f2f2f2;
+  }
   </style>
 
-<div class="row">
+<div class="row f2">
   <div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5">
     <div class="row">
           <div class="col-md-12">
@@ -145,7 +148,6 @@
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                              Registrarse con facebook
                           </button>
->>>>>>> cef66b85f0197398dfd6399145354bbef7071246
                         </div>
                       </div>
                     </div>

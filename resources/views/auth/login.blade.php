@@ -15,7 +15,8 @@
       display: flex;
       justify-content: center;
       box-shadow: 2px 2px 5px #999;
-
+      align-items: center;
+      background: white;
     }
     .panel-heading{
       font-family: Montserrat;
@@ -26,13 +27,21 @@
     label, button, a{
       font-family: Montserrat;
     }
+    .row {
+      background-color: #f2f2f2;
+    }
+    .panel {
+      background: white;
+    }
+    .height {
+      height: 100vh;
+    }
 
 </style>
-<div class="row">
+<div class="row height">
 
 <div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5">
     <div class="row">
-        <div class="">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">INGRESAR</div>
 
@@ -93,7 +102,6 @@
                     </form>
                 </div>
             </div>
-        </div>
     </div>
   </div> <!-- cierro row -->
 </div> <!-- fin container-->
