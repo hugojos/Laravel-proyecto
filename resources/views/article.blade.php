@@ -163,16 +163,19 @@ img {
 <hr>
 
 <!--Div para agregfar comentarios -->
-<div class="parallax container"></div>
+@if (!$asd == 1)
 
-    <form class="row" method="post">
-      <div class="form-group">
-        <label class="text-muted h5 ml-5 col-xs-12">Deja tu comentario...</label><br>
-          <textarea rows="5" cols="40" class="ml-5" name="comment" form="usrform" placeholder="Cuentanos un poco de este producto"></textarea>
-        </div>
-        <button type="submit" name="btn-comentar" class="btn btn-success ml-5 col-xs-12">Comentar</button>
-    </form>
+  <div class="parallax container"></div>
 
+  <form class="row" method="post">
+    <div class="form-group">
+      <label class="text-muted h5 ml-5 col-xs-12">Deja tu comentario...</label><br>
+      <textarea rows="5" cols="40" class="ml-5" name="comment" form="usrform" placeholder="Cuentanos un poco de este producto"></textarea>
+    </div>
+    <button type="submit" name="btn-comentar" class="btn btn-success ml-5 col-xs-12">Comentar</button>
+  </form>
+</div>
+@endif
 
 
 @foreach ($comments as $key => $value)
