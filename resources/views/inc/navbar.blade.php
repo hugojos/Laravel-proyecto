@@ -70,7 +70,7 @@
     </ul>
     <li class="nav-item" id='item-cart'>
       <a id='cart-nr' class="nav-link" href="{{ url('/carrito') }}">
-        <img id="cart-img" src="images/shopbag.png" alt="">{{Cart::content()->count()}}</a>
+        <img id="cart-img" src="/images/shopbag.png" alt="">{{Cart::content()->count()}}</a>
     </li>
     <!-- Aca podria ir el nombre del usuario logueado-->
     <form class="form-inline my-2 my-lg-0 none1" action="{{route('search')}}" method="POST">
