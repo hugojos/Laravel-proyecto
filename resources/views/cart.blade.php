@@ -36,15 +36,15 @@
 
             @foreach (Cart::content() as $item)
                 <tr>
-                    
+
                     <td> <a class="btn btn-danger" href="{{route('deleteFromCart', ['id'=>$item->rowId]) }}">x</a> </td>
                     <td class="img-row"><img class="prod-img" src="storage/products/{{$item->model->img2}} " alt="" srcset=""></td>
-                    <td>{{$item->id}}</td> 
+                    <td>{{$item->id}}</td>
                     <td>{{$item->name}} </td>
                     <td>$ {{$item->price}}.00 </td>
                 </tr>
             @endforeach
-            
+
             <tr>
                 <td></td>
                 <th scope="row"></th>
@@ -56,7 +56,7 @@
                 <td></td>
                 <th scope="row"></th>
                 <td></td>
-                <td></td>
+                <td> <a class="btn btn-success" href="{{route('checkout')}}">Seguir comprando</a> </td>
                 <td> <a class="btn btn-danger" href="{{route('checkout')}}">Finalizar la compra</a> </td>
             </tr>
         </tbody>
