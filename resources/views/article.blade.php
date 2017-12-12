@@ -59,7 +59,9 @@ img {
 .carrousel button.next {
   right: 30px;
 }
-
+.jumbotron {
+  padding: 2rem 2rem;
+}
 textarea {
   width: 80vw !important;
 }
@@ -171,62 +173,65 @@ textarea {
 
   <!-- CAJA DE COMENTARIOS -->
 
-    <div class="row">
+    <div class="row" style="margin-bottom: 20px;">
       <form class="" action="/articles/{{$post->id}}" method="post">
         {{ csrf_field() }}
         <div class="form-group">
           <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>
           <textarea rows="5" name="comment"class="form-control ml-4" id="comment" style="resize:none;"
           placeholder=@if (count($comments) ==0)
-            "Se el primero en comentar"
-            @else
-              "Escribe un comentario"
-
+            "No hay comentarios, se el primero en comentar!"
+          @elseif (!Auth::user())
+              "Inicia sesion para poder escribir comentarios!"
+          @else
+            "Escribe un comentario"
           @endif
           @if (!Auth::user())
-            {{ 'disabled' }}
+            disabled
           @endif></textarea>
         </div>
-        <button type="submit" name="btn-comentar" class="btn btn-success ml-5">Comentar</button>
+        @if (!Auth::user())
+          <a href="/login" class="btn btn-success ml-5">Iniciar sesión</a>
+        @else
+          <button type="submit" name="btn-comentar" class="btn btn-success ml-5">Comentar</button>
+        @endif
       </form>
     </div>
 
 
 
-</div>
 @endif
 
 
 <!-------------------------------->
 
-@foreach ($comments as $key => $value)
-  <div class="comentarios row text-left">
-    <div class="col-xs-10 col-md-10">
-      <div class="jumbotron m-3">
-        <div class="">
-
-        </div>
-        <div class="comment-body">
-          <div class="comment-header d-flex flex-wrap justify-content-between">
-            <h4 class="comment-title"><a href="/users/{{$value->user_id}}">{{$value->user->alias}}</a></h4>
-            <div class="mb-2">
-              <div class="rating-star">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+<div class="" style="display:flex;flex-direction:column-reverse;">
+  @foreach ($comments as $key => $value)
+    <div class="comentarios row text-left">
+      <div class="col-xs-10 col-md-10">
+        <div class="jumbotron m-3">
+          <div class="comment-body">
+            <div class="comment-header d-flex flex-wrap justify-content-between">
+              <h4 class="comment-title"><a href="/users/{{$value->user_id}}" style="font-size:35px;color:black;">{{$value->user->alias}}</a></h4>
+              <div class="mb-2">
+                <div class="rating-star">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                </div>
               </div>
             </div>
+            <p class="comment-text">{{$value->content}}</p>
+            <div class="comment-footer"><span class="text-muted">Publicado el : {{$value->created_at}}</span></div>
+            <hr>
           </div>
-          <p class="comment-text">{{$value->content}}</p>
-          <div class="comment-footer"><span class="text-muted">Publicado el : {{$value->created_at}}</span></div>
-          <hr>
         </div>
       </div>
     </div>
-  </div>
-@endforeach
+  @endforeach
+</div>
 
 
 
