@@ -105,13 +105,13 @@ img {
         <i class="fa fa-instagram" aria-hidden="true"></i>
       </div>
       <hr>
-      <button type="button" name="button" class="btn btn-danger">Comprar</button>
       <form method="post" action="{{route('addToCart')}}">
+        <button type="button" name="button" class="btn btn-danger">Comprar</button>
         {{csrf_field()}}
         <input type="hidden" name="product_id" value="{{$post->id}}">
         <button type="submit" name="button" class="btn btn-light">Agregar al carrito</button>
       </form>
-      
+
     </div>
   </div>
 @endif
