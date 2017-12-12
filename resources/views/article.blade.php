@@ -66,7 +66,7 @@ img {
 }
 
 textarea {
-  width: 100vw !important;
+  width: 80vw !important;
 }
 </style>
 
@@ -180,7 +180,7 @@ textarea {
   <form class="" method="post">
     <div class="form-group">
       <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>
-      <textarea rows="5" class="form-control ml-3" id="comment"></textarea>
+      <textarea rows="5" class="form-control ml-4" id="comment"></textarea>
     </div>
     <button type="submit" name="btn-comentar" class="btn btn-success ml-5">Comentar</button>
   </form>
