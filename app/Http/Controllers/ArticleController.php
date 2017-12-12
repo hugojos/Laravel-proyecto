@@ -93,7 +93,8 @@ class ArticleController extends Controller
         'user_id'=>Auth::user()->id,
         'category_id'=>$request->category,
         'img1' =>$fileNameToStore,
-        'img2' =>$fileNameToStore2
+        'img2' =>$fileNameToStore2,
+        'offer'=>$request->oferta
       ]);
       return redirect()->route('home');
     }
