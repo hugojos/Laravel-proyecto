@@ -65,9 +65,13 @@ img {
   right: 30px;
 }
 
+textarea {
+  width: 100vw !important;
+}
 </style>
 
 @if ($asd==0)
+
   <div class="producto row p-3">
     <div class="foto-producto col-xs-12 col-md-6 col-xl-6">
 
@@ -170,15 +174,18 @@ img {
 <!--Div para agregfar comentarios -->
 @if (!$asd == 1)
 
-  <div class="parallax container"></div>
+<div class="parallax container"></div>
 
-  <form class="row" method="post">
+<div class="row">
+  <form class="" method="post">
     <div class="form-group">
-      <label class="text-muted h5 ml-5 col-xs-12">Deja tu comentario...</label><br>
-      <textarea rows="5" cols="40" class="ml-5" name="comment" form="usrform" placeholder="Cuentanos un poco de este producto"></textarea>
+      <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>
+      <textarea rows="5" class="form-control ml-3" id="comment"></textarea>
     </div>
-    <button type="submit" name="btn-comentar" class="btn btn-success ml-5 col-xs-12">Comentar</button>
+    <button type="submit" name="btn-comentar" class="btn btn-success ml-5">Comentar</button>
   </form>
+</div>
+
 </div>
 @endif
 
@@ -271,4 +278,5 @@ img {
   console.log('fin de la transition')
   })
 </script>
+
 @endsection

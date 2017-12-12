@@ -156,7 +156,7 @@
                         <div class="col-xs-12">
                           <button id="registro-facebook" type="submit" name="" class="btn">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
-                             Registrarse con facebook
+                             Inicia sesión con facebook
                           </button>
 
                         </div>

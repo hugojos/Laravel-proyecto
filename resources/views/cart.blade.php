@@ -56,7 +56,7 @@
                 <td></td>
                 <th scope="row"></th>
                 <td></td>
-                <td> <a class="btn btn-success" href="{{route('checkout')}}">Seguir comprando</a> </td>
+                <td> <a class="btn btn-success" href="{{ url('/categorias')}}">Seguir comprando</a> </td>
                 <td> <a class="btn btn-danger" href="{{route('checkout')}}">Finalizar la compra</a> </td>
             </tr>
         </tbody>
