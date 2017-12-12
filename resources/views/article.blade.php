@@ -169,30 +169,46 @@ textarea {
 <!--Div para agregfar comentarios -->
 @if (!$asd == 1)
 
+  <!-- CAJA DE COMENTARIOS -->
 
+    <div class="row">
+      <form class="" action="/articles/{{$post->id}}" method="post">
+        {{ csrf_field() }}
+        <div class="form-group">
+          <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>
+          <textarea rows="5" name="comment"class="form-control ml-4" id="comment" style="resize:none;"
+          placeholder=@if (count($comments) ==0)
+            "Se el primero en comentar"
+            @else
+              "Escribe un comentario"
 
-<div class="row">
-  <form class="" method="post">
-    <div class="form-group">
-      <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>
-      <textarea rows="5" class="form-control ml-4" id="comment"></textarea>
+          @endif
+          @if (!Auth::user())
+            {{ 'disabled' }}
+          @endif></textarea>
+        </div>
+        <button type="submit" name="btn-comentar" class="btn btn-success ml-5">Comentar</button>
+      </form>
     </div>
-    <button type="submit" name="btn-comentar" class="btn btn-success ml-5">Comentar</button>
-  </form>
-</div>
+
+
 
 </div>
 @endif
 
 
+<!-------------------------------->
+
 @foreach ($comments as $key => $value)
   <div class="comentarios row text-left">
-    <div class="col-xs-12 col-md-12 col-xl-12">
+    <div class="col-xs-10 col-md-10">
       <div class="jumbotron m-3">
+        <div class="">
 
+        </div>
         <div class="comment-body">
           <div class="comment-header d-flex flex-wrap justify-content-between">
-            <h4 class="comment-title">Titulo del comentario</h4>
+            <h4 class="comment-title"><a href="/users/{{$value->user_id}}">{{$value->user->alias}}</a></h4>
             <div class="mb-2">
               <div class="rating-star">
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -204,8 +220,7 @@ textarea {
             </div>
           </div>
           <p class="comment-text">{{$value->content}}</p>
-          <p class="comment-text">{{var_dump($values)}}</p>
-          <div class="comment-footer"><a href="/users/{{$value->user->id}}"><span class="text-muted">{{$value->user->alias}}</span></a></div>
+          <div class="comment-footer"><span class="text-muted">Publicado el : {{$value->created_at}}</span></div>
           <hr>
         </div>
       </div>
@@ -214,32 +229,7 @@ textarea {
 @endforeach
 
 
-<div class="comentarios row text-left">
-  <div class="col-xs-10 col-md-10">
-    <div class="jumbotron m-3">
-      <div class="">
 
-      </div>
-      <div class="comment-body">
-        <div class="comment-header d-flex flex-wrap justify-content-between">
-          <h4 class="comment-title">Titulo del comentario</h4>
-          <div class="mb-2">
-            <div class="rating-star">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-half-o" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
-        <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-        <div class="comment-footer"><span class="text-muted"></span></div>
-        <hr>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script type="text/javascript">
   var carrousel = document.querySelector('.carrousel')
