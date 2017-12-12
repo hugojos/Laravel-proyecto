@@ -47,7 +47,9 @@
     </div>
   </div>
 
-  <div class="ofertas text-center" >
+  @include('inc.carrousel')
+
+  {{--  <div class="ofertas text-center" >
     <h2>Ofertas Imperdibles!</h2>
     <div class="row">
     @foreach ($post as $product)
@@ -68,7 +70,7 @@
   @endforeach
   </div>
 </div>
-
+  --}}
 <!-- CARROUSEL (ubicar todo en INCLUDES)-->
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
