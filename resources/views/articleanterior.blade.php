@@ -35,6 +35,7 @@
           <p>{{$value->content}}</p>
         </div>
       </div>
+      
     @endforeach
   </div>
 @endsection
