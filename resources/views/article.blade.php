@@ -180,7 +180,7 @@ textarea {
           <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>
           <textarea rows="5" name="comment"class="form-control ml-4" id="comment" style="resize:none;"
           placeholder=@if (count($comments) ==0)
-            "No hay comentarios, se el primero en comentar!"
+            "No hay comentarios acerca de este articulo, se el primero en comentar!"
           @elseif (!Auth::user())
               "Inicia sesion para poder escribir comentarios!"
           @else
