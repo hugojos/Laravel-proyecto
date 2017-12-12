@@ -333,23 +333,44 @@ nav a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+  width:80%;
 }
 .misproductos .articulo .der {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.misproductos .articulo {
-  margin-left: 100px;
-  border-bottom: 1px solid black;
-  width:80%;
-}
+
 .articulo .der .forms{
   text-align: right;
   margin-bottom: 20px;
 }
 .articulo .der .datos p{
   margin: 0;
+}
+@media (max-width: 767px) {
+  .misproductos .articulo {
+    flex-direction: column;
+  }
+  .articulo .izq {
+    text-align: center;
+  }
+  .misproductos .forms {
+    display: flex;
+    justify-content: center;
+  }
+  .misproductos form {
+    margin-right: 5px;
+  }
+  .misproductos .articulo{
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+  }
+  .misproductos img {
+    width: 50%!important;
+  }
 }
 /*vista user*/
 .mostrar {
