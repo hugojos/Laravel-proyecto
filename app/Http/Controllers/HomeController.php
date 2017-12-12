@@ -26,7 +26,8 @@ class HomeController extends Controller
     /*  $users = Post::leftJoin('users', 'posts.user_id', '=', 'users.id')
       ->select('alias','user_id','description','title','price','posts.id')
       ->paginate(8);*/
-      $post = Post::orderBy('created_at','desc')->get();
+      $post = Post::where('offer','=','1')->orderBy('created_at','desc')->get();
+
       if (Auth::user()) {
         $user= Auth::user()->id;
         //$posts = Post::paginate(10);

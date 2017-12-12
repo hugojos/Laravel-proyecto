@@ -9,7 +9,7 @@ class Post extends Model
     protected $table = 'posts';
 
     protected $fillable = [
-      'title','price','description','user_id','category_id', 'img1', 'img2'
+      'title','price','description','user_id','category_id', 'img1', 'img2','offer'
     ];
 
     public function user(){
@@ -21,5 +21,6 @@ class Post extends Model
     public function comments(){
       return $this->hasMany(Comment::class,'post_id','id');
     }
+
 
 }

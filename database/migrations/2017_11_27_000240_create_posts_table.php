@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('img2');
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
+            $table->integer('offer')->default(0);
             $table->timestamps();
         });
 
@@ -34,6 +35,7 @@ class CreatePostsTable extends Migration
         $art1->img2 = 'hmprod (3)_15126853922.jpg';
         $art1->user_id = 1;
         $art1->category_id = 2;
+        $art1->offer = 1;
         $art1->save();
 
         $art2= new Post;
@@ -44,6 +46,7 @@ class CreatePostsTable extends Migration
         $art2->img2 = 'hmprod (11)_15126856232.jpg';
         $art2->user_id = 1;
         $art2->category_id = 2;
+        $art2->offer = 1;
         $art2->save();
 
         $art3= new Post;
@@ -54,6 +57,7 @@ class CreatePostsTable extends Migration
         $art3->img2 = 'hmprod (23)_15126859282.jpg';
         $art3->user_id = 1;
         $art3->category_id = 2;
+        $art3->offer = 1;
         $art3->save();
 
         $art4= new Post;
@@ -64,6 +68,7 @@ class CreatePostsTable extends Migration
         $art4->img2 = 'hmprod (5)_15126860162.jpg';
         $art4->user_id = 1;
         $art4->category_id = 2;
+        $art4->offer = 1;
         $art4->save();
 
         $art5= new Post;
@@ -74,6 +79,7 @@ class CreatePostsTable extends Migration
         $art5->img2 = 'hmprod (12)_15126861122.jpg';
         $art5->user_id = 1;
         $art5->category_id = 1;
+        $art5->offer = 1;
         $art5->save();
 
         $art6= new Post;
@@ -84,6 +90,7 @@ class CreatePostsTable extends Migration
         $art6->img2 = 'hmprod (10)_15126861492.jpg';
         $art6->user_id = 1;
         $art6->category_id = 1;
+        $art6->offer = 1;
         $art6->save();
 
         $art7= new Post;
@@ -94,6 +101,7 @@ class CreatePostsTable extends Migration
         $art7->img2 = 'hmprod (18)_15126862312.jpg';
         $art7->user_id = 1;
         $art7->category_id = 1;
+        $art7->offer = 1;
         $art7->save();
 
         $art8= new Post;
@@ -104,6 +112,7 @@ class CreatePostsTable extends Migration
         $art8->img2 = 'hmprod (16)_15126862902.jpg';
         $art8->user_id = 1;
         $art8->category_id = 1;
+        $art8->offer = 1;
         $art8->save();
 
         $art9= new Post;
@@ -114,6 +123,7 @@ class CreatePostsTable extends Migration
         $art9->img2 = 'hmprod (5)_15126863572.jpg';
         $art9->user_id = 1;
         $art9->category_id = 3;
+        $art9->offer = 1;
         $art9->save();
 
         $art10= new Post;
@@ -124,6 +134,7 @@ class CreatePostsTable extends Migration
         $art10->img2 = 'hmprod (13)_15126864072.jpg';
         $art10->user_id = 1;
         $art10->category_id = 3;
+        $art10->offer = 1;
         $art10->save();
 
         $art11= new Post;
@@ -134,6 +145,7 @@ class CreatePostsTable extends Migration
         $art11->img2 = 'hmprod (17)_15126864522.jpg';
         $art11->user_id = 1;
         $art11->category_id = 3;
+        $art11->offer = 1;
         $art11->save();
 
         $art12= new Post;
@@ -144,6 +156,7 @@ class CreatePostsTable extends Migration
         $art12->img2 = 'hmprod (21)_15126865132.jpg';
         $art12->user_id = 1;
         $art12->category_id = 3;
+        $art12->offer = 1;
         $art12->save();
     }
 
