@@ -3,7 +3,7 @@
    <div class="footer-wrapper">
       <div class="contenido">
          <div class="cabecera">
-            <img class="logo"src="images/hs-logo.png" alt="">
+            <img class="logo"src="/images/hs-logo.png" alt="">
             <div class="links-terminos">
                <a href="#">Terminos y condiciones</a>
                <a href="#">Preguntas Frecuentes</a>

@@ -43,7 +43,7 @@ label, button, a{
     <div class="row">
 
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Resetear contraseña</div>
+                <div class="panel-heading text-center">Resetear contraseña  </div>
 
                 <div class="panel-body">
                     @if (session('status'))

@@ -26,12 +26,7 @@
   font-size: 30px;
   margin: 3px;
 }
-.parallax{
-  background-image: url("/images/parallax.jpg");
-  height: 150px;
-  background-attachment: fixed;
-  filter: grayscale(70);
-}
+
       /*---------------CARROUSEL----------------*/
 
 .carrousel {
@@ -174,7 +169,7 @@ textarea {
 <!--Div para agregfar comentarios -->
 @if (!$asd == 1)
 
-<div class="parallax container"></div>
+
 
 <div class="row">
   <form class="" method="post">
@@ -194,9 +189,7 @@ textarea {
   <div class="comentarios row text-left">
     <div class="col-xs-12 col-md-12 col-xl-12">
       <div class="jumbotron m-3">
-        <div class="">
-          <img class="img-rounded" src="perfil.jpg" alt="Foto usuario" width="200px">
-        </div>
+
         <div class="comment-body">
           <div class="comment-header d-flex flex-wrap justify-content-between">
             <h4 class="comment-title">Titulo del comentario</h4>
@@ -225,7 +218,7 @@ textarea {
   <div class="col-xs-10 col-md-10">
     <div class="jumbotron m-3">
       <div class="">
-        <img class="img-rounded" src="perfil.jpg" alt="Foto usuario" width="200px">
+
       </div>
       <div class="comment-body">
         <div class="comment-header d-flex flex-wrap justify-content-between">

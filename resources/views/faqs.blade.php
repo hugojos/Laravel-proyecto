@@ -2,6 +2,7 @@
 
 @section('content')
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 <style media="screen">
 
   .container{
@@ -9,8 +10,13 @@
     margin-bottom: 100px;
 
   }
+  a {
+    color: black;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
   a:hover{
     text-decoration: none;
+    color: rgb(130, 130, 130);
   }
   p{
     font-family: Nunito;
