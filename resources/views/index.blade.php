@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="flecha-bajar text-center fixed-bottom">
+  <div id='flecha' class="flecha-bajar text-center fixed-bottom">
       <a href="">
           <i class="fa fa-angle-down" aria-hidden="true"></i>
       </a>
@@ -59,7 +59,6 @@
                 <h4 class="card-title">{{$product->title }}</h4>
                 <p class="card-text">
                   {{str_limit($product->description,50)}} <br>
-                  <p class="text-muted">Vendedor: {{$product->user->alias}}</p>
                 </p>
                 <a href="/articles/{{$product->id}}" class="btn btn-primary1">Lo quiero!</a>
               </div>

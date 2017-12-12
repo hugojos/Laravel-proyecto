@@ -106,7 +106,12 @@ img {
       </div>
       <hr>
       <button type="button" name="button" class="btn btn-danger">Comprar</button>
-      <button type="button" name="button" class="btn btn-light">Agregar al carrito</button>
+      <form method="post" action="{{route('addToCart')}}">
+        {{csrf_field()}}
+        <input type="hidden" name="product_id" value="{{$post->id}}">
+        <button type="submit" name="button" class="btn btn-light">Agregar al carrito</button>
+      </form>
+      
     </div>
   </div>
 @endif

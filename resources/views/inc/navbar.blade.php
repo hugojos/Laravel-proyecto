@@ -1,4 +1,16 @@
 
+<style>
+  #cart-img {
+    height: 40px;
+  }
+  #cart-nr {
+    position:relative;
+    top:-6px;
+  }
+  #item-cart {
+    list-style: none;
+  }
+</style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-inverse bg-inverse">
   <a class="navbar-brand" href="{{ url('/') }}"><img src="/images/hs-logo.png" alt="Logo" width="100px"></a>
@@ -56,6 +68,10 @@
           </li>
       @endguest
     </ul>
+    <li class="nav-item" id='item-cart'>
+      <a id='cart-nr' class="nav-link" href="{{ url('/carrito') }}">
+        <img id="cart-img" src="images/shopbag.png" alt="">{{Cart::content()->count()}}</a>
+    </li>
     <!-- Aca podria ir el nombre del usuario logueado-->
     <form class="form-inline my-2 my-lg-0 none1" action="{{route('search')}}" method="POST">
       {{ csrf_field() }}
