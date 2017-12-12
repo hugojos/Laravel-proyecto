@@ -80,9 +80,10 @@ transform: translate(-50%,-50%);
 .seccionUno{
  margin-top: -6px;
  height: 85vh !important;
- background-image: url("../images/invierno1.jpg");
+ background-image: url("../images/parallax2-2.jpg");
  background-size: cover;
  background-position: center;
+ background-attachment: fixed;
  background-repeat: no-repeat;
  position: relative;
 }

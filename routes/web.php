@@ -27,6 +27,11 @@ Route::delete('/delete','ArticleController@destroy')->name('deleteArticle');/*El
 Route::post('/articles/edit/{id}','ArticleController@edit');/*Muestra la vista para editar el aritculo*/
 Route::put('/articles/update','ArticleController@update')->name('editArticle');/*Guarda los cambios del articulo*/
 
+Route::post('/carrito/agregar', 'ShoppingController@addToCart')->name('addToCart');
+Route::get('/carrito/eliminar/{id}', 'ShoppingController@deleteFromCart')->name('deleteFromCart');
+Route::get('/carrito/checkout', 'ShoppingController@checkout')->name('checkout');
+Route::get('/carrito', 'ShoppingController@cart')->name('cart');
+
 Route::get('/categorias', 'ArtCategoriesController@categories');/**/
 Route::get('/categorias/mujeres', 'ArtCategoriesController@womenCategory')->name('women');
 Route::get('/categorias/hombres', 'ArtCategoriesController@menCategory')->name('men');

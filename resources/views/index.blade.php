@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="flecha-bajar text-center fixed-bottom">
+  <div id='flecha' class="flecha-bajar text-center fixed-bottom">
       <a href="">
           <i class="fa fa-angle-down" aria-hidden="true"></i>
       </a>

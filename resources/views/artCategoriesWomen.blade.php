@@ -118,7 +118,7 @@
     <section class="products">
         
         @foreach ($products as $product)
-            <a href="">
+            <a href="/articles/{{$product->id}}">
                 <div class="prod-container">
                     <img class="img-prod" src="/storage/products/{{$product->img1}}" alt="">
                     <img class="img-prod2" src="/storage/products/{{$product->img2}}" alt="">
@@ -132,28 +132,6 @@
 
         @endforeach
 
-        
-
-        
-        
-         <!-- @foreach ($products as $product)
-        <div class="col-xs-6 col-sm-6 col-xl-3">
-            <article class="articuloUno">
-                <div class="card">
-                    <img class="card-img-top" src="/storage/products/{{$product->img1}}" alt="Imagen producto uno">
-                    <div class="card-body">
-                        <h4 class="card-title">{{$product->title }}</h4>
-                        <p class="card-text">
-                            {{str_limit($product->description,50)}}
-                            <br>
-                            <p class="text-muted">Vendedor: {{$product->user->alias}}</p>
-                        </p>
-                        <a href="/articles/{{$product->id}}" class="btn btn-primary1">Lo quiero!</a>
-                    </div>
-                </div>
-            </article>
-        </div> -->
-       <!--  @endforeach -->
 
     </section>
     <div class="paginator">
