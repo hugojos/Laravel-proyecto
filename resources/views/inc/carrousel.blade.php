@@ -7,6 +7,9 @@
   <body>
 
     <style media="screen">
+    .card {
+      height: 100%;
+    }
     .carrousel {
 overflow: hidden;
 position: relative;
@@ -26,7 +29,7 @@ height: 60vh;
 }
 
 .articulo-vista {
- 
+
   display: flex;
   justify-content: center;
   height: 60vh;
@@ -34,10 +37,10 @@ height: 60vh;
 
 .articulo {
     height: 60vh;
-    
+
 }
 .card-img-top {
-    height: 100%;
+    height: 70%;
 }
 img {
 object-fit: contain ;
@@ -83,7 +86,7 @@ right: 30px;
         opacity: 0;
         transition: opacity 0.3s;
         z-index: 3;
-        
+
     }
 
     .prod-container:hover .img-prod2{
@@ -102,6 +105,9 @@ right: 30px;
         margin-left: 4%;
         font-weight: bold;
     }
+    .card-body {
+      text-align: center;;
+    }
     </style>
 
 
@@ -109,7 +115,7 @@ right: 30px;
 
   <div class="carrousel-images">
 
-     
+
 
     @foreach ($post as $product)
       <div class="col-xs-6 col-sm-6 col-xl-4 articulo-vista">
@@ -206,7 +212,7 @@ right: 30px;
   </div>
 
 
- 
+
 
 
 
@@ -216,7 +222,7 @@ var carrito = document.querySelector('.carrousel-images')
 
 var imagenActual = 0
 
-var cantidadImagenes = document.querySelectorAll('.carrousel .articulo').length/3
+var cantidadImagenes = document.querySelectorAll('.carrousel .articulo').length
 
 document.querySelector('button.prev').addEventListener('click', function () {
   if (imagenActual > 0) {
