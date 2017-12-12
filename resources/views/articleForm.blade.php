@@ -22,7 +22,7 @@
       @endforeach
     </select>
     <label for="oferta">Es una oferta</label>
-    <input type="checkbox" name="oferta" value="1">
+    <input id="oferta" type="checkbox" name="oferta" value="1">
     <br>
     <textarea name="description" rows="8" cols="80" placeholder="Descripcion"></textarea><br>
 
