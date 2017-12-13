@@ -22,7 +22,7 @@
     <ul class="navbar-nav mr-auto border-top">
       <form class="form-inline my-2 my-lg-0 none">
         <div class="form-div" >
-          <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search">
+          <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search" name="buscador">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </div>
       </form>
@@ -79,9 +79,31 @@
     <form class="form-inline my-2 my-lg-0 none1" action="{{route('search')}}" method="POST">
       {{ csrf_field() }}
       <div class="" style="margin: 0 auto;">
-        <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search" name="buscador">
+        <input class="form-control mr-sm-2" id="buscador" type="text" placeholder="Buscar Articulos..." aria-label="Search" name="buscador">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </div>
     </form>
   </div>
 </nav>
+
+<script type="text/javascript">
+    var token = document.querySelector('meta[name="csrf-token"]').content;
+    var buscador = document.querySelector('#buscador');
+    var xhr= new XMLHttpRequest();
+    buscador.addEventListener('keypress',function(){
+      xhr.onreadystatechange= function(){
+        if (this.readyState == 4 && this.status == 200) {
+          var json= {};
+          for (var i = 0; i < xhr.response.length; i++) {
+          console.log(xhr.response[0]) //Me lo devuelve en formato json y tengo que pasarlo a un array u objeto
+        }
+      };
+      xhr.open("POST", "/search", true);
+      xhr.responseType = 'json';
+      xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      xhr.setRequestHeader('X-CSRF-TOKEN', token);
+      var params = buscador.value;
+      xhr.send('buscador='+params);
+    })
+
+</script>
