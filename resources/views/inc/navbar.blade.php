@@ -13,7 +13,6 @@
   .white {
     width: 100%;
     display: block;
-    padding: 10px;
     list-style: none;
     background-color: #f2f2f2;
   }
@@ -22,6 +21,8 @@
   }
   li.white a {
     color: black!important;
+    display: flex;
+    padding: 10px;
   }
   li.white a:hover {
     text-decoration: none;
