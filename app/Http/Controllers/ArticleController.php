@@ -17,14 +17,14 @@ class ArticleController extends Controller
     public function __construct(){
       $this->middleware('auth',['except'=>['index','search']]);
     }
+
+
     /*Funcion buscador, le falta vista */
-    public function search(Request $request){
-      $post = Post::where('title','LIKE','%'.$request->input('buscador').'%')->paginate(10);
-      if (Auth::user()) {
-        $user= Auth::user()->id;
-      }
+    public function searchGet($buscador){
+      $post = Post::where('title','LIKE','%'.$buscador.'%')->get();
       return $post;
     }
+
     public function index($id)
     {
       /*Logre hacerlo de una forma mas prolija usando relaciones en los modelos*/

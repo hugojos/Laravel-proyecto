@@ -10,6 +10,22 @@
   #item-cart {
     list-style: none;
   }
+  .white {
+    width: 100%;
+    display: block;
+    padding: 10px;
+    list-style: none;
+    background-color: white;
+  }
+  .white:hover {
+    background: #f2f2f2;
+  }
+  li.white a {
+    color: black!important;
+  }
+  li.white a:hover {
+    text-decoration: none;
+  }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-inverse bg-inverse">
@@ -22,7 +38,7 @@
     <ul class="navbar-nav mr-auto border-top">
       <form class="form-inline my-2 my-lg-0 none">
         <div class="form-div" >
-          <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search">
+          <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search" name="buscador">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </div>
       </form>
@@ -76,12 +92,48 @@
 
     @endif
     <!-- Aca podria ir el nombre del usuario logueado-->
-    <form class="form-inline my-2 my-lg-0 none1" action="{{route('search')}}" method="POST">
+    <form class="form-inline my-2 my-lg-0 none1" action="" method="POST">
       {{ csrf_field() }}
-      <div class="" style="margin: 0 auto;">
-        <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search" name="buscador">
+      <div class="" style="margin: 0 auto; position: relative">
+        <input class="form-control mr-sm-2" id="buscador" type="text" placeholder="Buscar Articulos..." aria-label="Search" name="buscador" autocomplete="off">
+        <ul id="resultados" style=" position: absolute;left:0;width:100%; border-radius: 4px;">
+        </ul>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </div>
     </form>
   </div>
 </nav>
+
+<script type="text/javascript">
+    var token = document.querySelector('meta[name="csrf-token"]').content;
+    var buscador = document.querySelector('#buscador');
+    var ul = document.querySelector('#resultados');
+    var xhr= new XMLHttpRequest();
+    buscador.addEventListener('input',function(event){
+      xhr.onreadystatechange = function(){
+        if (this.readyState == 4) {
+          ul.innerHTML = ""
+
+          if (this.status == 200) {
+            xhr.response.forEach(function (value, key){
+              var li = document.createElement('li');
+              var a = document.createElement('a');
+              li.className= 'white';
+              a.append(document.createTextNode(value.title))
+              a.href = '/articles/'+value.id;
+              li.append(a);
+              ul.append(li)
+              console.log(ul)
+            });
+          }
+        }
+      };
+      //console.log(event.key);
+      xhr.open("GET", "/searchGet/"+buscador.value, true);
+      xhr.responseType = 'json';
+      //xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      xhr.setRequestHeader('X-CSRF-TOKEN', token);
+      xhr.send();
+    })
+
+</script>

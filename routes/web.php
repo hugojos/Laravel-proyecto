@@ -20,8 +20,9 @@ Route::post('/articles/{id}','CommentController@store');/*Guarda los comentarios
 
 Route::get('/articles/{id}', 'ArticleController@index')->name('mostrarArticulo');/*Muestra la vista del articulo*/
 Route::get('/articles','ArticleController@create');/*Muestra el formulario para agregar articulos*/
+Route::get('/searchGet/{buscador}','ArticleController@searchGet'); /*BUSCADOR EN TIEMPO REAL*/
+Route::post('/search','ArticleController@search')->name('search');
 Route::post('/articles','ArticleController@store')->name('add');/*Guarda el articulo*/
-Route::post('/search','ArticleController@search')->name('search'); /*BUSCADOR*/
 Route::get('/post','ArticleController@show')->name('mostrar');/*Muestra los articulos publicados del usuario*/
 Route::delete('/delete','ArticleController@destroy')->name('deleteArticle');/*Elimna el articulo*/
 Route::post('/articles/edit/{id}','ArticleController@edit');/*Muestra la vista para editar el aritculo*/
