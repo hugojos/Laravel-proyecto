@@ -80,7 +80,7 @@
         opacity: 0;
         transition: opacity 0.3s;
         z-index: 3;
-        
+
     }
 
     .prod-container:hover .img-prod2{
@@ -112,11 +112,11 @@
             <h3 class="cat-title">Hombres</h3>
             <p class="cat-description">COLECCIÓN 2018</p>
         </div>
-        
-    </div>
 
+    </div>
+    @include('inc.sticky-bar')
     <section class="products">
-        
+
         @foreach ($products as $product)
             <a href="/articles/{{$product->id}}">
                 <div class="prod-container">
@@ -127,8 +127,8 @@
                     <p class="prod-price">$ {{$product->price}}</p>
                 </div>
             </a>
-            
-          
+
+
 
         @endforeach
 
@@ -136,8 +136,8 @@
     </section>
     <div class="paginator">
         {{ $products->links() }}
-    
+
     </div>
-    
+
 </div>
 @endsection

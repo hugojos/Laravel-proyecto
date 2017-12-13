@@ -104,11 +104,7 @@
         text-align: center;
         height: 30px;
     }
-    .sticky-top{
-      z-index: 500000000;
-      top:83px;
-      background-color: red !important;
-    }
+    
 </style>
 
 <div class="women-container">
@@ -119,11 +115,7 @@
         </div>
 
     </div>
-
-    <nav class="navbar sticky-top navbar-dark bg-primary">
-      <a class="navbar-brand" href="#!">Sticky top</a>
-    </nav>
-
+    @include('inc.sticky-bar')
     <section class="products">
 
         @foreach ($products as $product)

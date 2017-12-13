@@ -26,6 +26,11 @@
   li.white a:hover {
     text-decoration: none;
   }
+  .navbar-toggler-icon{
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 15%;
+    padding: 20px;
+  }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-inverse bg-inverse">
