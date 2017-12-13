@@ -1,8 +1,7 @@
 @extends('layouts.app1')
 
 @section('content')
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+
 <style media="screen">
 
   .container{
@@ -12,7 +11,6 @@
   }
   a {
     color: black;
-    font-family: 'Roboto Condensed', sans-serif;
   }
   a:hover{
     text-decoration: none;

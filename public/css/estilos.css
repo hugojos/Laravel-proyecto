@@ -1,19 +1,21 @@
 /*
 reseteo de las clases de bootstrap
 */
-* {
+*:not(i) {
   box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif!important;
 }
 .btn-primary1{
   background-color: rgb(236, 154, 79);
   border-style: none;
+  color:white;
 }
 .btn-primary1:focus{
   background-color:rgb(247, 97, 32);
 }
 .btn-primary1:hover{
-  background-color: white;
-  color: red;
+  background-color: rgb(247, 97, 32);
+  color: white;
   border: 1px black solid;
 }
 
