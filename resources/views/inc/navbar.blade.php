@@ -112,8 +112,7 @@
     buscador.addEventListener('input',function(event){
       xhr.onreadystatechange = function(){
         if (this.readyState == 4) {
-          ul.innerHTML = ""
-
+          ul.innerHTML = "";
           if (this.status == 200) {
             xhr.response.forEach(function (value, key){
               var li = document.createElement('li');
@@ -128,8 +127,9 @@
           }
         }
       };
+      console.log(buscador.value);
       //console.log(event.key);
-      xhr.open("GET", "/searchGet/"+buscador.value, true);
+      xhr.open("GET","/searchGet/"+buscador.value, true);
       xhr.responseType = 'json';
       //xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
       xhr.setRequestHeader('X-CSRF-TOKEN', token);

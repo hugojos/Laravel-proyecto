@@ -15,13 +15,13 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct(){
-      $this->middleware('auth',['except'=>['index','search']]);
+      $this->middleware('auth',['except'=>['index','search','searchGet']]);
     }
 
 
     /*Funcion buscador, le falta vista */
     public function searchGet($buscador){
-      $post = Post::where('title','LIKE','%'.$buscador.'%')->get();
+      $post=Post::where('title','LIKE','%'.$buscador.'%')->get();
       return $post;
     }
 
