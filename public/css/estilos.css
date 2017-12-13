@@ -1,8 +1,9 @@
 /*
 reseteo de las clases de bootstrap
 */
-* {
+*:not(i) {
   box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif!important;
 }
 .btn-primary1{
   background-color: rgb(236, 154, 79);
