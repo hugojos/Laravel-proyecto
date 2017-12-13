@@ -1,8 +1,10 @@
 
 <style media="screen">
 .sticky-top{
-  top:83px;
-  background-color: red !important;
+  height: 40px;
+  top:82px;
+  background-color:rgb(34,54,63)!important;
+  border-radius: 0 0 10px 10px;
 }
 
 #sticky-bar{
