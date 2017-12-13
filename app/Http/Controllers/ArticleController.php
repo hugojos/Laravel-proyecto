@@ -20,8 +20,8 @@ class ArticleController extends Controller
 
 
     /*Funcion buscador, le falta vista */
-    public function search(Request $request){
-      $post = Post::where('title','LIKE','%'.$request->input('buscador').'%')->get();
+    public function searchGet($buscador){
+      $post = Post::where('title','LIKE','%'.$buscador.'%')->get();
       return $post;
     }
 
