@@ -19,6 +19,8 @@ class ArticleController extends Controller
     }
     /*Funcion buscador, le falta vista */
     public function search(Request $request){
+      $this->validate($request,[
+        'buscador'=>'string|required'])
       $post = Post::where('title','LIKE','%'.$request->input('buscador').'%')->paginate(10);
       if (Auth::user()) {
         $user= Auth::user()->id;
