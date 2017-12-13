@@ -44,6 +44,10 @@
 img {
   object-fit: cover;
 }
+
+.img-carrousel {
+  width:100%;
+}
 .carrousel button {
   position: absolute;
   top: 0;
@@ -74,8 +78,8 @@ textarea {
 
       <div class="carrousel ">
         <div class="carrousel-images">
-          <img src="/storage/products/{{$post->img1}}" alt="">
-          <img src="/storage/products/{{$post->img2}}" alt="">
+          <img class="img-carrousel" src="/storage/products/{{$post->img1}}" alt="">
+          <img class="img-carrousel" src="/storage/products/{{$post->img2}}" alt="">
         </div>
         <button type="button" class="prev">&lt;</button>
         <button type="button" class="next">&gt;</button>
