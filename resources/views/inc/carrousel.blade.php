@@ -219,10 +219,37 @@ right: 30px;
 <script type="text/javascript">
 var carrousel = document.querySelector('.carrousel')
 var carrito = document.querySelector('.carrousel-images')
+var cantidadImagenes = 0;
 
 var imagenActual = 0
 
-var cantidadImagenes = document.querySelectorAll('.carrousel .articulo').length
+window.addEventListener('resize', function (event) {
+    console.log('resize')
+    if (window.innerWidth < 575) {
+        cantidadImagenes = document.querySelectorAll('.carrousel .articulo').length;
+    } else if (window.innerWidth < 1200 && window.innerWidth >= 575) {
+        cantidadImagenes = document.querySelectorAll('.carrousel .articulo').length / 2
+    } else {
+        cantidadImagenes = document.querySelectorAll('.carrousel .articulo').length / 3
+    }
+    console.log(cantidadImagenes)
+});
+
+    if (window.innerWidth < 575) {
+       cantidadImagenes = document.querySelectorAll('.carrousel .articulo').length;
+    } else if (window.innerWidth < 1200 && window.innerWidth >= 575) {
+       cantidadImagenes = document.querySelectorAll('.carrousel .articulo').length / 2
+    } else {
+       cantidadImagenes = document.querySelectorAll('.carrousel .articulo').length / 3
+    }
+
+//var cantidadImagenes = carrito.style.width/carrousel.offsetWidth
+
+
+
+
+
+console.log(cantidadImagenes)
 
 document.querySelector('button.prev').addEventListener('click', function () {
   if (imagenActual > 0) {
