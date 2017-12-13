@@ -11,7 +11,6 @@
   }
   a {
     color: black;
-    font-family: 'Roboto Condensed', sans-serif;
   }
   a:hover{
     text-decoration: none;
