@@ -70,21 +70,27 @@ class ArticleController extends Controller
     {
 
       $this->validate($request, [
-          'img1' => 'image|nullable|max:1999',
-          'img2' => 'image|nullable|max:1999'
+          'price'=>'required|integer',
+          'title'=> 'required|string|max:100',
+          'description'=>'required|string|max:2000',
+          'img1' => 'image|max:1999|required',
+          'img2' => 'image|max:1999|required',
+          'offer' => 'nullable'
         ]);
+          $fileNameWithExt = $request->file('img1')->getClientOriginalName();
+          $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+          $extension = $request->file('img1')->getClientOriginalExtension();
+          $fileNameToStore = $filename.'_'.time().'1.'.$extension;
+          $path1 = $request->file('img1')->storeAs('public/products', $fileNameToStore);
 
-      $fileNameWithExt = $request->file('img1')->getClientOriginalName();
-      $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-      $extension = $request->file('img1')->getClientOriginalExtension();
-      $fileNameToStore = $filename.'_'.time().'1.'.$extension;
-      $path1 = $request->file('img1')->storeAs('public/products', $fileNameToStore);
-
-      $fileNameWithExt2 = $request->file('img2')->getClientOriginalName();
-      $filename2 = pathinfo($fileNameWithExt2, PATHINFO_FILENAME);
-      $extension2 = $request->file('img2')->getClientOriginalExtension();
-      $fileNameToStore2 = $filename2.'_'.time().'2.'.$extension2;
-      $path2 = $request->file('img2')->storeAs('public/products', $fileNameToStore2);
+          $fileNameWithExt2 = $request->file('img2')->getClientOriginalName();
+          $filename2 = pathinfo($fileNameWithExt2, PATHINFO_FILENAME);
+          $extension2 = $request->file('img2')->getClientOriginalExtension();
+          $fileNameToStore2 = $filename2.'_'.time().'2.'.$extension2;
+          $path2 = $request->file('img2')->storeAs('public/products', $fileNameToStore2);
+        if ($request->oferta == null) {
+          $request->oferta = 0;
+        }
 
       Post::create([
         'title'=>$request->title,
@@ -94,7 +100,7 @@ class ArticleController extends Controller
         'category_id'=>$request->category,
         'img1' =>$fileNameToStore,
         'img2' =>$fileNameToStore2,
-        'offer'=>$request->oferta
+        'offer' =>$request->oferta
       ]);
       return redirect()->route('home');
     }

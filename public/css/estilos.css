@@ -1,7 +1,9 @@
 /*
 reseteo de las clases de bootstrap
 */
-
+* {
+  box-sizing: border-box;
+}
 .btn-primary1{
   background-color: rgb(236, 154, 79);
   border-style: none;
@@ -336,7 +338,6 @@ nav a {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  border-bottom: 1px solid black;
   width:80%;
 }
 .misproductos .articulo .der {
@@ -351,6 +352,9 @@ nav a {
 }
 .articulo .der .datos p{
   margin: 0;
+}
+.misproductos form {
+  margin-bottom: 3px;
 }
 @media (max-width: 767px) {
   .misproductos .articulo {

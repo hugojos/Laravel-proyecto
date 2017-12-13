@@ -35,6 +35,10 @@ class CommentController extends Controller
      */
     public function store(Request $request, $id)
     {
+      if (Auth::user()) {
+        $this->validate($request,[
+          'comment'=>'required|string|max:2000'
+        ]);
         $user_id = Auth::user()->id;
         Comment::create([
           'content'=>$request->input('comment'),
@@ -42,6 +46,9 @@ class CommentController extends Controller
           'post_id'=>$id,
         ]);
         return redirect()->route('mostrarArticulo',['id'=>$id]);
+      } else {
+        return back();
+      }
     }
 
     /**

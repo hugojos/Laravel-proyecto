@@ -3,7 +3,7 @@
   <div class="f2f2f2">
 
     <div class="container misproductos">
-      <h1 style="margin-left: 20px;">Tus articulos</h1>
+      <h1 style="text-align:center; margin-bottom:10px;">Tus articulos</h1>
       @foreach ($articulos as $key => $value)
         <div class="articulo">
           <div class="izq">
@@ -33,6 +33,7 @@
             </div>
           </div>
         </div>
+        <hr>
       @endforeach
     </div>
   </div>
