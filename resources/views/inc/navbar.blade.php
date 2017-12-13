@@ -15,10 +15,10 @@
     display: block;
     padding: 10px;
     list-style: none;
-    background-color: white;
+    background-color: #f2f2f2;
   }
   .white:hover {
-    background: #f2f2f2;
+    background: gray;
   }
   li.white a {
     color: black!important;

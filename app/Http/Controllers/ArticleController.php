@@ -25,7 +25,7 @@ class ArticleController extends Controller
       return $post;
     }
 
-    public function index($id)
+    public function index(Request $request, $id)
     {
       /*Logre hacerlo de una forma mas prolija usando relaciones en los modelos*/
       /*$comments = Comment::leftJoin('users','users.id','=','user_id')
@@ -34,11 +34,12 @@ class ArticleController extends Controller
       ->where('post_id','=',$id)
       ->orderBy('created_at','desc')
       ->get();*/
-      $post = Post::find($id);
+
+      $post = Post::findorFail($id);
       $category = $post->category;
       $comments = $post->comments;
-      if (Auth::user()) {
-        $user= Auth::user()->id;
+      if (Auth::User()) {
+        $user= Auth::User()->id;
         return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0]);
       } else {
         return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0]);
