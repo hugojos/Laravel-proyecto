@@ -1,0 +1,12 @@
+
+In Connection.php line 664:
+                                                                               
+  SQLSTATE[HY000] [2002] Connection refused (SQL: select * from information_s  
+  chema.tables where table_schema = hugo and table_name = migrations)          
+                                                                               
+
+In Connector.php line 67:
+                                             
+  SQLSTATE[HY000] [2002] Connection refused  
+                                             
+

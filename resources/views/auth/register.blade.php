@@ -5,6 +5,8 @@
 
 @section('content')
 
+
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
   <style media="screen">
@@ -154,11 +156,12 @@
                     <div class="row d-flex justify-content-center">
                       <div class="form-group">
                         <div class="col-xs-12">
+                        <a href=" {{ url('/login/facebook')}}">
                           <button id="registro-facebook" type="submit" name="" class="btn">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                              Inicia sesión con facebook
                           </button>
-
+                        </a>
                         </div>
                       </div>
                     </div>

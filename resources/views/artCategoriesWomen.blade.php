@@ -80,7 +80,7 @@
         opacity: 0;
         transition: opacity 0.3s;
         z-index: 3;
-        
+
     }
 
     .prod-container:hover .img-prod2{
@@ -104,6 +104,11 @@
         text-align: center;
         height: 30px;
     }
+    .sticky-top{
+      z-index: 500000000;
+      top:83px;
+      background-color: red !important;
+    }
 </style>
 
 <div class="women-container">
@@ -112,11 +117,15 @@
             <h3 class="cat-title">Mujeres</h3>
             <p class="cat-description">COLECCIÓN 2018</p>
         </div>
-        
+
     </div>
 
+    <nav class="navbar sticky-top navbar-dark bg-primary">
+      <a class="navbar-brand" href="#!">Sticky top</a>
+    </nav>
+
     <section class="products">
-        
+
         @foreach ($products as $product)
             <a href="/articles/{{$product->id}}">
                 <div class="prod-container">
@@ -127,8 +136,8 @@
                     <p class="prod-price">$ {{$product->price}}</p>
                 </div>
             </a>
-            
-          
+
+
 
         @endforeach
 
@@ -136,8 +145,8 @@
     </section>
     <div class="paginator">
         {{ $products->links() }}
-    
+
     </div>
-    
+
 </div>
 @endsection

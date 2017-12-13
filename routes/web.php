@@ -45,3 +45,8 @@ Route::get('/faqs', 'PagesController@faqs');/**/
 Route::get('/productos', 'PagesController@products');/**/
 Route::get('/soporte', 'PagesController@soporte');/**/
 Route::get('/nosotros', 'PagesController@nosotros');/**/
+
+//facebook socialite
+
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
