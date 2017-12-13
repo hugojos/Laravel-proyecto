@@ -18,11 +18,15 @@ class ArticleController extends Controller
       $this->middleware('auth',['except'=>['index','search','searchGet']]);
     }
 
-
     /*Funcion buscador, le falta vista */
     public function searchGet($buscador){
       $post=Post::where('title','LIKE','%'.$buscador.'%')->get();
       return $post;
+    }
+
+    public function search(Request $request){
+      $post= Post::where('title','LIKE','%'.$request->input('buscador').'%')->paginate(6);
+      return view('buscador',['post'=>$post,'title'=>'Resultados','buscador'=>$request->input('buscador')]);
     }
 
     public function index(Request $request, $id)

@@ -98,7 +98,7 @@
 
     @endif
     <!-- Aca podria ir el nombre del usuario logueado-->
-    <form class="form-inline my-2 my-lg-0 none1" action="" method="POST">
+    <form class="form-inline my-2 my-lg-0 none1" action="/search" method="POST">
       {{ csrf_field() }}
       <div class="" style="margin: 0 auto; position: relative">
         <input class="form-control mr-sm-2" id="buscador" type="text" placeholder="Buscar Articulos..." aria-label="Search" name="buscador" autocomplete="off">
