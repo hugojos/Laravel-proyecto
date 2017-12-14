@@ -128,12 +128,11 @@
               a.href = '/articles/'+value.id;
               li.append(a);
               ul.append(li)
-              console.log(ul)
             });
           }
         }
       };
-      console.log(buscador.value);
+      //console.log(buscador.value);
       //console.log(event.key);
       xhr.open("GET","/searchGet/"+buscador.value, true);
       xhr.responseType = 'json';

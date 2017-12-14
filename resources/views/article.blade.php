@@ -94,7 +94,7 @@ textarea {
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star-half-o" aria-hidden="true"></i>
       </div>
-      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentarios</span>
+      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentario/s</span>
       <h2 class="padding-top d-block">{{$post->title}}</h2>
       <span class="precio" style="color:#85bb65;">${{$post->price}}</span>
       <p>{{$post->description}}</p>
@@ -142,7 +142,7 @@ textarea {
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star-half-o" aria-hidden="true"></i>
       </div>
-      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentarios</span>
+      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentario/s</span>
       <form class="" action="{{route('editArticle')}}" method="post">
         {{ csrf_field() }}
         {{method_field('PUT')}}
@@ -182,7 +182,7 @@ textarea {
         {{ csrf_field() }}
         <div class="form-group">
           <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>
-          <textarea rows="5" name="comment"class="form-control ml-4" id="comment" style="resize:none;"
+          <textarea rows="5" name="comment"class="form-control ml-4" id="comment" style="resize:none;overflow:hidden;"
           placeholder=@if (!Auth::user())
             "Inicia sesion para poder escribir comentarios!"
           @elseif (count($comments)== 0)

@@ -20,8 +20,5 @@
           </article>
         </div>
     @endforeach
-    <div class="">
-      {{ $post->links() }}
-    </div>
   </div>
 @endsection
