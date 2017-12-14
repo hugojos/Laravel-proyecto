@@ -29,7 +29,14 @@
     display: flex;
     justify-content: center;
   }
+  @media (max-width: 460px) {
+    .container{
+      margin: 0 auto;
+      max-width: 100vw;
+    }
+  }
 
+  }
   </style>
 
 
