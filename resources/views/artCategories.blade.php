@@ -56,13 +56,13 @@
   }
 
   .cat-container h3 {
-    font-family: 'Old Standard TT', serif;
-    font-weight: bold;
+    font-family: 'Old Standard TT', serif !important;
+    font-weight: bold !important;
     position: absolute;
     font-size: 4em;    
   }
   .cat-container p {
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Arimo', sans-serif !important;
     position: absolute;
   }
   

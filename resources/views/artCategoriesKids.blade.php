@@ -41,7 +41,7 @@
 
     .cat-title {
         font-size: 3.75em;
-        font-family: 'Playfair Display', serif;
+        font-family: 'Playfair Display', serif !important;
     }
     .cat-description {
         margin-left: 4%;

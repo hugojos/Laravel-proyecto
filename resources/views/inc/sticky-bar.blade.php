@@ -3,7 +3,7 @@
 .sticky-top{
   height: 40px;
   top:82px;
-  background-color:rgb(34,54,63)!important;
+  background-color:rgba(34,54,63, 0.6)!important;
   border-radius: 0 0 10px 10px;
 }
 

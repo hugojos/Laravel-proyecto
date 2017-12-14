@@ -3,7 +3,8 @@ reseteo de las clases de bootstrap
 */
 *:not(i) {
   box-sizing: border-box;
-  font-family: 'Roboto Condensed', sans-serif!important;
+  /* font-family: 'Roboto Condensed', sans-serif!important; */
+  font-family: 'Open Sans', sans-serif!important;
 }
 .btn-primary1{
   background-color: rgb(236, 154, 79);
@@ -54,12 +55,14 @@ transform: translate(-50%,-50%);
 
 }
 
-.flecha-bajar a{
+#flecha1{
   display: inline-block;
-  color: #fff;
+  position: absolute;
+  top: 70%;
+  left: 46%;
+  color: #fff !important;
   font-size: 4rem;
   animation: flecha-animada 2s ease-in-out infinite;
-
 }
 
 @keyframes flecha-animada {
@@ -80,19 +83,117 @@ transform: translate(-50%,-50%);
   }
 }
 
+.christmas {
+  margin-top: -6px;
+  background-image: url('/images/christmas-background.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  height: 80vh;
+}
 .seccionUno{
  margin-top: -6px;
- height: 85vh !important;
- background-image: url("../images/parallax2-2.jpg");
- background-size: cover;
- background-position: center;
- background-attachment: fixed;
- background-repeat: no-repeat;
+ height: 100vh;
+ background-color: rgb(255, 255, 255);
  position: relative;
 }
+.img-sec1 {
+  width: 80%;
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+  margin-bottom: 3%;
+  position: relative;
+}
+.title-sec1 {
+  position: absolute;
+  z-index: 3;
+  top: 34%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #676767;
+  font-family: 'Dancing Script', cursive !important;
+}
+
+.link-sec1 {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #676767;
+  font-family: 'Open Sans', sans-serif !important;
+  padding: 1%;
+  border: 1.5px solid #EA3333;
+  transition: background-color 0.4s;
+  text-decoration: none;
+}
+.link-sec1:hover {
+  background-color: #EA3333;
+  color: #F5F5F7;
+  text-decoration: none;
+}
+#link1-sec1 {
+  top: 47%;
+}
+#link2-sec1 {
+  top: 58%;
+}
+
+#flecha2{
+  display: inline-block;
+  position: absolute;
+  top: 70%;
+  left: 46%;
+  color: #fff !important;
+  font-size: 4rem;
+  animation: flecha-animada 2s ease-in-out infinite;
+}
+
+.seccionDos{
+ height: 100vh;
+ background-color: #F7CE41;
+ position: relative;
+}
+.img-sec2 {
+  height: 100vh;
+  max-width: 100%;
+  position: relative;
+}
+
+.parte-sec2 {
+  z-index: 3;
+  position: absolute;
+  top: 33%;
+  left: 79%;
+  text-align: center;
+  color: #22363F;
+  }
+.title-sec2 {  
+  color: #22363F;
+  font-family: 'Open Sans', sans-serif !important;
+  margin-bottom: 25%;
+}
+
+.link-sec2 {
+  color: #22363F;
+  font-family: 'Open Sans', sans-serif !important;
+  padding: 3%;
+  border: 1.5px solid #EA3333;
+  transition: background-color 0.4s;
+  text-decoration: none;
+}
+#flecha3{
+  display: inline-block;
+  position: absolute;
+  top: 70%;
+  left: 46%;
+  color: #fff !important;
+  font-size: 4rem;
+  animation: flecha-animada 2s ease-in-out infinite;
+}
+
 .parallaxUno{
  margin: 0px;
- height: 85vh !important;
+ height: 100vh !important;
  width: 100%;
  background-image: url("../images/parallax3.jpg");
  background-size: cover;
@@ -271,8 +372,8 @@ footer p a{
 }
 /* Modificado - Hugo*/
 @media (min-width: 992px) {
-  .none {
-    display: none!important;
+  #noneid {
+    display: none !important;
   }
 }
 @media (max-width: 992px){

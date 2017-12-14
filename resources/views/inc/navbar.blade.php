@@ -42,7 +42,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto border-top">
-      <form class="form-inline my-2 my-lg-0 none">
+      <form id="noneid" class="none form-inline my-2 my-lg-0 ">
         <div class="form-div" >
           <input class="form-control mr-sm-2" type="text" placeholder="Buscar Articulos..." aria-label="Search" name="buscador">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
