@@ -41,7 +41,7 @@
       <span class="custom-file-control"></span>
     </label> --}}
     <div class="row">
-      <div class="col-xs-12 col-md-6 col-xl-12">
+      <div class="col-xs-12 col-md-12 col-xl-12">
         <h3 class="mt-5 text-center">Nuevo Artículo</h3>
       </div>
     </div>
@@ -85,11 +85,11 @@
     <div class="row">
       <div class="col-xs-12 col-md-6 col-xl-6 form-group">
         <label for="file">Subir imagen 1</label>
-        <input class="form-control-file" type="file" id="file" name="img1">
+        <input style="margin: 0 auto;" class="form-control-file" type="file" id="file" name="img1">
       </div>
       <div class="col-xs-12 col-md-6 col-xl-6 form-group">
         <label for="file1">Subir imagen 2</label>
-        <input class="form-control-file" type="file" id="file1" name="img2">
+        <input style="margin: 0 auto;"class="form-control-file" type="file" id="file1" name="img2">
       </div>
     </div>
 
