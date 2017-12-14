@@ -19,7 +19,6 @@ class ShoppingController extends Controller
     public function addToCart(Request $request) {
 
         $producto = Post::find($request->product_id);
-
         $cartItem = Cart::add([
             'id'=> $producto->id,
             'name' => $producto->title,
@@ -36,6 +35,26 @@ class ShoppingController extends Controller
         return redirect()->route('cart');
     }
 
+    public function addToCartBack(Request $request) {
+
+        $producto = Post::find($request->product_id);
+        $cartItem = Cart::add([
+            'id'=> $producto->id,
+            'name' => $producto->title,
+            'qty'=> 1,
+            'price'=> $producto->price
+        ]);
+
+        Cart::associate($cartItem->rowId, 'App\Post');
+
+        /* if (Auth::check()) {
+            Cart::store(Auth::user()->email);
+        } */
+       
+        return redirect()->back();
+    }
+
+
     public function deleteFromCart($id) {
 
         Cart::remove($id);
@@ -49,6 +68,7 @@ class ShoppingController extends Controller
     }
 
     public function checkout() {
+
         return view('cart-checkout')->with('title', 'Checkout');
     }
 }

@@ -31,6 +31,7 @@ Route::post('/articles/edit/{id}','ArticleController@edit');/*Muestra la vista p
 Route::put('/articles/update','ArticleController@update')->name('editArticle');/*Guarda los cambios del articulo*/
 
 Route::post('/carrito/agregar', 'ShoppingController@addToCart')->name('addToCart');
+Route::post('/carrito/agregar/atras', 'ShoppingController@addToCartBack')->name('addToCartBack');
 Route::get('/carrito/eliminar/{id}', 'ShoppingController@deleteFromCart')->name('deleteFromCart');
 Route::get('/carrito/checkout', 'ShoppingController@checkout')->name('checkout');
 Route::get('/carrito', 'ShoppingController@cart')->name('cart');
