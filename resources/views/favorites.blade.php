@@ -4,9 +4,15 @@
     body {
       background-color: #f2f2f2;
     }
+
   </style>
-  <h1 style="margin-top: 89px; text-align:center;">Tus favoritos</h1>
-  <div class="container" style="margin-top: 44px; display:flex;flex-wrap:wrap; min-height:85vh;text-align:center">
+
+
+  <h1 style="margin-top: 89px; text-align:center">Tus favoritos</h1>
+
+
+
+  <div class="container" style="margin-top: 44px; display:flex;flex-wrap:wrap; min-height:85vh;text-align:center; justify-content:center">
     @if (!count($fav)== 0)
       @foreach ($fav as $key => $products)
         @foreach ($products->posts as $key => $product)
@@ -25,7 +31,10 @@
         @endforeach
       @endforeach
     @else
-      <h1>No tienes favoritos! :(</h1>
+
+        <h1>No tienes favoritos! :(</h1>
+
+
     @endif
   </div>
 @endsection

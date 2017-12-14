@@ -5,8 +5,9 @@
     background: #f2f2f2;
     }
   </style>
+
   <h1 style="margin-top: 89px; text-align:center;">Resultado de la busqueda: "{{$buscador}}"</h1>
-  <div class="container" style="margin-top: 44px; display:flex;flex-wrap:wrap;text-align:center;">
+  <div class="container" style="margin-top: 44px; display:flex;flex-wrap:wrap;text-align:center; justify-content:center">
     @foreach ($post as $product)
       <div class="col-xs-6 col-sm-6 col-xl-4 articulo-vista" style="margin-bottom: 20px;">
           <article class="articuloUno articulo">
