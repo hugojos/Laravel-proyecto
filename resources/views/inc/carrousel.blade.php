@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-
     <style media="screen">
     .card {
       height: 100%;
@@ -14,29 +6,31 @@
 overflow: hidden;
 position: relative;
 width: 100%;
-
+min-height: 382px;
 }
 .carrousel-images {
 display: flex;
 transition: all .6s;
 height: 60vh;
+margin: 10px 0;
+min-height: 382px;
 }
 
 .carrousel .articulo-vista {
   flex-shrink: 0;
   display: flex;
-  height: 60vh;
+  height: 100%;
 }
 
 .articulo-vista {
 
   display: flex;
   justify-content: center;
-  height: 60vh;
+  height: 100%;
 }
 
 .articulo {
-    height: 60vh;
+    height: 100%;
 
 }
 .card-img-top {
@@ -274,6 +268,3 @@ carrito.addEventListener('transitionend', function () {
 })
 
 </script>
-
-  </body>
-</html>

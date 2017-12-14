@@ -94,7 +94,7 @@ textarea {
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star-half-o" aria-hidden="true"></i>
       </div>
-      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentarios</span>
+      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentario/s</span>
       <h2 class="padding-top d-block">{{$post->title}}</h2>
       <span class="precio" style="color:#85bb65;">${{$post->price}}</span>
       <p>{{$post->description}}</p>
@@ -142,7 +142,7 @@ textarea {
         <i class="fa fa-star" aria-hidden="true"></i>
         <i class="fa fa-star-half-o" aria-hidden="true"></i>
       </div>
-      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentarios</span>
+      <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentario/s</span>
       <form class="" action="{{route('editArticle')}}" method="post">
         {{ csrf_field() }}
         {{method_field('PUT')}}
