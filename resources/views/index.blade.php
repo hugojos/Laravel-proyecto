@@ -39,7 +39,9 @@
     </div>
   </div>
 
-    <div id="seccion-2" class="seccionesflecha seccionDos">
+  <div class="parallaxSeparador"></div>
+
+    <div id="seccion-2" class="seccionDos">
       <img class="img-sec2" src="/images/sec2.jpg" alt="">
       <div class="parte-sec2">
         <h3 class="title-sec2">PARA LOS PEQUES</h3>
@@ -79,7 +81,13 @@
 
 <!-- CARROUSEL (ubicar todo en INCLUDES)-->
 
-<div class="parallaxUltimo"></div>
+<div class="parallaxUltimo">
+  <div class="texto-ultimo">
+    <h3>Proximamente...</h3>
+    <h3>¡ACCESORIOS!</h3>
+  </div>
+  
+</div>
 
 <!-- <script>
   

@@ -7,7 +7,7 @@ overflow: hidden;
 position: relative;
 width: 100%;
 min-height: 382px;
-background-color: rgb(0, 0, 0);
+background: linear-gradient(black, #3D3D3D);
 }
 .carrousel-images {
 display: flex;

@@ -148,6 +148,13 @@ transform: translate(-50%,-50%);
   animation: flecha-animada 2s ease-in-out infinite;
 }
 
+.parallaxSeparador {
+  background-image: url('/images/parallaxSeparador.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  height: 60vh;
+}
+
 .seccionDos{
  height: 100vh;
  background-color: #F7CE41;
@@ -217,6 +224,16 @@ transform: translate(-50%,-50%);
   background-image: url('/images/parallaxUltimo.jpg');
   background-attachment: fixed;
   height: 100vh;
+}
+.texto-ultimo{
+  color: white;
+  background-color: rgba(255, 255, 255, 0.13);
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  top: 22%;
+  left: 3%;
+  padding: 3%;
 }
 /* NOTE: footer */
 
