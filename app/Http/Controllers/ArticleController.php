@@ -92,7 +92,7 @@ class ArticleController extends Controller
 
       $this->validate($request, [
           'price'=>'required|integer',
-          'title'=> 'required|string|max:100',
+          'title'=> 'required|string|max:100|unique:posts',
           'description'=>'required|string|max:2000',
           'img1' => 'image|max:1999|required',
           'img2' => 'image|max:1999|required',

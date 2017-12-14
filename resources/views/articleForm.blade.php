@@ -57,14 +57,14 @@
 
     <div class="row">
 
-        <div class="col-xs-12 col-md-6 col-xl-6">
-            <span class="">Precio</span>
-            <input type="text" name="price" value="" placeholder="Precio" class="col-xs-12 form-control"><br>
-        </div>
 
         <div class="col-xs-12 col-md-6 col-xl-6">
           <span class="">Titulo</span>
           <input class="form-control col-xs-12" type="text" name="title" value="" placeholder="Titulo">
+        </div>
+        <div class="col-xs-12 col-md-6 col-xl-6">
+          <span class="">Precio</span>
+          <input type="text" name="price" value="" placeholder="Precio" class="col-xs-12 form-control"><br>
         </div>
 
     </div>
