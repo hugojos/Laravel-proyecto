@@ -1,6 +1,7 @@
 @extends('layouts.app1')
 
 @section('content')
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Playfair+Display:700" rel="stylesheet">
 
 
   
@@ -17,7 +18,7 @@
       </video>
     </div>
     <div id='flecha1' class="flecha-bajar">
-      <a href="">
+      <a id="link-flecha1" href="">
         <i class="fa fa-angle-down" aria-hidden="true"></i>
       </a>
     </div>
@@ -33,7 +34,7 @@
     <a class="link-sec1" id="link1-sec1" href="/categorias/mujeres">PARA ELLAS</a>
     <a class="link-sec1" id="link2-sec1" href="/categorias/hombres">PARA ELLOS</a>
     <div id='flecha2' class="flecha-bajar">
-      <a href="">
+      <a id="link-flecha2" href="">
         <i class="fa fa-angle-down" aria-hidden="true"></i>
       </a>
     </div>
@@ -45,11 +46,11 @@
       <img class="img-sec2" src="/images/sec2.jpg" alt="">
       <div class="parte-sec2">
         <h3 class="title-sec2">PARA LOS PEQUES</h3>
-        <hr>
+        <hr class="linea-separadora">
         <a class="link-sec2" href="">ENTRAR</a>
       </div>
       <div id='flecha3' class="flecha-bajar">
-        <a href="">
+        <a id="link-flecha3" href="">
           <i class="fa fa-angle-down" aria-hidden="true"></i>
         </a>
       </div>
@@ -58,22 +59,17 @@
     </div>
 
 
-  <div class="parallaxUno">
-    <div class="container" id="parallaxUno">
-      <div class="row text-center text-light">
-        <div class="col-xs-12 col-sm-6 secciones">
-          <h3>Lanzamiento</h3>
-          <h3>NUEVA TEMPORADA</h3>
-          <h3>2018</h3>
-
-        </div>
-        <div class="col-xs-12 col-sm-6 text-light secciones">
-          <h3>Hombre</h3>
-          <h3>Mujer</h3>
-          <h3>Accesorios</h3>
-        </div>
-      </div>
-    </div>
+  <div class="parallaxDos">
+    <div class="container parallax" id="parallaxUno">
+      <h3 class="linea1-parallax">LANZAMIENTO</h3>
+      <h1 class="linea2-parallax">TEMPORADA 2018</h1>
+    </div>   
+    
+    <div id='flecha4' class="flecha-bajar">
+      <a id="link-flecha4" href="">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </a>
+    </div>    
   </div>
 
   @include('inc.carrousel')
@@ -106,7 +102,7 @@
   $(function () {
     $('#flecha1').click(function (e) {
       e.preventDefault();
-      $('html, body').animate({ scrollTop: $('.seccionUno').offset().top }, 3000);
+      $('html, body').animate({ scrollTop: $('.seccionUno').offset().top }, 3300);
       return false;
     });
   });
@@ -118,10 +114,17 @@
         return false;
       });
     });
-    $(function () {
+     $(function () {
         $('#flecha3').click(function (e) {
           e.preventDefault();
-          $('html, body').animate({ scrollTop: $('.parallaxUno').offset().top }, 2700);
+          $('html, body').animate({ scrollTop: $('.parallaxDos').offset().top }, 2000);
+          return false;
+        });
+      });
+    $(function () {
+        $('#flecha4').click(function (e) {
+          e.preventDefault();
+          $('html, body').animate({ scrollTop: $('#flecha4').offset().top }, 2000);
           return false;
         });
       });

@@ -132,7 +132,7 @@
       <div class="card-header" role="tab" id="headingOne">
         <h5 class="mb-0">
           <a data-toggle="collapse" href="#collapseSix" aria-expanded="true" aria-controls="collapsesix">
-            ¿Se puede chechear el estado del pedido?
+            ¿Se puede checkear el estado del pedido?
           </a>
         </h5>
       </div>
