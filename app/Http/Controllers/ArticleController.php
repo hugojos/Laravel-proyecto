@@ -20,12 +20,15 @@ class ArticleController extends Controller
 
     /*Funcion buscador, le falta vista */
     public function searchGet($buscador){
-      $post=Post::where('title','LIKE','%'.$buscador.'%')->get();
+      $post=Post::where('title','LIKE',$buscador.'%')->get();
+      if (count($post)== 0) {
+        $post=Post::where('title','LIKE','%'.$buscador.'%')->get();
+      }
       return $post;
     }
 
     public function search(Request $request){
-      $post= Post::where('title','LIKE','%'.$request->input('buscador').'%')->paginate(6);
+      $post= Post::where('title','LIKE','%'.$request->input('buscador').'%')->get();
       return view('buscador',['post'=>$post,'title'=>'Resultados','buscador'=>$request->input('buscador')]);
     }
 

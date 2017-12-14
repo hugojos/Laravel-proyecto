@@ -182,7 +182,7 @@ textarea {
         {{ csrf_field() }}
         <div class="form-group">
           <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>
-          <textarea rows="5" name="comment"class="form-control ml-4" id="comment" style="resize:none;"
+          <textarea rows="5" name="comment"class="form-control ml-4" id="comment" style="resize:none;overflow:hidden;"
           placeholder=@if (!Auth::user())
             "Inicia sesion para poder escribir comentarios!"
           @elseif (count($comments)== 0)
