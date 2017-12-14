@@ -181,13 +181,13 @@ transform: translate(-50%,-50%);
   text-align: center;
   color: #22363F;
   }
-.title-sec2 {  
+.title-sec2 {
   color: #22363F;
   font-family: 'Open Sans', sans-serif !important;
   margin-bottom: 25%;
 }
 .linea-separadora {
-  margin-bottom: 25%; 
+  margin-bottom: 25%;
 }
 
 .link-sec2 {
@@ -234,7 +234,7 @@ transform: translate(-50%,-50%);
   color: whitesmoke !important;
 }
 .linea2-parallax {
-  font-family: 'Playfair Display', serif !important;  
+  font-family: 'Playfair Display', serif !important;
   color: whitesmoke;
 }
 #flecha4{
@@ -474,7 +474,7 @@ nav a {
   padding: 30px;
 }
 .misproductos {
-  margin-top: 83.42px;
+  margin-top: 65.42px;
   background-color: white;
   margin-bottom: 83.42px;
 }
