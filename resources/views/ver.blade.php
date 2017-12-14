@@ -1,7 +1,42 @@
 @extends('layouts.app1')
 @section('content')
+  <style media="screen">
+    .seguro {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .cartel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 30px;
+      background-color: #f2f2f2;
+    }
+    .cartel div {
+      display: flex;
+      justify-content: space-around;
+    }
+    .cartel button {
+      width: 40%;
+    }
+  </style>
   <div class="f2f2f2">
+    <div class="seguro" style="display:none">
+      <div class="cartel">
+        <p>¿Estas seguro de que quieres eliminar este articulo?</p>
+        <hr>
+        <div class="">
+          <button type="button" id="si" name="button">Si</button>
+          <button type="button" id="no" name="button">No</button>
 
+        </div>
+      </div>
+    </div>
     <div class="container misproductos">
       <h1 style="text-align:center; margin-bottom:10px;">Tus articulos</h1>
       @foreach ($articulos as $key => $value)
@@ -20,11 +55,11 @@
                 {{ csrf_field() }}
                 <input class="btn btn-primary" type="submit" name="" value="Editar">
               </form>
-              <form class="" action="{{route('deleteArticle')}}" method="post">
+              <form class="eliminar" class="" action="{{route('deleteArticle')}}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('DELETE')}}
                 <input type="hidden" name="id_producto" value="{{$value->id}}">
-                <input class="btn btn-danger"type="submit" name="" value="Eliminar">
+                <button id="boton" class="btn btn-danger" type="button">Eliminar</button>
               </form>
             </div>
             <div class="datos">
@@ -35,6 +70,31 @@
         </div>
         <hr>
       @endforeach
+      <script type="text/javascript">
+      console.log(document.querySelectorAll('#boton'))
+      document.querySelectorAll('#boton').forEach(function(e){
+        e.addEventListener('click',function(){
+          seguro.style.display = "grid"
+
+          si.addEventListener('click',function(event){
+
+            e.parentNode.submit();
+          })
+
+        })
+      })
+      var boton = document.querySelector('#boton');
+      var seguro = document.querySelector('.seguro');
+      var si = document.querySelector('#si');
+      var no = document.querySelector('#no');
+      var eliminar = document.querySelector('#eliminar');
+      boton.addEventListener('click',function(e){
+        seguro.style.display= "grid";
+      })
+      no.addEventListener('click',function(e){
+        seguro.style.display= "none";
+      })
+      </script>
     </div>
   </div>
 @endsection
