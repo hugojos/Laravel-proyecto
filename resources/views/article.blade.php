@@ -96,8 +96,16 @@ textarea {
           <i class="fa fa-star-half-o" aria-hidden="true"></i>
         </div>
         @if (Auth::user())
-          <i class="fa fa-heart" aria-hidden="true" style="font-size:25px;" id="fav"></i>
+          <i class="fa fa-heart" aria-hidden="true" style="font-size:25px;
+
+            @if($fav)
+              color:red;
+            @else
+              color:black;
+            @endif
+
         @endif
+        " id="fav"></i>
         <script type="text/javascript">
         var token = document.querySelector('meta[name="csrf-token"]').content;
         var fav = document.querySelector('#fav');
@@ -214,7 +222,6 @@ textarea {
 <hr>
 <h3 class="text-center">Comentarios</h3>
 <hr>
-
 <!--Div para agregfar comentarios -->
 @if (!$asd == 1)
 

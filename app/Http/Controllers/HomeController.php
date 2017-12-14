@@ -23,16 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-    /*  $users = Post::leftJoin('users', 'posts.user_id', '=', 'users.id')
-      ->select('alias','user_id','description','title','price','posts.id')
-      ->paginate(8);*/
+
       $post = Post::where('offer','=','1')->orderBy('created_at','desc')->get();
 
       if (Auth::user()) {
         $user= Auth::user()->id;
-        //$posts = Post::paginate(10);
         return view('index',['post'=>$post,'user'=>$user,'title'=>'Hugo Sajama']);
-        # code...
       } else {
         return view('index',['post'=>$post,'title'=>'Hugo Sajama']);
       }
