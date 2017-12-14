@@ -70,7 +70,7 @@
 
                                   @if ($errors->has('alias'))
                                       <span class="help-block">
-                                          <strong>{{ $errors->first('alias') }}</strong>
+                                          <strong style="color:red">{{ $errors->first('alias') }}</strong>
                                       </span>
                                   @endif
                               </div>
@@ -83,7 +83,7 @@
 
                                   @if ($errors->has('first_name'))
                                       <span class="help-block">
-                                          <strong>{{ $errors->first('first_name') }}</strong>
+                                          <strong style="color:red">{{ $errors->first('first_name') }}</strong>
                                       </span>
                                   @endif
                               </div>
@@ -97,7 +97,7 @@
 
                                   @if ($errors->has('last_name'))
                                       <span class="help-block">
-                                          <strong>{{ $errors->first('last_name') }}</strong>
+                                          <strong style="color:red">{{ $errors->first('last_name') }}</strong>
                                       </span>
                                   @endif
                               </div>
@@ -111,7 +111,7 @@
 
                                   @if ($errors->has('email'))
                                       <span class="help-block">
-                                          <strong>{{ $errors->first('email') }}</strong>
+                                          <strong style="color:red">{{ $errors->first('email') }}</strong>
                                       </span>
                                   @endif
                               </div>
@@ -125,7 +125,7 @@
 
                                   @if ($errors->has('password'))
                                       <span class="help-block">
-                                          <strong>{{ $errors->first('password') }}</strong>
+                                          <strong style="color:red">{{ $errors->first('password') }}</strong>
                                       </span>
                                   @endif
                               </div>
@@ -141,7 +141,7 @@
 
                           <div class="form-group">
                               <div class="col-md-12">
-                                  <button type="submit" class="btn btn-success justify-content-center">
+                                  <button type="button" id="button" class="btn btn-success justify-content-center">
                                       Registrarse
                                   </button>
 
@@ -172,4 +172,20 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    var alias = document.querySelector('#alias');
+    var nombre = document.querySelector('#nombre');
+    var apellido = document.querySelector('#apellido');
+    var email = document.querySelector('#email');
+    var password = document.querySelector('#password');
+    var password_confirm = document.querySelector('#password-confirm');
+    var button = document.querySelector('#button');
+
+    button.addEventListener('click',function() {
+      if (true) {
+
+      }
+
+    })
+  </script>
 @endsection
