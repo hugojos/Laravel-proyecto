@@ -40,7 +40,8 @@ Route::get('/categorias/mujeres', 'ArtCategoriesController@womenCategory')->name
 Route::get('/categorias/hombres', 'ArtCategoriesController@menCategory')->name('men');
 Route::get('/categorias/kids', 'ArtCategoriesController@kidsCategory')->name('kids');
 
-
+Route::post('/addFav','ArticleController@addFav');
+Route::post('/deleteFav','ArticleController@deleteFav');
 
 Route::get('/', 'HomeController@index')->name('home');/*INDEX*/
 

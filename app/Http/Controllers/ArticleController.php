@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
+use App\Fav;
 use App\Post;
 use App\User;
 use App\Category;
@@ -16,6 +17,19 @@ class ArticleController extends Controller
      */
     public function __construct(){
       $this->middleware('auth',['except'=>['index','search','searchGet']]);
+    }
+
+    public function addFav(Request $request){
+      Fav::create([
+        'user_id'=>Auth::user()->id,
+        'post_id'=>$request->input('id')
+      ]);
+    }
+
+    public function deleteFav(Request $request){
+    $fav = Fav::where('post_id','=',$request->input('id'));
+    $fav->delete();
+
     }
 
     /*Funcion buscador, le falta vista */

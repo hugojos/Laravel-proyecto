@@ -87,12 +87,55 @@ textarea {
 
     </div>
     <div class="descripcion col-xs-12 col-md-6 col-xl-6">
-      <div class="rating-star">
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+      <div class="rating-star" style="display:flex; justify-content: space-between;">
+        <div class="">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star-half-o" aria-hidden="true"></i>
+        </div>
+        @if (Auth::user())
+          <i class="fa fa-heart" aria-hidden="true" style="font-size:25px;" id="fav"></i>
+        @endif
+        <script type="text/javascript">
+        var token = document.querySelector('meta[name="csrf-token"]').content;
+        var fav = document.querySelector('#fav');
+        var xhr= new XMLHttpRequest();
+        fav.addEventListener('click',function(event){
+          if (fav.style.color=="red") {
+            fav.style.color= "black"
+            xhr.onreadystatechange = function(){
+              if (this.readyState == 4) {
+                console.log('elimino');
+              }
+            };
+            //console.log(buscador.value);
+            //console.log(event.key);
+            xhr.open("POST","/deleteFav", true);
+            //xhr.responseType = 'json';
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xhr.setRequestHeader('X-CSRF-TOKEN', token);
+            var id = {{$post->id}};
+            xhr.send('id='+id);
+          } else {
+            fav.style.color = "red"
+            xhr.onreadystatechange = function(){
+              if (this.readyState == 4) {
+                console.log('agrego');
+              }
+            };
+            //console.log(buscador.value);
+            //console.log(event.key);
+            xhr.open("POST","/addFav", true);
+            //xhr.responseType = 'json';
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xhr.setRequestHeader('X-CSRF-TOKEN', token);
+            var id = {{$post->id}};
+            xhr.send('id='+id);
+          }
+        })
+        </script>
       </div>
       <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentario/s</span>
       <h2 class="padding-top d-block">{{$post->title}}</h2>
