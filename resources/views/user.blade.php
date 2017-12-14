@@ -24,7 +24,7 @@
           <p>Nombre: {{$user->first_name}}</p>
           <p>Apellido: {{$user->last_name}}</p>
           <p>Correo: {{$user->email}}</p>
-          @guest
+        @guest
 
           @else
           @if($user->id == Auth::user()->id)
@@ -55,26 +55,8 @@
 
       @endif
       </div>
-<<<<<<< HEAD
-      @endif
-    </div>
-    @endguest
-  @endif
-  @if ($asd==2)
-    <div class="form" style="padding: 0 50px;">
-      <h1>{{$user->alias}}</h1><br>
-      <form class="" action="/users/{{$user->id}}" method="post">
-        <input type="hidden" name="_method" value="PUT">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <p>Nombre: <input type="text" name="first_name" value="{{$user->first_name}}"></p>
-        <p>Apellido: <input type="text" name="last_name" value="{{$user->last_name}}"></p>
-        <p>Correo: <input type="email" name="email" value="{{$user->email}}"></p>
-        <p>Su constraseña: <input type="password" name="password" value=""></p>
-        <input type="submit" name="" value="Guardar">
-      </form>
-    </div>
 
-  @endif
+
 
       <hr style="border: 0.3px solid black!important;">
 
