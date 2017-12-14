@@ -344,15 +344,7 @@ div.columnas-footer ul li{
 div.columnas-footer ul li a{
    color: rgb(166, 166, 166);
    text-decoration: none;
-
 }
-article.col-izquierda{
-
-}
-article.col-derecha{
-
-}
-
 hr.linea-footer {
    margin-top: 20px;
    width: 30%;
@@ -419,13 +411,27 @@ footer p a{
   #noneid {
     display: none !important;
   }
+  
 }
+
 @media (max-width: 992px){
   .border-top {
     border-top: 1px solid #f2f2f2!important;
   }
   .none1{
     display: none !important;
+  }
+  .parte-sec2 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7%;
+    background-color: #f7cd415d;
+  }
+  .link-sec2:hover {
+  text-decoration: none;
+  background-color: #22363F;
+  color: #f7ce41;
   }
 }
 nav img {
@@ -502,6 +508,7 @@ nav a {
 .misproductos form {
   margin-bottom: 3px;
 }
+
 @media (max-width: 767px) {
   .misproductos .articulo {
     flex-direction: column;
