@@ -58,7 +58,7 @@ transform: translate(-50%,-50%);
 #flecha1{
   display: inline-block;
   position: absolute;
-  top: 70%;
+  top: 80vh;;
   left: 46%;
   color: #fff !important;
   font-size: 4rem;
