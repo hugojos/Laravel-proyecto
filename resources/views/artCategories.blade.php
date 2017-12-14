@@ -136,6 +136,11 @@
      font-size: 2.9em !important;
    }
  }
+  @media (max-width: 450px) {
+   .cat-title1, .cat-title2, .cat-title3 {
+     font-size: 2.4em !important;
+   }
+ }
   </style>
 
   <body>

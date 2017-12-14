@@ -46,6 +46,8 @@ transform: translate(-50%,-50%);
   filter:brightness(0.50);
   z-index: -100;
   width: 100%;
+  height: 100vh;
+  object-fit: cover;
   margin-top: 70px;
 
 }
@@ -59,7 +61,8 @@ transform: translate(-50%,-50%);
   display: inline-block;
   position: absolute;
   top: 80vh;;
-  left: 46%;
+  left: 50%;
+  transform: translateX(-50%);
   color: #fff !important;
   font-size: 4rem;
   animation: flecha-animada 2s ease-in-out infinite;
@@ -145,7 +148,7 @@ transform: translate(-50%,-50%);
 #flecha2{
   display: inline-block;
   position: absolute;
-  top: 70%;
+  top: 80vh;
   left: 48%;
   color: #fff !important;
   font-size: 4rem;
@@ -252,16 +255,8 @@ transform: translate(-50%,-50%);
   background-color: rgba(8, 8, 8, 0.336);
   border-radius: 30%, 30%;
 }
-/* .secciones{
-  background-color: rgba(255, 255, 255, 0.25);
-  margin: 10px;
-  border-radius: 6px;
-}
-.ofertas{
- height: auto;
- background-color: rgb(255, 255, 255);
-}
- */
+
+
 .parallaxUltimo {
   background-image: url('/images/parallaxUltimo.jpg');
   background-attachment: fixed;
@@ -373,7 +368,6 @@ div.footer-wrapper p{
 footer p a{
    text-decoration: none;
    color: #B9A88E;
-
 }
 
 
@@ -403,9 +397,11 @@ footer p a{
    hr.linea-footer{
       width: 65%;
    }
-
-
 }
+
+/* ---------------Fin footer------------------- */
+
+
 /* Modificado - Hugo*/
 @media (min-width: 992px) {
   #noneid {
