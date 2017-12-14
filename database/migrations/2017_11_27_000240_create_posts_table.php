@@ -61,7 +61,7 @@ class CreatePostsTable extends Migration
         $art3->save();
 
         $art4= new Post;
-        $art4->title = 'Vestido';
+        $art4->title = 'Vestido Zara';
         $art4->description = 'Vestido negro con volados asimétrico';
         $art4->price = 500;
         $art4->img1 = 'hmprod (4)_15126860161.jpg';
@@ -72,7 +72,7 @@ class CreatePostsTable extends Migration
         $art4->save();
 
         $art5= new Post;
-        $art5->title = 'Camisa';
+        $art5->title = 'Camisa Jon';
         $art5->description = 'Camisa negra con estampa sutil';
         $art5->price = 500;
         $art5->img1 = 'hmprod (11)_15126861121.jpg';
@@ -83,7 +83,7 @@ class CreatePostsTable extends Migration
         $art5->save();
 
         $art6= new Post;
-        $art6->title = 'Remera';
+        $art6->title = 'Remera Ned';
         $art6->description = 'Remera blanca con estampa abstracta';
         $art6->price = 500;
         $art6->img1 = 'hmprod (9)_15126861491.jpg';
@@ -94,7 +94,7 @@ class CreatePostsTable extends Migration
         $art6->save();
 
         $art7= new Post;
-        $art7->title = 'Buzo';
+        $art7->title = 'Buzo Snow';
         $art7->description = 'Buzo negro monochrome';
         $art7->price = 500;
         $art7->img1 = 'hmprod (17)_15126862311.jpg';
@@ -105,7 +105,7 @@ class CreatePostsTable extends Migration
         $art7->save();
 
         $art8= new Post;
-        $art8->title = 'Jean';
+        $art8->title = 'Jean Robb';
         $art8->description = 'Pantalón de jean negro skinny';
         $art8->price = 500;
         $art8->img1 = 'hmprod (15)_15126862891.jpg';
@@ -116,7 +116,7 @@ class CreatePostsTable extends Migration
         $art8->save();
 
         $art9= new Post;
-        $art9->title = 'Jean';
+        $art9->title = 'Jean Lora';
         $art9->description = 'Pantalón de jean';
         $art9->price = 500;
         $art9->img1 = 'hmprod (4)_15126863571.jpg';
@@ -127,7 +127,7 @@ class CreatePostsTable extends Migration
         $art9->save();
 
         $art10= new Post;
-        $art10->title = 'Vestido';
+        $art10->title = 'Vestido Cath';
         $art10->description = 'Vestido rojo a cuadrille';
         $art10->price = 500;
         $art10->img1 = 'hmprod (12)_15126864071.jpg';
@@ -138,7 +138,7 @@ class CreatePostsTable extends Migration
         $art10->save();
 
         $art11= new Post;
-        $art11->title = 'Vestido';
+        $art11->title = 'Vestido Blue';
         $art11->description = 'Vestido azul con estrellas';
         $art11->price = 500;
         $art11->img1 = 'hmprod (16)_15126864521.jpg';
@@ -149,7 +149,7 @@ class CreatePostsTable extends Migration
         $art11->save();
 
         $art12= new Post;
-        $art12->title = 'Buzo';
+        $art12->title = 'Buzo Mickey';
         $art12->description = 'Buzo rojo con estampa de Mickey Mouse';
         $art12->price = 500;
         $art12->img1 = 'hmprod (20)_15126865131.jpg';
