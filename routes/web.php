@@ -35,15 +35,24 @@ Route::get('/carrito/eliminar/{id}', 'ShoppingController@deleteFromCart')->name(
 Route::get('/carrito/checkout', 'ShoppingController@checkout')->name('checkout');
 Route::get('/carrito', 'ShoppingController@cart')->name('cart');
 
+
+
+
 Route::get('/categorias', 'ArtCategoriesController@categories');/**/
 Route::get('/categorias/mujeres', 'ArtCategoriesController@womenCategory')->name('women');
 Route::get('/categorias/hombres', 'ArtCategoriesController@menCategory')->name('men');
 Route::get('/categorias/kids', 'ArtCategoriesController@kidsCategory')->name('kids');
 
+
+
 Route::post('/addFav','ArticleController@addFav');
 Route::post('/deleteFav','ArticleController@deleteFav');
+Route::get('/misfavoritos','ArticleController@fav');
+
 
 Route::get('/', 'HomeController@index')->name('home');/*INDEX*/
+
+
 
 Route::get('/faqs', 'PagesController@faqs');/**/
 Route::get('/productos', 'PagesController@products');/**/

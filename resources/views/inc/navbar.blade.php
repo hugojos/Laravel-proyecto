@@ -68,6 +68,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/users/{{Auth::user()->id}}">Mi perfil</a>
                   </li>
+                  <li>
+                    <a class="nav-link" href="/misfavoritos">Mis favoritos</a>
+                  </li>
       @if (Auth::user()->role == 1)
         <li class="nav-item">
           <a  class="nav-link" href="{{ route('add')}}">Añadir nuevo articulo</a>

@@ -19,6 +19,11 @@ class ArticleController extends Controller
       $this->middleware('auth',['except'=>['index','search','searchGet']]);
     }
 
+    public function fav(){
+      $fav=Auth::user()->favs;
+      return view('favorites',['fav'=>$fav,'title'=>'Favoritos']);
+    }
+
     public function addFav(Request $request){
       Fav::create([
         'user_id'=>Auth::user()->id,
@@ -48,22 +53,16 @@ class ArticleController extends Controller
 
     public function index(Request $request, $id)
     {
-      /*Logre hacerlo de una forma mas prolija usando relaciones en los modelos*/
-      /*$comments = Comment::leftJoin('users','users.id','=','user_id')
-      ->leftJoin('posts','posts.id','=','post_id')
-      ->select('content','alias','comments.created_at','post_id','comments.user_id')
-      ->where('post_id','=',$id)
-      ->orderBy('created_at','desc')
-      ->get();*/
-
       $post = Post::findorFail($id);
       $category = $post->category;
       $comments = $post->comments;
+      $user= Auth::User();
+      $fav=null;
       if (Auth::User()) {
-        $user= Auth::User()->id;
-        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0]);
+        $fav = Fav::where('post_id','=',$id)->where('user_id','=',Auth::user()->id)->first();
+        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0,'fav'=>$fav]);
       } else {
-        return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0]);
+        return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0,'fav'=>$fav]);
       }
     }
 

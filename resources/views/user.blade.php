@@ -35,15 +35,17 @@
     </div>
 
   @endif
+  @if (Auth::user()->role == 1)
     <hr style="border: 0.3px solid black!important;">
-      <h1>Sus publicaciones</h1>
-      <div class="" style="display:flex; flex-wrap:wrap;">
-        @foreach ($posts as $key => $value)
-          <div class="" style="margin:20px; max-width:200px;border: 1px solid black;text-align:center; width:200px; ">
-            <h1>{{$value->title }}</h1>
-            <p>{{$value->description}}</p>
-            <p>Precio: <span style="color:green;">{{$value->price}}</span></p>
-          </div>
-        @endforeach
-      </div>
+    <h1>Sus publicaciones</h1>
+    <div class="" style="display:flex; flex-wrap:wrap;">
+      @foreach ($posts as $key => $value)
+        <div class="" style="margin:20px; max-width:200px;border: 1px solid black;text-align:center; width:200px; ">
+          <h1>{{$value->title }}</h1>
+          <p>{{$value->description}}</p>
+          <p>Precio: <span style="color:green;">{{$value->price}}</span></p>
+        </div>
+      @endforeach
+    </div>
+  @endif
 @endsection
