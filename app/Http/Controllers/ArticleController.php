@@ -191,6 +191,9 @@ class ArticleController extends Controller
       $post= Post::find($request->input('id_producto'));
         if (Auth::user()->id== $post->user_id) {
           $post->delete();
+
+          $eliminar = Fav::where('post_id','=',$request->input('id_producto'))->delete();
+
           return back();
         } else {
           return back();
