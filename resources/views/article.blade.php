@@ -104,8 +104,8 @@ textarea {
               color:black;
             @endif
 
+            " id="fav"></i>
         @endif
-        " id="fav"></i>
         <script type="text/javascript">
         var token = document.querySelector('meta[name="csrf-token"]').content;
         var fav = document.querySelector('#fav');
