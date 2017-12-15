@@ -5,7 +5,7 @@
 <style media="screen">
 
   .container{
-    margin-top: 130px;
+    margin-top: 100px;
     margin-bottom: 100px;
 
   }
@@ -18,6 +18,12 @@
   }
   p{
     font-family: Nunito;
+  }
+  body{
+    background-color: #f2f2f2;
+  }
+  h2 {
+    margin-bottom: 50px;
   }
 </style>
 

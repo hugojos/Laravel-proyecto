@@ -53,6 +53,7 @@ class ArticleController extends Controller
 
     public function index(Request $request, $id)
     {
+
       $post = Post::findorFail($id);
       $category = $post->category;
       $comments = $post->comments;
@@ -111,7 +112,8 @@ class ArticleController extends Controller
           'description'=>'required|string|max:2000',
           'img1' => 'image|max:1999|required',
           'img2' => 'image|max:1999|required',
-          'offer' => 'nullable'
+          'offer' => 'nullable',
+          'category' => 'required'
         ]);
           $fileNameWithExt = $request->file('img1')->getClientOriginalName();
           $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
