@@ -19,7 +19,7 @@ Route::put('/users/{id}','UserController@update')->middleware('auth');/*Guarda l
 Route::post('/articles/{id}','CommentController@store');/*Guarda los comentarios*/
 
 Route::get('/articles/{id}', 'ArticleController@index')->name('mostrarArticulo');/*Muestra la vista del articulo*/
-Route::get('/articles','ArticleController@create');/*Muestra el formulario para agregar articulos*/
+Route::get('/articles','ArticleController@create')->middleware(['auth', 'admin']);/*Muestra el formulario para agregar articulos*/
 
 Route::get('/searchGet/{buscador}','ArticleController@searchGet'); /*BUSCADOR*/
 Route::post('/search','ArticleController@search')->name('search');
