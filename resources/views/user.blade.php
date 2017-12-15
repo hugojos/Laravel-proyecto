@@ -10,7 +10,7 @@
   </style>
 
 
-  <div class="container">
+  <div class="container" style="margin-top:83px;">
     @if ($asd==1)
 
       <div class="jumbotron">
