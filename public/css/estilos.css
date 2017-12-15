@@ -406,7 +406,7 @@ footer p a{
 @media (min-width: 992px) {
   #noneid {
     display: none !important;
-  }  
+  }
 }
 
 
@@ -486,7 +486,7 @@ nav a {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  width:80%;
+  width:95%;
 }
 .misproductos .articulo .der {
   display: flex;
@@ -505,7 +505,7 @@ nav a {
   margin-bottom: 3px;
 }
 
-@media (max-width: 850px){  
+@media (max-width: 850px){
   .img-sec1 {
     width: 100%;
   }
@@ -518,7 +518,7 @@ nav a {
   #link1-sec1 {
     font-size: 1.6em;
     top: 55vh;
-  } 
+  }
   #link2-sec1 {
     top: 65vh;
     font-size: 1.6em;
@@ -559,5 +559,5 @@ nav a {
 @media (max-width: 450px) {
   .title-sec1 {
     top: 46vh;
-  }  
+  }
 }
