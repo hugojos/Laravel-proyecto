@@ -66,7 +66,7 @@
       <div class="parte-sec2">
         <h3 class="title-sec2">PARA LOS PEQUES</h3>
         <hr class="linea-separadora">
-        <a class="link-sec2" href="">ENTRAR</a>
+        <a class="link-sec2" href="/categorias/kids">ENTRAR</a>
       </div>
       <div id='flecha3' class="flecha-bajar">
         <a id="link-flecha3" href="">
@@ -133,6 +133,13 @@
         return false;
       });
     });
+    $(function () {
+        $('#flecha2-mobile').click(function (e) {
+          e.preventDefault();
+          $('html, body').animate({ scrollTop: $('.seccionDos').offset().top }, 2700);
+          return false;
+        });
+      });
      $(function () {
         $('#flecha3').click(function (e) {
           e.preventDefault();
