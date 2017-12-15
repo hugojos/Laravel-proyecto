@@ -594,13 +594,8 @@ nav a {
   margin-bottom: 3px;
 }
 
-<<<<<<< HEAD
-@media (max-width: 850px){
-  .img-sec1 {
-=======
 @media (max-width: 850px){
   /* .img-sec1 {
->>>>>>> bde0cc04bd5b0a14c0cde12b70cacbf2017635c3
     width: 100%;
   }
   .title-sec1 {
@@ -623,7 +618,7 @@ nav a {
 
 @media (max-width: 767px) {
   .christmas{
-    background-image: url('/images/christmas-background-mobile.jpg');
+    background-image: url('/images/christmas-background-mobile.jpg') !important;
   }
 
   .misproductos .articulo {
@@ -652,11 +647,6 @@ nav a {
   margin-top: 83.23px;
 }
 
-<<<<<<< HEAD
-@media (max-width: 450px) {
-  .title-sec1 {
-    top: 46vh;
-=======
 @media (max-width: 675px) {
   #link1-sec1-mobile {
     font-size: 1.5em;
@@ -665,8 +655,10 @@ nav a {
   #link2-sec1-mobile {
     font-size: 1.5em;
    right: 63%;
->>>>>>> bde0cc04bd5b0a14c0cde12b70cacbf2017635c3
   }
+ /*  .christmas {
+    background-image: url('/christmas-background-mobile.jpg');
+  } */
 }
 
 @media (max-width: 400px) {
