@@ -25,7 +25,7 @@ class CreateCommentsTable extends Migration
         $comment->content='Me encantó el sweater. Muy abrigado y de excelente calidad. Espero comprar nuevamente!';
         $comment->post_id=1;
         $comment->user_id=1;
-        $hombre->save();
+        $comment->save();
 
     }
 
