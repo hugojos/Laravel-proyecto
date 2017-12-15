@@ -104,7 +104,6 @@
     <input class="btn btn-success mt-5 mb-4" type="submit" name="" value="Añadir">
 
   </form>
-  {{$errors}}
 </div>
 
 @endsection
