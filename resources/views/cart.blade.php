@@ -25,17 +25,17 @@
       display: flex;
       justify-content: center;
       margin: 30px 0px;
-      
+
     }
 </style>
 
 <div class="container">
   <section class="cart-container">
-<<<<<<< HEAD
+
     <h2 class="cart-title">Productos en tu carrito: {{Cart::content()->count()}}</h2>
-   
+
     <table class="table">
-=======
+
     <div class="row">
       <div class="col-xs-12 -col-md-6 col-xl-6">
         <h2 id="centrar" class="cart-title">Productos en tu carrito: {{Cart::content()->count()}}</h2>
@@ -45,7 +45,7 @@
     <div class="row">
 
     <table  class="table col-xs-12 col-md-12 col-xl-8">
->>>>>>> dfce09d1d0bb281fda867e0254b506ea1736b1eb
+
       <thead class="thead-light">
         <tr>
           <th scope="col"></th>
@@ -77,7 +77,7 @@
         </tr>
       </tbody>
     </table>
- 
+
 
   </section>
 

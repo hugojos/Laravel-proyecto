@@ -208,7 +208,7 @@ transform: translate(-50%,-50%);
 }
 #link2-sec1-mobile {
   top: 71%;
-  right: 63%;  
+  right: 63%;
 }
 
 #flecha2-mobile {
@@ -490,7 +490,7 @@ footer p a{
 }
 
 @media (max-width: 1090px) {
- 
+
 }
 
 @media (max-width: 992px){
@@ -598,7 +598,7 @@ nav a {
 @media (max-width: 850px){
   .img-sec1 {
 =======
-@media (max-width: 850px){  
+@media (max-width: 850px){
   /* .img-sec1 {
 >>>>>>> bde0cc04bd5b0a14c0cde12b70cacbf2017635c3
     width: 100%;
@@ -664,7 +664,7 @@ nav a {
   }
   #link2-sec1-mobile {
     font-size: 1.5em;
-   right: 63%;  
+   right: 63%;
 >>>>>>> bde0cc04bd5b0a14c0cde12b70cacbf2017635c3
   }
 }
