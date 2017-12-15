@@ -32,7 +32,7 @@
 .carrousel {
   overflow: hidden;
   position: relative;
-  width: 63%;
+  width: 50%;
   height: auto;
   margin: 0 auto;
 }
@@ -41,8 +41,8 @@
   transition: all .6s;
 }
 .carrousel-images img {
-  max-width: 449px;
-  max-height: 384px;
+  max-height: 449px;
+  max-width: 384px;
 }
 
 
