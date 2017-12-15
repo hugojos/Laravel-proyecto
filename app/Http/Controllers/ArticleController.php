@@ -58,11 +58,22 @@ class ArticleController extends Controller
       $comments = $post->comments;
       $user= Auth::User();
       $fav=null;
+      switch ($category->id) {
+        case '1':
+          $nombre = 'hombres';
+          break;
+        case '2':
+          $nombre = 'mujeres';
+          break;
+        case '3':
+          $nombre = 'kids';
+          break;
+      };
       if (Auth::User()) {
         $fav = Fav::where('post_id','=',$id)->where('user_id','=',Auth::user()->id)->first();
-        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0,'fav'=>$fav]);
+        return view('article',['user'=>$user,'post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0,'fav'=>$fav,'nombre'=>$nombre]);
       } else {
-        return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0,'fav'=>$fav]);
+        return view('article',['post'=>$post,'comments'=>$comments,'title'=>$post->title,'category'=>$category,'asd'=>0,'fav'=>$fav,'nombre'=>$nombre]);
       }
     }
 

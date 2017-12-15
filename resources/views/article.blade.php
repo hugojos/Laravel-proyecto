@@ -152,7 +152,7 @@ textarea {
       <hr>
       <div class="padding-bottom-1x mb-2">
         <span class="text-medium">Categoria: </span>
-        <a class="" href="#">{{$category->name}}</a>
+        <a class="" href="/categorias/{{$nombre}}">{{$category->name}}</a>
       </div>
       <div class="compartir">
         <span class="text-muted">Compartir:</span>
