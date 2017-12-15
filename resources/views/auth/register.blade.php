@@ -46,9 +46,9 @@
   body{
     background-image: url("/images/parallax.jpg");
     background-repeat: no-repeat;
-    background-size:100% auto;
-    background-position-y: 60px;
-    background-attachment: fixed;
+    background-size:100% 59%;
+
+
   }
   </style>
 

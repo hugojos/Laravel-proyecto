@@ -32,7 +32,7 @@
 .carrousel {
   overflow: hidden;
   position: relative;
-  width: 63%;
+  width: 55%;
   height: auto;
   margin: 0 auto;
 }
@@ -40,7 +40,10 @@
   display: flex;
   transition: all .6s;
 }
-
+.carrousel-images img {
+  max-height: 449px;
+  max-width: 384px;
+}
 img {
   object-fit: cover;
 }
@@ -65,9 +68,6 @@ img {
 }
 .jumbotron {
   padding: 2rem 2rem;
-}
-textarea {
-  width: 80vw !important;
 }
 </style>
 
@@ -212,7 +212,7 @@ textarea {
         {{method_field('PUT')}}
       <h2 class="padding-top d-block"><input style="border:none; border-bottom: 1px solid black" type="text" name="title" value="{{$post->title}}"></h2>
       <span class="precio">$<input type="text" name="price" style="border:none; border-bottom: 1px solid black"value="{{$post->price}}"></span>
-      <textarea name="descriptio" rows="5" cols="80" style="border:none; border-bottom: 1px solid black">{{$post->description}}</textarea>
+      <textarea name="descriptio" rows="5" cols="80" style="border:none; border-bottom: 1px solid black;resize: none;width:100%;">{{$post->description}}</textarea>
       <hr>
       <div class="padding-bottom-1x mb-2">
         <span class="text-medium">Categoria: </span>
@@ -241,7 +241,7 @@ textarea {
   <!-- CAJA DE COMENTARIOS -->
 
     <div class="row" style="margin-bottom: 20px;">
-      <form class="" action="/articles/{{$post->id}}" method="post">
+      <form class="" action="/articles/{{$post->id}}" method="post" style="width:80%">
         {{ csrf_field() }}
         <div class="form-group">
           <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>

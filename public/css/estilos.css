@@ -486,7 +486,7 @@ footer p a{
 @media (min-width: 992px) {
   #noneid {
     display: none !important;
-  }  
+  }
 }
 
 @media (max-width: 1090px) {
@@ -575,7 +575,7 @@ nav a {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  width:80%;
+  width:95%;
 }
 .misproductos .articulo .der {
   display: flex;
@@ -594,8 +594,13 @@ nav a {
   margin-bottom: 3px;
 }
 
+<<<<<<< HEAD
+@media (max-width: 850px){
+  .img-sec1 {
+=======
 @media (max-width: 850px){  
   /* .img-sec1 {
+>>>>>>> bde0cc04bd5b0a14c0cde12b70cacbf2017635c3
     width: 100%;
   }
   .title-sec1 {
@@ -608,7 +613,7 @@ nav a {
     font-size: 1.6em;
     left: 50%;
     top: 55vh;
-  } 
+  }
   #link2-sec1 {
     top: 65vh;
     left: 50%;
@@ -647,6 +652,11 @@ nav a {
   margin-top: 83.23px;
 }
 
+<<<<<<< HEAD
+@media (max-width: 450px) {
+  .title-sec1 {
+    top: 46vh;
+=======
 @media (max-width: 675px) {
   #link1-sec1-mobile {
     font-size: 1.5em;
@@ -655,6 +665,7 @@ nav a {
   #link2-sec1-mobile {
     font-size: 1.5em;
    right: 63%;  
+>>>>>>> bde0cc04bd5b0a14c0cde12b70cacbf2017635c3
   }
 }
 
