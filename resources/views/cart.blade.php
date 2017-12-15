@@ -28,6 +28,7 @@
 <div class="flex">
   <section class="cart-container">
     <h2 class="cart-title">Productos en tu carrito: {{Cart::content()->count()}}</h2>
+   
     <table class="table">
       <thead class="thead-light">
         <tr>
@@ -67,6 +68,7 @@
         </tr>
       </tbody>
     </table>
+ 
 
   </section>
 

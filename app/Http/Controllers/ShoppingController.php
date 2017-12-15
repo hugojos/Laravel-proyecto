@@ -19,6 +19,11 @@ class ShoppingController extends Controller
     public function addToCart(Request $request) {
 
         $producto = Post::find($request->product_id);
+
+        if (Auth::check()){
+            Cart::restore(Auth::user()->email);
+        }
+        
         $cartItem = Cart::add([
             'id'=> $producto->id,
             'name' => $producto->title,
@@ -28,16 +33,24 @@ class ShoppingController extends Controller
 
         Cart::associate($cartItem->rowId, 'App\Post');
 
-        /* if (Auth::check()) {
+        if (Auth::check()) {
             Cart::store(Auth::user()->email);
-        } */
+            return redirect()->route('cart');
+        } else {
+            return redirect()->route('login');
+        }
        
-        return redirect()->route('cart');
+        
     }
 
     public function addToCartBack(Request $request) {
 
         $producto = Post::find($request->product_id);
+        
+        if (Auth::check()){
+            Cart::restore(Auth::user()->email);
+        }
+
         $cartItem = Cart::add([
             'id'=> $producto->id,
             'name' => $producto->title,
@@ -47,11 +60,14 @@ class ShoppingController extends Controller
 
         Cart::associate($cartItem->rowId, 'App\Post');
 
-        /* if (Auth::check()) {
+         if (Auth::check()) {
             Cart::store(Auth::user()->email);
-        } */
+            return redirect()->back();
+        } else {
+            return redirect()->route('login');
+        }
        
-        return redirect()->back();
+        
     }
 
 

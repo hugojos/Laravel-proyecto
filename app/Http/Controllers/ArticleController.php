@@ -84,6 +84,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
+      if(Auth::user()->role == 0) {
+        redirect()->route('home');
+      }
+
       $category = Category::all();
       $user = Auth::user();
       return view('articleForm')->with('user', $user)

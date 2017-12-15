@@ -61,4 +61,6 @@ class LoginController extends Controller
 
           return $user->name;
     }
+
+
 }
