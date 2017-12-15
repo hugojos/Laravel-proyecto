@@ -38,14 +38,13 @@
     }
 
 </style>
-<div class="row height">
-
-<div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5">
+<div class="row height" style="display:flex;justify-content:center;">
+  <div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5" style="max-height:500px;">
     <div class="row">
-            <div class="panel panel-default">
+            <div class="panel panel-default" >
                 <div class="panel-heading text-center">INGRESAR</div>
 
-                <div class="panel-body">
+                <div class="panel-body" >
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}" id="formLogin">
                         {{ csrf_field() }}
 

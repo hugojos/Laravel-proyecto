@@ -1,7 +1,11 @@
 @extends('layouts.app1')
 
 @section('content')
-  <style media="screen">
+<style media="screen">
+  input[type=checkbox] {
+  transform: scale(1.5);
+  margin-left: 5px;
+  }
   body{
     background-color: #f2f2f2;
   }
@@ -38,7 +42,7 @@
   }
 
   }
-  </style>
+</style>
 
 
 <div class="container">
@@ -49,7 +53,7 @@
       <span class="custom-file-control"></span>
     </label> --}}
     <div class="row">
-      <div class="col-xs-12 col-md-6 col-xl-12">
+      <div class="col-xs-12 col-md-12 col-xl-12">
         <h3 class="mt-5 text-center">Nuevo Artículo</h3>
       </div>
     </div>
@@ -83,25 +87,24 @@
       </div>
     </div>
 
-
     <label for="oferta">Es una oferta</label>
-    <input id="oferta" type="checkbox" name="oferta" value="1">
+    <input style="" id="oferta" type="checkbox" name="oferta" value="1">
     <br>
-    <textarea class="textarea" name="description" rows="8" cols="80" placeholder="Descripcion">{{old('description')}}</textarea><br>
+    <textarea style="resize:none;overflow: hidden;" class="textarea" name="description" rows="8" cols="80" placeholder="Descripcion">{{old('description')}}</textarea><br>
 
 
     <div class="row">
-      <div class="col-xs-12 col-md-6 col-xl-6 form-group">
+      <div class="col-xs-12 col-md-12 col-xl-6 form-group">
         <label for="file">Subir imagen 1</label>
-        <input class="form-control-file" type="file" id="file" name="img1">
+        <input style="margin: 0 auto;" class="form-control-file" type="file" id="file" name="img1">
       </div>
-      <div class="col-xs-12 col-md-6 col-xl-6 form-group">
+      <div class="col-xs-12 col-md-12 col-xl-6 form-group">
         <label for="file1">Subir imagen 2</label>
-        <input class="form-control-file" type="file" id="file1" name="img2">
+        <input style="margin: 0 auto;" class="form-control-file" type="file" id="file1" name="img2">
       </div>
     </div>
 
-    <input class="btn btn-success mt-5 mb-4" type="submit" name="" value="Añadir">
+    <input class="btn btn-success mt-5 mb-4" type="submit" name="" style="font-size:18px; padding:7px 40px;" value="Añadir">
 
   </form>
 </div>

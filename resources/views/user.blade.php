@@ -5,11 +5,6 @@
     #favoritos{
       margin: 10px 10px;
     }
-    .container{
-
-
-    }
-
 
 
   </style>
@@ -20,7 +15,7 @@
 
       <div class="jumbotron">
         <div class="mostrar">
-          <h1>{{$user->alias}}</h1><br>
+          <h1 style="text-align:center; font-size:65px;text-transform:uppercase;">{{$user->alias}}</h1><br>
           <p>Nombre: {{$user->first_name}}</p>
           <p>Apellido: {{$user->last_name}}</p>
           <p>Correo: {{$user->email}}</p>
