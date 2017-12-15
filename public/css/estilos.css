@@ -158,10 +158,78 @@ transform: translate(-50%,-50%);
   color: rgb(31, 31, 31) !important;
 }
 
+#seccion-1-mobile {
+  height: 100vh;
+  position: relative;
+  display: none;
+  margin-bottom: -1px;
+}
+.sec1-mujer {
+  height: 50vh;
+  width: 100%;
+  overflow: hidden;
+}
+.sec1-hombre{
+  height: 50vh;
+  width: 100%;
+  overflow: hidden;
+}
+.img-sec1-mobile{
+  width: 50%;
+  height: 50vh;
+  object-fit: cover;
+}
+.img-sec1-mobile2 {
+  width: 50%;
+  height: 50vh;
+  position: relative;
+  float: right;
+  object-fit: cover;
+}
+.link-sec1-mobile {
+  position: absolute;
+  z-index: 3;
+  color: #676767;
+  font-family: 'Open Sans', sans-serif !important;
+  padding: 1%;
+  border: 1.5px solid #EA3333;
+  transition: background-color 0.4s;
+  text-decoration: none;
+  font-size: 2em;
+}
+.link-sec1-mobile:hover {
+  background-color: #EA3333;
+  color: #F5F5F7;
+  text-decoration: none;
+}
+#link1-sec1-mobile {
+  top: 23%;
+  left: 64%;
+}
+#link2-sec1-mobile {
+  top: 71%;
+  right: 63%;  
+}
+
+#flecha2-mobile {
+  display: inline-block;
+  position: absolute;
+  top: 80vh;
+  left: 45%;
+  font-size: 4rem;
+  animation: flecha-animada 2s ease-in-out infinite;
+}
+
+#link-flecha2mobile {
+  color: rgb(31, 31, 31) !important;
+}
+
+
 .parallaxSeparador {
   background-image: url('/images/parallaxSeparador.jpg');
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
   height: 60vh;
 }
 
@@ -172,8 +240,10 @@ transform: translate(-50%,-50%);
 }
 .img-sec2 {
   height: 100vh;
-  max-width: 100%;
+  width: 75%;
+  object-fit: cover;
   position: relative;
+  object-position: 72% 50%;
 }
 
 .parte-sec2 {
@@ -209,7 +279,7 @@ transform: translate(-50%,-50%);
 #flecha3{
   display: inline-block;
   position: absolute;
-  top: 70%;
+  top: 80vh;
   left: 46%;
   color: #fff !important;
   font-size: 4rem;
@@ -243,7 +313,7 @@ transform: translate(-50%,-50%);
 #flecha4{
   display: inline-block;
   position: absolute;
-  top: 73vh;
+  top: 80vh;
   left: 50%;
   transform: translate(-50%);
   color: #fff !important;
@@ -261,6 +331,8 @@ transform: translate(-50%,-50%);
   background-image: url('/images/parallaxUltimo.jpg');
   background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
 }
 .texto-ultimo{
@@ -401,7 +473,15 @@ footer p a{
 
 /* -------------------------Fin footer------------------- */
 
+@media (orientation: portrait) {
+  .seccionUno {
+    display:none;
+  }
 
+  #seccion-1-mobile{
+    display: block;
+  }
+}
 /* Modificado - Hugo*/
 @media (min-width: 992px) {
   #noneid {
@@ -409,6 +489,9 @@ footer p a{
   }
 }
 
+@media (max-width: 1090px) {
+ 
+}
 
 @media (max-width: 992px){
   .border-top {
@@ -429,7 +512,13 @@ footer p a{
   background-color: #22363F;
   color: #f7ce41;
   }
+  .img-sec2{
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%);
+  }
 }
+
 nav img {
   position: relative;
   top: 6px;
@@ -505,8 +594,13 @@ nav a {
   margin-bottom: 3px;
 }
 
+<<<<<<< HEAD
 @media (max-width: 850px){
   .img-sec1 {
+=======
+@media (max-width: 850px){  
+  /* .img-sec1 {
+>>>>>>> bde0cc04bd5b0a14c0cde12b70cacbf2017635c3
     width: 100%;
   }
   .title-sec1 {
@@ -517,12 +611,14 @@ nav a {
   }
   #link1-sec1 {
     font-size: 1.6em;
+    left: 50%;
     top: 55vh;
   }
   #link2-sec1 {
     top: 65vh;
+    left: 50%;
     font-size: 1.6em;
-  }
+  } */
 }
 
 @media (max-width: 767px) {
@@ -556,8 +652,28 @@ nav a {
   margin-top: 83.23px;
 }
 
+<<<<<<< HEAD
 @media (max-width: 450px) {
   .title-sec1 {
     top: 46vh;
+=======
+@media (max-width: 675px) {
+  #link1-sec1-mobile {
+    font-size: 1.5em;
+    left: 64%;
+  }
+  #link2-sec1-mobile {
+    font-size: 1.5em;
+   right: 63%;  
+>>>>>>> bde0cc04bd5b0a14c0cde12b70cacbf2017635c3
+  }
+}
+
+@media (max-width: 400px) {
+   #link1-sec1-mobile {
+    font-size: 1.15em;
+  }
+  #link2-sec1-mobile {
+    font-size: 1.15em;
   }
 }

@@ -27,23 +27,42 @@
   <div class="christmas">
 
   </div>
-
-  <div id="seccion-1" class="seccionUno">
-    <img class="img-sec1" src="/images/sec1.jpg" alt="">
-    <h3 class="title-sec1">Regalos perfectos</h3>
-    <a class="link-sec1" id="link1-sec1" href="/categorias/mujeres">PARA ELLAS</a>
-    <a class="link-sec1" id="link2-sec1" href="/categorias/hombres">PARA ELLOS</a>
-    <div id='flecha2' class="flecha-bajar">
-      <a id="link-flecha2" href="">
-        <i class="fa fa-angle-down" aria-hidden="true"></i>
-      </a>
+  <div class="seccionPrimera">
+    <div id="seccion-1" class="seccionUno">
+      <img class="img-sec1" src="/images/sec1.jpg" alt="">
+      <h3 class="title-sec1">Regalos perfectos</h3>
+      <a class="link-sec1" id="link1-sec1" href="/categorias/mujeres">PARA ELLAS</a>
+      <a class="link-sec1" id="link2-sec1" href="/categorias/hombres">PARA ELLOS</a>
+      <div id='flecha2' class="flecha-bajar">
+        <a id="link-flecha2" href="">
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
+    
+    <div id="seccion-1-mobile">
+      <div class="sec1-mujer">
+        <img class="img-sec1-mobile" src="/images/sec1-mobile.jpg" alt="">
+        <a class="link-sec1-mobile" id="link1-sec1-mobile" href="/categorias/mujeres">PARA ELLAS</a>
+      </div>
+      <div class="sec1-hombre">
+        <img class="img-sec1-mobile2" src="/images/sec1-mobile2.jpg" alt="">
+        <a class="link-sec1-mobile" id="link2-sec1-mobile" href="/categorias/hombres">PARA ELLOS</a>
+      </div>
+      <div id='flecha2-mobile' class="flecha-bajar">
+        <a id="link-flecha2mobile" href="">
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
   </div>
+  
 
   <div class="parallaxSeparador"></div>
 
     <div id="seccion-2" class="seccionDos">
-      <img class="img-sec2" src="/images/sec2.jpg" alt="">
+      <img class="img-sec2" src="/images/secdos.jpg" alt="">
       <div class="parte-sec2">
         <h3 class="title-sec2">PARA LOS PEQUES</h3>
         <hr class="linea-separadora">
@@ -102,7 +121,7 @@
   $(function () {
     $('#flecha1').click(function (e) {
       e.preventDefault();
-      $('html, body').animate({ scrollTop: $('.seccionUno').offset().top }, 3300);
+      $('html, body').animate({ scrollTop: $('.seccionPrimera').offset().top }, 3300);
       return false;
     });
   });
