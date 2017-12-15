@@ -60,11 +60,11 @@
 
         <div class="col-xs-12 col-md-6 col-xl-6">
           <span class="">Titulo</span>
-          <input class="form-control col-xs-12" type="text" name="title" value="" placeholder="Titulo">
+          <input class="form-control col-xs-12" type="text" name="title" value="{{old('title')}}" placeholder="Titulo">
         </div>
         <div class="col-xs-12 col-md-6 col-xl-6">
           <span class="">Precio</span>
-          <input type="text" name="price" value="" placeholder="Precio" class="col-xs-12 form-control"><br>
+          <input type="text" name="price" value="{{old('price')}}" placeholder="Precio" class="col-xs-12 form-control"><br>
         </div>
 
     </div>
@@ -87,7 +87,7 @@
     <label for="oferta">Es una oferta</label>
     <input id="oferta" type="checkbox" name="oferta" value="1">
     <br>
-    <textarea class="textarea"name="description" rows="8" cols="80" placeholder="Descripcion"></textarea><br>
+    <textarea class="textarea" name="description" rows="8" cols="80" placeholder="Descripcion">{{old('description')}}</textarea><br>
 
 
     <div class="row">
@@ -104,6 +104,7 @@
     <input class="btn btn-success mt-5 mb-4" type="submit" name="" value="Añadir">
 
   </form>
+  {{$errors}}
 </div>
 
 @endsection
