@@ -30,7 +30,7 @@
   <div class="faq-background">
     <div class="container">
       <div class="faq-titulo">
-        <h2 class="text-center">Preguntas Frecuentes</h2>
+        <h2 class="text-center text-uppercase">Preguntas Frecuentes</h2>
         <p class="faq">Aquí encontrarás las respuestas que necesitas sobre Hugo Sajama.
           Para cuestiones más específicas, puedes contactarnos via Email
           o telefonicamente.</p>

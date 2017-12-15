@@ -32,7 +32,7 @@
 <div class="container">
   <section class="cart-container">
 
-    
+
 
     <table class="table">
 
@@ -61,7 +61,7 @@
           <tr>
 
             <td> <a class="btn btn-danger" href="{{route('deleteFromCart', ['id'=>$item->rowId]) }}">x</a> </td>
-            <td class="img-row"><img class="prod-img" src="storage/products/{{$item->model->img2}} " alt="" srcset=""></td>
+            <td class="img-row"><img class="prod-img d-none d-sm-block" src="storage/products/{{$item->model->img2}} " alt="" srcset=""></td>
             <td>{{$item->id}}</td>
             <td>{{$item->name}} </td>
             <td>$ {{$item->price}}.00 </td>
