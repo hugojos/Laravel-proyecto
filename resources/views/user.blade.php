@@ -11,9 +11,9 @@
 
 
   <div class="container" style="margin-top:83px;">
+    <div class="jumbotron">
     @if ($asd==1)
 
-      <div class="jumbotron">
         <div class="mostrar">
           <h1 style="text-align:center; font-size:65px;text-transform:uppercase;">{{$user->alias}}</h1><br>
           <p>Nombre: {{$user->first_name}}</p>
@@ -36,7 +36,7 @@
 
       @if ($asd==2)
         <div class="form" style="padding: 0 50px;">
-          <h1>{{$user->alias}}</h1><br>
+          <h1 style="text-align:center; font-size:65px;text-transform:uppercase;">{{$user->alias}}</h1><br>
           <form class="" action="/users/{{$user->id}}" method="post">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
