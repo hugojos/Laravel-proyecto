@@ -32,7 +32,7 @@
 .carrousel {
   overflow: hidden;
   position: relative;
-  width: 50%;
+  width: 55%;
   height: auto;
   margin: 0 auto;
 }
@@ -44,7 +44,9 @@
   max-height: 449px;
   max-width: 384px;
 }
-
+img {
+  object-fit: cover;
+}
 
 .img-carrousel {
   width:100%;
