@@ -161,16 +161,22 @@ textarea {
         <i class="fa fa-instagram" aria-hidden="true"></i>
       </div>
       <hr>
-      <div class="" style="display:flex;">
+      <div class="row">
+
         <form method="post" action="{{route('addToCart')}}">
           {{csrf_field()}}
-          <input type="hidden" name="product_id" value="{{$post->id}}">
-          <button type="" name="button" class="btn btn-danger">Comprar</button>
+          
+            <input type="hidden" name="product_id" value="{{$post->id}}">
+            <button type="" name="button" class="btn btn-danger m-2">Comprar</button>
+
         </form>
+
         <form method="post" action="{{route('addToCartBack')}}">
           {{csrf_field()}}
-          <input type="hidden" name="product_id" value="{{$post->id}}">
-          <button type="submit" name="button" class="btn btn-light">Agregar al carrito</button>
+
+            <input type="hidden" name="product_id" value="{{$post->id}}">
+            <button type="submit" name="button" class="btn btn-success m-2">Agregar al carrito</button>
+
         </form>
 
       </div>
