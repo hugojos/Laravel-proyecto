@@ -69,6 +69,10 @@ img {
 .jumbotron {
   padding: 2rem 2rem;
 }
+
+a i{
+  color: black;
+}
 </style>
 
 @if ($asd==0)
@@ -156,16 +160,17 @@ img {
       </div>
       <div class="compartir">
         <span class="text-muted">Compartir:</span>
-        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-        <i class="fa fa-twitter-square" aria-hidden="true"></i>
-        <i class="fa fa-instagram" aria-hidden="true"></i>
+        <a href="https://www.facebook.com/hugo.sajama.56" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+        <a href="http://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
       </div>
+
       <hr>
       <div class="row">
 
         <form method="post" action="{{route('addToCart')}}">
           {{csrf_field()}}
-          
+
             <input type="hidden" name="product_id" value="{{$post->id}}">
             <button type="" name="button" class="btn btn-danger m-2">Comprar</button>
 
