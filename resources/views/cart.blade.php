@@ -32,7 +32,7 @@
 <div class="container">
   <section class="cart-container">
 
-    <h2 class="cart-title">Productos en tu carrito: {{Cart::content()->count()}}</h2>
+    
 
     <table class="table">
 
