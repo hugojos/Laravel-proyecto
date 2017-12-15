@@ -48,7 +48,8 @@ class UserController extends Controller
     {
         $user = \App\User::find($id);
         $post = \App\Post::where('user_id','=',$id)->get();
-        return view('user',['user'=>$user,'posts'=>$post,'asd'=>'1', 'title'=>'Mi perfil']);
+        $fav = $user->favs;
+        return view('user',['user'=>$user,'posts'=>$post,'asd'=>'1', 'title'=>'Mi perfil','fav'=>$fav]);
     }
 
     /**

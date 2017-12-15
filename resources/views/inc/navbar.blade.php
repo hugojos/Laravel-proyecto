@@ -41,7 +41,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto border-top">
+    <ul class="navbar-nav mr-auto border-top" id="menu">
       <form id="noneid" class="none form-inline my-2 my-lg-0 " action="/search" method="POST">
         {{ csrf_field() }}
         <div class="form-div" >
@@ -144,5 +144,8 @@
       xhr.setRequestHeader('X-CSRF-TOKEN', token);
       xhr.send();
     })
+
+
+
 
 </script>
