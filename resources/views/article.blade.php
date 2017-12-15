@@ -40,10 +40,11 @@
   display: flex;
   transition: all .6s;
 }
-
-img {
-  object-fit: cover;
+.carrousel-images img {
+  max-width: 449px;
+  max-height: 384px;
 }
+
 
 .img-carrousel {
   width:100%;
