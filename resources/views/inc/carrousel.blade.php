@@ -126,84 +126,9 @@ right: 30px;
         </div>
     @endforeach
 
-       <!--  <div class="col-xs-6 col-sm-6 col-xl-4 articulo-vista">
-          <article class="articuloUno articulo">
-            <div class="card">
-              <img class="card-img-top" src="/storage/products/" alt="Imagen producto uno" >
-              <div class="card-body">
-                <h4 class="card-title"></h4>
-                <p class="card-text">
-                   <br>
-                </p>
-                <a href="/articles/" class="btn btn-primary1">Lo quiero!</a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-xl-4 articulo-vista">
-          <article class="articuloUno articulo">
-            <div class="card">
-              <img class="card-img-top" src="/storage/products/" alt="Imagen producto uno" >
-              <div class="card-body">
-                <h4 class="card-title"></h4>
-                <p class="card-text">
-                   <br>
-                </p>
-                <a href="/articles/" class="btn btn-primary1">Lo quiero!</a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-xl-4 articulo-vista">
-          <article class="articuloUno articulo">
-            <div class="card">
-              <img class="card-img-top" src="/storage/products/" alt="Imagen producto uno" >
-              <div class="card-body">
-                <h4 class="card-title"></h4>
-                <p class="card-text">
-                   <br>
-                </p>
-                <a href="/articles/" class="btn btn-primary1">Lo quiero!</a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-xl-4 articulo-vista">
-          <article class="articuloUno articulo">
-            <div class="card">
-              <img class="card-img-top" src="/storage/products/" alt="Imagen producto uno" >
-              <div class="card-body">
-                <h4 class="card-title"></h4>
-                <p class="card-text">
-                   <br>
-                </p>
-                <a href="/articles/" class="btn btn-primary1">Lo quiero!</a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col-xs-6 col-sm-6 col-xl-4 articulo-vista">
-          <article class="articuloUno articulo">
-            <div class="card">
-              <img class="card-img-top" src="/storage/products/" alt="Imagen producto uno" >
-              <div class="card-body">
-                <h4 class="card-title"></h4>
-                <p class="card-text">
-                   <br>
-                </p>
-                <a href="/articles/" class="btn btn-primary1">Lo quiero!</a>
-              </div>
-            </div>
-          </article>
-        </div>
- -->
     </div>
-     <button type="button" class="btn-carrousel prev">&lt;</button>
-  <button type="button" class="btn-carrousel next">&gt;</button>
+    <button type="button" class="btn-carrousel prev">&lt;</button>
+    <button type="button" class="btn-carrousel next">&gt;</button>
   </div>
 
 

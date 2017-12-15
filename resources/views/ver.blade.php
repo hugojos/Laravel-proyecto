@@ -24,6 +24,10 @@
     .cartel button {
       width: 40%;
     }
+    @media (min-width: 575px){
+    .container {
+      max-width: 950px;
+    }
   </style>
   <div class="f2f2f2">
     <div class="seguro" style="display:none">
@@ -38,13 +42,13 @@
       </div>
     </div>
     <div class="container misproductos">
-      <h1 style="text-align:center; margin-bottom:10px;">Tus articulos</h1>
+      <h1 style="text-align:center; margin-bottom:40px;">Tus articulos</h1>
       @foreach ($articulos as $key => $value)
         <div class="articulo">
           <div class="izq">
             <a href="/articles/{{$value->id}}" style="color:black; text-decoration:none;">
               <h1>{{$value->title}}</h1>
-              <img src="/storage/products/{{$value->img1}}" style='width:20%'  alt="">
+              <img src="/storage/products/{{$value->img1}}" style='width:40%'  alt="">
 
               <p>{{$value->description}} <span style="color:green;">${{$value->price}}</span></p>
             </a>

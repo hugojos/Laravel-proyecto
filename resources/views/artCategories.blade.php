@@ -92,7 +92,55 @@
     right: -37%;
     top: 54%;
   }  
-  
+ {{-- --------------- Responsive----------  --}}
+
+ @media (max-width: 900px){
+    .img-container1 {
+      margin-left: 0%;
+    } 
+    .cat-title1 {
+    right: -80%;    
+    top: 30%;
+  }
+  .cat-descripcion1 {    
+    right: -80%;
+    top: 72%;
+  }
+
+  .img-container2 {
+    margin-right: 0%;
+  }
+  .cat-title2 {
+    left: -81%;
+    top: 30%;
+  }
+  .cat-descripcion2 {    
+    left: -80%;
+    top: 72%;
+  }
+
+  .img-container3 {
+    margin-left: 0%;
+  }
+  .cat-title3 {
+    right: -80%;    
+    top: 30%;
+  }
+  .cat-descripcion3 {    
+    right: -80%;
+    top: 72%;
+  }   
+ }
+ @media (max-width: 575px) {
+   .cat-title1, .cat-title2, .cat-title3 {
+     font-size: 2.9em !important;
+   }
+ }
+  @media (max-width: 450px) {
+   .cat-title1, .cat-title2, .cat-title3 {
+     font-size: 2.4em !important;
+   }
+ }
   </style>
 
   <body>
@@ -102,9 +150,9 @@
       <div class="img-container1">
         <h3 class="cat-title1">Mujeres</h3>
         <p class="cat-descripcion1">COLECCIÓN 2018</p>
-        <a href="{{ route('women')}}"><div class="black-filter">
+        <a class="link-mujeres" href="{{ route('women')}}"><div class="black-filter">
         </div></a>
-        <img class="img-cat" src="images/cat3.jpeg" alt="">
+        <img class="img-cat link-mujeres" src="images/cat3.jpeg" alt="">
       </div>
 
       <div class="img-container2">

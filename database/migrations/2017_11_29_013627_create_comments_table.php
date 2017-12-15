@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Comment;
 
 class CreateCommentsTable extends Migration
 {
@@ -20,6 +21,12 @@ class CreateCommentsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
+        $comment= new Comment;
+        $comment->content='Me encantó el sweater. Muy abrigado y de excelente calidad. Espero comprar nuevamente!';
+        $comment->post_id=1;
+        $comment->user_id=1;
+        $hombre->save();
+
     }
 
     /**

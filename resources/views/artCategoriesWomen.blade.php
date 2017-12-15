@@ -104,6 +104,18 @@
         text-align: center;
         height: 30px;
     }
+
+    {{--  Responsive  --}}
+     @media (max-width: 900px) {
+         .prod-container {
+             width: 47%;
+         }
+     }
+     @media (max-width: 500px) {
+         .prod-container {
+             width: 95%;
+         }
+     }
     
 </style>
 

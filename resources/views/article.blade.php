@@ -32,7 +32,7 @@
 .carrousel {
   overflow: hidden;
   position: relative;
-  width: 63%;
+  width: 55%;
   height: auto;
   margin: 0 auto;
 }
@@ -40,7 +40,10 @@
   display: flex;
   transition: all .6s;
 }
-
+.carrousel-images img {
+  max-height: 449px;
+  max-width: 384px;
+}
 img {
   object-fit: cover;
 }
@@ -65,9 +68,6 @@ img {
 }
 .jumbotron {
   padding: 2rem 2rem;
-}
-textarea {
-  width: 80vw !important;
 }
 </style>
 
@@ -104,8 +104,8 @@ textarea {
               color:black;
             @endif
 
+            " id="fav"></i>
         @endif
-        " id="fav"></i>
         <script type="text/javascript">
         var token = document.querySelector('meta[name="csrf-token"]').content;
         var fav = document.querySelector('#fav');
@@ -152,7 +152,7 @@ textarea {
       <hr>
       <div class="padding-bottom-1x mb-2">
         <span class="text-medium">Categoria: </span>
-        <a class="" href="#">{{$category->name}}</a>
+        <a class="" href="/categorias/{{$nombre}}">{{$category->name}}</a>
       </div>
       <div class="compartir">
         <span class="text-muted">Compartir:</span>
@@ -161,12 +161,25 @@ textarea {
         <i class="fa fa-instagram" aria-hidden="true"></i>
       </div>
       <hr>
-      <form method="post" action="{{route('addToCart')}}">
-        <button type="button" name="button" class="btn btn-danger">Comprar</button>
-        {{csrf_field()}}
-        <input type="hidden" name="product_id" value="{{$post->id}}">
-        <button type="submit" name="button" class="btn btn-light">Agregar al carrito</button>
-      </form>
+      <div class="row">
+
+        <form method="post" action="{{route('addToCart')}}">
+          {{csrf_field()}}
+          
+            <input type="hidden" name="product_id" value="{{$post->id}}">
+            <button type="" name="button" class="btn btn-danger m-2">Comprar</button>
+
+        </form>
+
+        <form method="post" action="{{route('addToCartBack')}}">
+          {{csrf_field()}}
+
+            <input type="hidden" name="product_id" value="{{$post->id}}">
+            <button type="submit" name="button" class="btn btn-success m-2">Agregar al carrito</button>
+
+        </form>
+
+      </div>
 
     </div>
   </div>
@@ -199,7 +212,7 @@ textarea {
         {{method_field('PUT')}}
       <h2 class="padding-top d-block"><input style="border:none; border-bottom: 1px solid black" type="text" name="title" value="{{$post->title}}"></h2>
       <span class="precio">$<input type="text" name="price" style="border:none; border-bottom: 1px solid black"value="{{$post->price}}"></span>
-      <textarea name="descriptio" rows="5" cols="80" style="border:none; border-bottom: 1px solid black">{{$post->description}}</textarea>
+      <textarea name="descriptio" rows="5" cols="80" style="border:none; border-bottom: 1px solid black;resize: none;width:100%;">{{$post->description}}</textarea>
       <hr>
       <div class="padding-bottom-1x mb-2">
         <span class="text-medium">Categoria: </span>
@@ -228,7 +241,7 @@ textarea {
   <!-- CAJA DE COMENTARIOS -->
 
     <div class="row" style="margin-bottom: 20px;">
-      <form class="" action="/articles/{{$post->id}}" method="post">
+      <form class="" action="/articles/{{$post->id}}" method="post" style="width:80%">
         {{ csrf_field() }}
         <div class="form-group">
           <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>

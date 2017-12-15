@@ -38,15 +38,14 @@
     }
 
 </style>
-<div class="row height">
-
-<div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5">
+<div class="row height" style="display:flex;justify-content:center;">
+  <div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5" style="max-height:500px;">
     <div class="row">
-            <div class="panel panel-default">
+            <div class="panel panel-default" >
                 <div class="panel-heading text-center">INGRESAR</div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                <div class="panel-body" >
+                    <form class="form-horizontal" method="POST" action="{{ route('login') }}" id="formLogin">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -55,11 +54,11 @@
                             <div class="col-md-12">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="&#128231;" required autofocus>
 
+                                <span class="help-block" id="errorEmail" style="color:red">
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
                                 @endif
+                              </span>
                             </div>
                         </div>
 
@@ -69,8 +68,8 @@
                             <div class="col-md-12">
                                 <input id="password" type="password" class="form-control" name="password" required placeholder=" &#128272;">
 
+                                <span class="help-block" id="errorPassword" style="color:red">
                                 @if ($errors->has('password'))
-                                    <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
@@ -89,7 +88,7 @@
 
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="button" id="button" class="btn btn-primary">
                                     Ingresar
                                 </button>
 
@@ -105,6 +104,41 @@
     </div>
   </div> <!-- cierro row -->
 </div> <!-- fin container-->
+<script type="text/javascript">
+  var email = document.querySelector('#email');
+  var password = document.querySelector('#password');
+  var re =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var button = document.querySelector('#button');
+  var error = 0;
+  button.addEventListener('click', function(){
+    error = 0;
+    if (email.value=="") {
+      error++
+      document.querySelector('#errorEmail').innerText="El email no puede estar vacio.";
+    }else if(email.value.length > 100) {
+      error++
+      document.querySelector('#errorEmail').innerText='El email no puede tener mas de 100 caracteres.';
+    } else if (!re.test(email.value)) {
+      error++
+      document.querySelector('#errorEmail').innerText= "El email no es valido.";
+    } else {
+      document.querySelector('#errorEmail').innerText= "";
+    }
 
+    if (password.value == "") {
+      error++
+      document.querySelector('#errorPassword').innerText = "La contraseña no puede estar vacia."
+    } else if (password.value.length < 6) {
+      error++
+      document.querySelector('#errorPassword').innerText = "La contraseña debe ser mayor a 6 caracteres";
+    } else{
+      document.querySelector('#errorPassword').innerText = "";
+    }
+
+    if (error == 0) {
+      document.querySelector('#formLogin').submit();
+    }
+  });
+</script>
 
 @endsection
