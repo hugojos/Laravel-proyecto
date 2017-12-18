@@ -73,11 +73,13 @@ class ShoppingController extends Controller
 
     public function deleteFromCart($id) {
 
-        Cart::remove($id);
-
-        /* if (Auth::check()) {
+        if (Auth::check()){
+            Cart::restore(Auth::user()->email);
+        }
+        Cart::remove($id);        
+         if (Auth::check()) {
             Cart::store(Auth::user()->email);
-        } */
+        } 
 
         return redirect()->back();
 
