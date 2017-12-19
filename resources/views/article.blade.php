@@ -239,7 +239,7 @@ a i{
         {{ csrf_field() }}
         {{method_field('PUT')}}
       <h2 class="padding-top d-block"><input style="border:none; border-bottom: 1px solid black; width: 100%;" type="text" name="title" value="{{$post->title}}"></h2>
-      <span class="precio">$<input type="text" name="price" style="border:none; border-bottom: 1px solid black; width: 100%;"value="{{$post->price}}"></span>
+      <span class="precio">$<input type="text" name="price" style="border:none; border-bottom: 1px solid black; width: 94%;"value="{{$post->price}}"></span>
       <textarea name="descriptio" rows="5" cols="80" style="border:none; border-bottom: 1px solid black;resize: none;width:100%;">{{$post->description}}</textarea>
       <hr>
       <div class="padding-bottom-1x mb-2">
