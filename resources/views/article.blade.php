@@ -162,28 +162,19 @@ a i{
         <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
         <a href="http://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
       </div>
-
       <hr>
       <div class="row">
-
         <form method="post" action="{{route('addToCart')}}">
           {{csrf_field()}}
-
             <input type="hidden" name="product_id" value="{{$post->id}}">
             <button type="" name="button" class="btn btn-danger m-2">Comprar</button>
-
         </form>
-
         <form method="post" action="{{route('addToCartBack')}}">
           {{csrf_field()}}
-
             <input type="hidden" name="product_id" value="{{$post->id}}">
             <button type="submit" name="button" class="btn btn-success m-2">Agregar al carrito</button>
-
         </form>
-
       </div>
-
     </div>
   </div>
 @endif
@@ -193,8 +184,8 @@ a i{
 
       <div class="carrousel ">
         <div class="carrousel-images">
-          <img src="/storage/products/{{$post->img1}}" alt="">
-          <img src="/storage/products/{{$post->img2}}" alt="">
+          <img class="img-carrousel" src="/storage/products/{{$post->img1}}" alt="">
+          <img class="img-carrousel" src="/storage/products/{{$post->img2}}" alt="">
         </div>
         <button type="button" class="prev">&lt;</button>
         <button type="button" class="next">&gt;</button>
@@ -213,8 +204,8 @@ a i{
       <form class="" action="{{route('editArticle')}}" method="post">
         {{ csrf_field() }}
         {{method_field('PUT')}}
-      <h2 class="padding-top d-block"><input style="border:none; border-bottom: 1px solid black" type="text" name="title" value="{{$post->title}}"></h2>
-      <span class="precio">$<input type="text" name="price" style="border:none; border-bottom: 1px solid black"value="{{$post->price}}"></span>
+      <h2 class="padding-top d-block"><input style="border:none; border-bottom: 1px solid black; width: 100%;" type="text" name="title" value="{{$post->title}}"></h2>
+      <span class="precio">$<input type="text" name="price" style="border:none; border-bottom: 1px solid black; width: 100%;"value="{{$post->price}}"></span>
       <textarea name="descriptio" rows="5" cols="80" style="border:none; border-bottom: 1px solid black;resize: none;width:100%;">{{$post->description}}</textarea>
       <hr>
       <div class="padding-bottom-1x mb-2">
