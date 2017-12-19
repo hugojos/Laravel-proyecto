@@ -73,8 +73,42 @@ img {
 a i{
   color: black;
 }
+.seguro {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000;
+}
+.cartel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 30px;
+  background-color: #f2f2f2;
+}
+.cartel div {
+  display: flex;
+  justify-content: space-around;
+}
+.cartel button {
+  width: 40%;
+}
 </style>
+<div class="seguro" style="display:none; margin-top: -100px;">
+  <div class="cartel">
+    <p>¿Seguro que quiere eliminar este comentario?</p>
+    <hr>
+    <div class="">
+      <button type="button" id="si" name="button">Si</button>
+      <button type="button" id="no" name="button">No</button>
 
+    </div>
+  </div>
+</div>
 @if ($asd==0)
 
   <div class="producto row p-3">
@@ -345,7 +379,7 @@ a i{
   var cancelarComentario = document.querySelectorAll('#cancelarComentario');
   var aceptarComentario = document.querySelectorAll('#aceptarComentario');
   var idComment = document.querySelector('#idComment');
-
+  var seguro = document.querySelector('.seguro');
   editar.forEach(function(e){
     e.addEventListener('click', function(){
       e.style.display = "none";
@@ -359,6 +393,7 @@ a i{
         e.style.display="inline";
         e.previousElementSibling.previousElementSibling.style.display = "block";
         e.previousElementSibling.style.display = "none";
+        e.previousElementSibling.childNodes[3].value = a.parentNode.previousElementSibling.textContent;
         tiempo.style.display= "block";
       });
     });
@@ -377,17 +412,24 @@ a i{
     });
     eliminar.forEach(function(o){
       o.addEventListener('click',function(){
-        xhr.open('POST','/eliminarComent',true);
-        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xhr.setRequestHeader('X-CSRF-TOKEN', token);
-        xhr.send('id='+o.previousElementSibling.previousElementSibling.childNodes[1].value);
-        xhr.onreadystatechange = function(){
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            o.parentNode.parentNode.parentNode.remove()
+        seguro.style.display= "grid";
+        document.querySelector('#si').addEventListener('click',function(){
+          xhr.open('POST','/eliminarComent',true);
+          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+          xhr.setRequestHeader('X-CSRF-TOKEN', token);
+          xhr.send('id='+o.previousElementSibling.previousElementSibling.childNodes[1].value);
+          xhr.onreadystatechange = function(){
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              o.parentNode.parentNode.parentNode.remove()
+            }
           }
-        }
-      })
-    })
+          seguro.style.display = "none";
+        });
+        document.querySelector('#no').addEventListener('click',function(){
+          seguro.style.display = "none";
+        })
+      });
+    });
   });
 
 

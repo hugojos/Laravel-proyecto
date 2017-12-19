@@ -32,7 +32,7 @@
   <div class="f2f2f2">
     <div class="seguro" style="display:none">
       <div class="cartel">
-        <p>¿Estas seguro de que quieres eliminar este articulo?</p>
+        <p>¿Seguro que quieres eliminar este articulo?</p>
         <hr>
         <div class="">
           <button type="button" id="si" name="button">Si</button>
