@@ -184,13 +184,15 @@ class ArticleController extends Controller
       $this->validate($request,[
         'title'=>'string|max:20',
         'description'=>'string',
-        'price'=>'integer'
+        'price'=>'integer',
+        'category'=>'required|integer'
       ]);
       $post= Post::find($request->id);
       if ($post->user_id == Auth::user()->id) {
         $post->title=$request->title;
         $post->description=$request->descriptio;
         $post->price=$request->price;
+        $post->category_id=$request->category;
         $post->save();
       }
       return redirect()->route('mostrar');

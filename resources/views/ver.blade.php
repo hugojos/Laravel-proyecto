@@ -79,9 +79,7 @@
       document.querySelectorAll('#boton').forEach(function(e){
         e.addEventListener('click',function(){
           seguro.style.display = "grid"
-
           si.addEventListener('click',function(event){
-
             e.parentNode.submit();
           })
 

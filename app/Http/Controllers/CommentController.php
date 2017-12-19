@@ -59,7 +59,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -80,9 +80,15 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request,[
+          'id'=>'required|integer',
+          'comment'=>'required|string|max:2000'
+        ]);
+        $comment = Comment::find($request->input('id'));
+        $comment->content = $request->input('comment');
+        $comment->save();
     }
 
     /**
@@ -91,8 +97,16 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+      $this->validate($request,[
+        'id'=>'required|integer',
+      ]);
+      $comment = Comment::find($request->input('id'));
+      if ($comment==null) {
+        $comment = Comment::find($request->input('id'));
+      } else {
+        $comment->delete();
+      }
     }
 }

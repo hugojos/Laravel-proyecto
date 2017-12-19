@@ -11,12 +11,16 @@
 |
 */
 
+
 Auth::routes();
 Route::get('/users/{id}', 'UserController@show')->middleware('auth');/*Muestra el perfil del usuario*/
 Route::post('/users/{id}','UserController@edit')->name('edit')->middleware('auth');/*Redirije a la vista para editar*/
 Route::put('/users/{id}','UserController@update')->middleware('auth');/*Guarda los cambios*/
 
 Route::post('/articles/{id}','CommentController@store');/*Guarda los comentarios*/
+Route::post('/editarComent','CommentController@update');
+Route::post('/eliminarComent','CommentController@destroy');
+
 
 Route::get('/articles/{id}', 'ArticleController@index')->name('mostrarArticulo');/*Muestra la vista del articulo*/
 Route::get('/articles','ArticleController@create')->middleware(['auth', 'admin']);/*Muestra el formulario para agregar articulos*/

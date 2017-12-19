@@ -128,8 +128,7 @@ a i{
             //xhr.responseType = 'json';
             xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             xhr.setRequestHeader('X-CSRF-TOKEN', token);
-            var id = {{$post->id}};
-            xhr.send('id='+id);
+            xhr.send('id='+{{$post->id}});
           } else {
             fav.style.color = "red"
             xhr.onreadystatechange = function(){
@@ -143,8 +142,7 @@ a i{
             //xhr.responseType = 'json';
             xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             xhr.setRequestHeader('X-CSRF-TOKEN', token);
-            var id = {{$post->id}};
-            xhr.send('id='+id);
+            xhr.send('id='+{{$post->id}});
           }
         })
         </script>
@@ -221,7 +219,11 @@ a i{
       <hr>
       <div class="padding-bottom-1x mb-2">
         <span class="text-medium">Categoria: </span>
-        <a class="" href="#">{{$category->name}}</a>
+        <select class="" name="category">
+          @foreach (\App\Category::All() as $key => $value)
+            <option value="{{$value->id}}" {{ $value->name == $category->name ? 'selected' : '' }}>{{$value->name}}</option>
+          @endforeach
+        </select>
       </div>
       <div class="compartir">
         <span class="text-muted">Compartir:</span>
@@ -277,11 +279,11 @@ a i{
 
 <!-------------------------------->
 
-<div class="" style="display:flex;flex-direction:column-reverse;">
-  @foreach ($comments as $key => $value)
-    <div class="comentarios row text-left">
-      <div class="col-xs-10 col-md-10">
-        <div class="jumbotron m-3">
+
+    <div class="comentarios row text-left"  style="display:flex;flex-direction:column-reverse;">
+      @foreach ($comments as $key => $value)
+      <div class="col-xs-10 col-md-10" style="position:relative;">
+        <div class="jumbotron m-3"style="position: relative;">
           <div class="comment-body">
             <div class="comment-header d-flex flex-wrap justify-content-between">
               <h4 class="comment-title"><a href="/users/{{$value->user_id}}" style="font-size:35px;color:black;">{{$value->user->alias}}</a></h4>
@@ -295,19 +297,24 @@ a i{
                 </div>
               </div>
             </div>
-            <p class="comment-text">{{$value->content}}</p>
-            <div class="comment-footer"><span class="text-muted">Publicado el : {{$value->created_at}}</span></div>
+            <p class="comment-text" id="comentario">{{$value->content}}</p>
+            @if (Auth::user()->id==$value->user_id)
+              <div class="" id="formedit" style="display:none">
+                <input type="hidden" name="id" value="{{$value->id}}">
+                <textarea name="comment" rows="3" cols="120" style="resize: none;overflow:hidden;width:100%;" id="comentarioEditado">{{$value->content}}</textarea>
+                <i class="fa fa-check" aria-hidden="true"style="color:green" id="aceptarComentario" title="Guardar"></i>
+                <i class="fa fa-times" aria-hidden="true" style="color:red" id="cancelarComentario" title="Cancelar"></i>
+              </div>
+              <i style="position:absolute;top:5px;right:20px;" class="fa fa-pencil" aria-hidden="true" id="editar"  title="Editar"></i>
+              <i style="position:absolute;top:5px;right:4px;" class="fa fa-trash" aria-hidden="true" id="eliminar" title="Eliminar"></i>
+            @endif
+            <div class="comment-footer" id="tiempo"><span class="text-muted">Publicado el : {{$value->created_at}}</span></div>
             <hr>
           </div>
         </div>
       </div>
+    @endforeach
     </div>
-  @endforeach
-</div>
-
-
-
-
 <script type="text/javascript">
   var carrousel = document.querySelector('.carrousel')
   var carrito = document.querySelector('.carrousel-images')
@@ -337,6 +344,65 @@ a i{
   carrito.addEventListener('transitionend', function () {
   console.log('fin de la transition')
   })
+
+  var editar = document.querySelectorAll('#editar');
+  var eliminar = document.querySelectorAll('#eliminar');
+  var comment = document.querySelector('#comentario');
+  var comentarioEditado = document.querySelector('#comentarioEditado');
+  var formedit = document.querySelector('#formedit');
+  var tiempo = document.querySelector('#tiempo');
+  var cancelarComentario = document.querySelectorAll('#cancelarComentario');
+  var aceptarComentario = document.querySelectorAll('#aceptarComentario');
+  var idComment = document.querySelector('#idComment');
+
+  editar.forEach(function(e){
+    e.addEventListener('click', function(){
+      e.style.display = "none";
+      e.previousElementSibling.previousElementSibling.style.display = "none";
+      e.previousElementSibling.style.display = "block";
+      tiempo.style.display= "none";
+    });
+    cancelarComentario.forEach(function(a){
+      a.addEventListener('click',function(){
+        a.style.display = "inline";
+        e.style.display="inline";
+        e.previousElementSibling.previousElementSibling.style.display = "block";
+        e.previousElementSibling.style.display = "none";
+        tiempo.style.display= "block";
+      });
+    });
+    aceptarComentario.forEach(function(i){
+      i.addEventListener('click', function(){
+        e.style.display = "inline";
+        e.previousElementSibling.previousElementSibling.textContent = e.previousElementSibling.childNodes[3].value;
+        e.previousElementSibling.previousElementSibling.style.display = "block";
+        tiempo.style.display = "block";
+        e.previousElementSibling.style.display = "none";
+        xhr.open('POST','/editarComent',true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.setRequestHeader('X-CSRF-TOKEN', token);
+        xhr.send('comment='+i.previousElementSibling.value+'&id='+i.previousElementSibling.previousElementSibling.value);
+        console.log(xhr.responseText)
+    });
+    eliminar.forEach(function(o){
+      o.addEventListener('click',function(){
+        xhr.open('POST','/eliminarComent',true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.setRequestHeader('X-CSRF-TOKEN', token);
+        xhr.send('id='+o.previousElementSibling.previousElementSibling.childNodes[1].value);
+        xhr.onreadystatechange = function(){
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            o.parentNode.parentNode.parentNode.remove()
+          }
+        }
+      })
+    })
+  });
+
+
+});
+
+
 </script>
 
 @endsection
