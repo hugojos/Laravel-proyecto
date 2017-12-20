@@ -323,15 +323,17 @@ a i{
               </div>
             </div>
             <p class="comment-text" id="comentario">{{$value->content}}</p>
-            @if (Auth::user()->id==$value->user_id)
-              <div class="" id="formedit" style="display:none">
-                <input type="hidden" name="id" value="{{$value->id}}">
-                <textarea name="comment" rows="3" cols="120" style="resize: none;overflow:hidden;width:100%;" id="comentarioEditado">{{$value->content}}</textarea>
-                <i class="fa fa-check" aria-hidden="true"style="color:green" id="aceptarComentario" title="Guardar"></i>
-                <i class="fa fa-times" aria-hidden="true" style="color:red" id="cancelarComentario" title="Cancelar"></i>
-              </div>
-              <i style="position:absolute;top:5px;right:20px;" class="fa fa-pencil" aria-hidden="true" id="editar"  title="Editar"></i>
-              <i style="position:absolute;top:5px;right:4px;" class="fa fa-trash" aria-hidden="true" id="eliminar" title="Eliminar"></i>
+            @if (Auth::user())
+              @if (Auth::user()->id==$value->user_id)
+                <div class="" id="formedit" style="display:none">
+                  <input type="hidden" name="id" value="{{$value->id}}">
+                  <textarea name="comment" rows="3" cols="120" style="resize: none;overflow:hidden;width:100%;" id="comentarioEditado">{{$value->content}}</textarea>
+                  <i class="fa fa-check" aria-hidden="true"style="color:green" id="aceptarComentario" title="Guardar"></i>
+                  <i class="fa fa-times" aria-hidden="true" style="color:red" id="cancelarComentario" title="Cancelar"></i>
+                </div>
+                <i style="position:absolute;top:5px;right:20px;" class="fa fa-pencil" aria-hidden="true" id="editar"  title="Editar"></i>
+                <i style="position:absolute;top:5px;right:4px;" class="fa fa-trash" aria-hidden="true" id="eliminar" title="Eliminar"></i>
+              @endif
             @endif
             <div class="comment-footer" id="tiempo"><span class="text-muted">Publicado el : {{$value->created_at}}</span></div>
             <hr>
@@ -418,11 +420,7 @@ a i{
           xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
           xhr.setRequestHeader('X-CSRF-TOKEN', token);
           xhr.send('id='+o.previousElementSibling.previousElementSibling.childNodes[1].value);
-          xhr.onreadystatechange = function(){
-            if (xhr.readyState == 4 && xhr.status == 200) {
-              o.parentNode.parentNode.parentNode.remove()
-            }
-          }
+          o.parentNode.parentNode.parentNode.remove()
           seguro.style.display = "none";
         });
         document.querySelector('#no').addEventListener('click',function(){

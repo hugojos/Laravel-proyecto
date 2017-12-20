@@ -103,8 +103,9 @@ class CommentController extends Controller
         'id'=>'required|integer',
       ]);
       $comment = Comment::find($request->input('id'));
-      if ($comment==null) {
+      if ($comment == null || count($comment) == 0) {
         $comment = Comment::find($request->input('id'));
+        $comment->delete();
       } else {
         $comment->delete();
       }
