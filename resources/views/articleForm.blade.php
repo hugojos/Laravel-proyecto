@@ -47,6 +47,7 @@
 
 <div class="container">
   <form class="form" action="{{ route('add')}}" method="post" enctype="multipart/form-data" style="text-align:center;">
+
     {{ csrf_field() }}
     {{-- <label class="custom-file">
       <input type="file" id="file" class="custom-file-input">
