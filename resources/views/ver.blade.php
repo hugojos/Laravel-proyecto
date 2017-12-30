@@ -45,15 +45,15 @@
       <div class="modal-dialog bg-light">
         <div class="moda-content">
           <div class="modal-header">
-            <h5 class="modal-title">Eliminar articulo.</h5>
+            <h5 class="modal-title">¿Seguro que quiere eliminar este articulo?</h5>
           </div>
-          <div class="modal-body">
-            ¿Seguro que quiere eliminar este articulo?
-          </div>
-          <div class="modal-footer">
-            <form class=" " action="index.html" method="post">
-
-            </form>
+          <div class="modal-body d-flex flex-wrap">
+            <div class="col-md-6 col-xs-12 mb-2" >
+              <button type="button" class="btn btn-danger btn-block" id="si" name="button">Si</button>
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <button type="button" id="no" class="btn btn-secondary btn-block" name="button">No</button>
+            </div>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
               <div class="card card-block">
                 <div class="card-header text-center">
                   <h1>{{$value->title}}</h1>
-                  <img src="/storage/products/{{$value->img1}}" style='width:40%'  alt="">
+                  <img src="/storage/products/{{$value->img1}}" style='width:50%'  alt="">
                 </div>
                 <div class="card-body">
                   <p>{{$value->description}} <span class="text-success">${{$value->price}}</span></p>
@@ -100,40 +100,19 @@
       <script type="text/javascript">
       $('document').ready(function(){
 
-        $('.eliminar').each(function(){
-          $(this).click(function(){
-            $('#hs-modal').fadeIn().css('background','rgba(0,0,0,0.5)').click(function(e){
-              if (e.target == this) {
-                $(this).fadeOut();
+      $('.eliminar').each(function(i,e){
+          $(e).click(function(){
+            $('#si').click(function(){
+              $(e).parent().submit()
+            });
+            $('#hs-modal').fadeIn().css('background','rgba(0,0,0,0.5)').click(function(c){
+              if (c.target == this) {
+                $(this).fadeOut('fast');
               };
             });
           });
         });
-
-
-
-
-      })
-  /*document.querySelectorAll('#boton').forEach(function(e){
-          e.addEventListener('click',function(){
-            seguro.style.display = "grid"
-            si.addEventListener('click',function(event){
-              e.parentNode.submit();
-            })
-          })
-        })
-        var boton = document.querySelector('#boton');
-          var seguro = document.querySelector('.seguro');
-          var si = document.querySelector('#si');
-          var no = document.querySelector('#no');
-          var eliminar = document.querySelector('#eliminar');
-          boton.addEventListener('click',function(e){
-            seguro.style.display= "grid";
-          })
-          no.addEventListener('click',function(e){
-            seguro.style.display= "none";
-          })
-*/
+      });
         </script>
       </div>
     </div>
