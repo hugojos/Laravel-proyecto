@@ -1,65 +1,27 @@
 @extends('layouts.app1')
 @section('content')
-  <style media="screen">
-    .seguro {
-      position: fixed;
-      width: 100%;
-      height: 100vh;
-      background-color: rgba(0,0,0,0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-    .cartel {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      padding: 30px;
-      background-color: #f2f2f2;
-    }
-    .cartel div {
-      display: flex;
-      justify-content: space-around;
-    }
-    .cartel button {
-      width: 40%;
-    }
-    @media (min-width: 575px){
-    .container {
-      max-width: 950px;
-    }
-  </style>
 <div class="f2f2f2">
-  <!--    <div class="seguro" style="display:none">
-      <div class="cartel">
-        <p>¿Seguro que quieres eliminar este articulo?</p>
-        <hr>
-        <div class="">
-          <button type="button" id="si" name="button">Si</button>
-          <button type="button" id="no" name="button">No</button>
-        </div>
-      </div>
-    </div>-->
     <div class="modal" id="hs-modal" tabindex="-1" role="dialog" aria-labelledby="hs-modal" aria-hidden="true">
-      <div class="modal-dialog bg-light">
-        <div class="moda-content">
-          <div class="modal-header">
-            <h5 class="modal-title">¿Seguro que quiere eliminar este articulo?</h5>
-          </div>
-          <div class="modal-body d-flex flex-wrap">
-            <div class="col-md-6 col-xs-12 mb-2" >
-              <button type="button" class="btn btn-danger btn-block" id="si" name="button">Si</button>
+      <div class="h-100 d-flex justify-content-center align-items-center" id="salirCartel">
+        <div class="modal-dialog bg-light">
+          <div class="moda-content">
+            <div class="modal-header">
+              <h5 class="modal-title">¿Seguro que quiere eliminar este articulo?</h5>
             </div>
-            <div class="col-md-6 col-xs-12">
-              <button type="button" id="no" class="btn btn-secondary btn-block" name="button">No</button>
+            <div class="modal-body d-flex flex-wrap">
+              <div class="col-md-6 col-xs-12 mb-2" >
+                <button type="button" class="btn btn-danger btn-block" id="si" name="button">Si</button>
+              </div>
+              <div class="col-md-6 col-xs-12">
+                <button type="button" id="no" class="btn btn-secondary btn-block" name="button">No</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="container misproductos">
-      <h1 style="text-align:center; margin-bottom:40px;">Tus articulos</h1>
+      <h1 class="text-center mb-5">Tus articulos</h1>
       @foreach ($articulos as $key => $value)
         <div class="row articulo">
           <div class="col-xs-12 col-md-6 text-center">
@@ -99,15 +61,20 @@
 
       <script type="text/javascript">
       $('document').ready(function(){
+        var $hs_modal = $('#hs-modal');
 
-      $('.eliminar').each(function(i,e){
-          $(e).click(function(){
+        $('.eliminar').each(function(i,botonEliminar){
+          $(botonEliminar).click(function(){
             $('#si').click(function(){
-              $(e).parent().submit()
+              $(botonEliminar).parent().submit()
             });
-            $('#hs-modal').fadeIn().css('background','rgba(0,0,0,0.5)').click(function(c){
-              if (c.target == this) {
-                $(this).fadeOut('fast');
+            $('#no').click(function(){
+              $hs_modal.fadeOut('fast');
+            })
+            $hs_modal.fadeIn().css('background','rgba(0,0,0,0.5)');
+            $('#salirCartel').click(function(clickDelMouse){
+              if (clickDelMouse.target == this) {
+                $hs_modal.fadeOut('fast');
               };
             });
           });
