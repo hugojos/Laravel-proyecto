@@ -20,12 +20,9 @@ reseteo de las clases de bootstrap
   border: 1px black solid;
 }
 
-.bg-light {
-    background-color: rgb(34,54,63)!important;
-}
-
 .navbar {
   padding: 0 16px!important;
+  background-color: rgb(34,54,63)!important;
 }
 /* NOTE: INDEX */
 .cabecera{

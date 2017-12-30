@@ -30,8 +30,8 @@
       max-width: 950px;
     }
   </style>
-  <div class="f2f2f2">
-    <div class="seguro" style="display:none">
+<div class="f2f2f2">
+  <!--    <div class="seguro" style="display:none">
       <div class="cartel">
         <p>¿Seguro que quieres eliminar este articulo?</p>
         <hr>
@@ -40,20 +40,37 @@
           <button type="button" id="no" name="button">No</button>
         </div>
       </div>
+    </div>-->
+    <div class="modal" id="hs-modal" tabindex="-1" role="dialog" aria-labelledby="hs-modal" aria-hidden="true">
+      <div class="modal-dialog bg-light">
+        <div class="moda-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Eliminar articulo.</h5>
+          </div>
+          <div class="modal-body">
+            ¿Seguro que quiere eliminar este articulo?
+          </div>
+          <div class="modal-footer">
+            <form class=" " action="index.html" method="post">
+
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container misproductos">
       <h1 style="text-align:center; margin-bottom:40px;">Tus articulos</h1>
       @foreach ($articulos as $key => $value)
         <div class="row articulo">
           <div class="col-xs-12 col-md-6 text-center">
-            <a href="/articles/{{$value->id}}" style="color:black; text-decoration:none;">
+            <a href="/articles/{{$value->id}}" class="text-dark" style="text-decoration:none;">
               <div class="card card-block">
                 <div class="card-header text-center">
                   <h1>{{$value->title}}</h1>
                   <img src="/storage/products/{{$value->img1}}" style='width:40%'  alt="">
                 </div>
                 <div class="card-body">
-                  <p>{{$value->description}} <span style="color:green;">${{$value->price}}</span></p>
+                  <p>{{$value->description}} <span class="text-success">${{$value->price}}</span></p>
                 </div>
               </div>
             </a>
@@ -68,7 +85,7 @@
                 {{ csrf_field() }}
                 {{ method_field('DELETE')}}
                 <input type="hidden" name="id_producto" value="{{$value->id}}">
-                <button id="boton" class="btn btn-danger btn-block" type="button">Eliminar</button>
+                <button id="boton" class="btn btn-danger btn-block eliminar" type="button">Eliminar</button>
               </form>
             </div>
             <div class="col-12">
@@ -81,28 +98,43 @@
       @endforeach
 
       <script type="text/javascript">
-      console.log(document.querySelectorAll('#boton'))
-      document.querySelectorAll('#boton').forEach(function(e){
-        e.addEventListener('click',function(){
-          seguro.style.display = "grid"
-          si.addEventListener('click',function(event){
-            e.parentNode.submit();
-          })
+      $('document').ready(function(){
 
+        $('.eliminar').each(function(){
+          $(this).click(function(){
+            $('#hs-modal').fadeIn().css('background','rgba(0,0,0,0.5)').click(function(e){
+              if (e.target == this) {
+                $(this).fadeOut();
+              };
+            });
+          });
+        });
+
+
+
+
+      })
+  /*document.querySelectorAll('#boton').forEach(function(e){
+          e.addEventListener('click',function(){
+            seguro.style.display = "grid"
+            si.addEventListener('click',function(event){
+              e.parentNode.submit();
+            })
+          })
         })
-      })
-      var boton = document.querySelector('#boton');
-      var seguro = document.querySelector('.seguro');
-      var si = document.querySelector('#si');
-      var no = document.querySelector('#no');
-      var eliminar = document.querySelector('#eliminar');
-      boton.addEventListener('click',function(e){
-        seguro.style.display= "grid";
-      })
-      no.addEventListener('click',function(e){
-        seguro.style.display= "none";
-      })
-      </script>
+        var boton = document.querySelector('#boton');
+          var seguro = document.querySelector('.seguro');
+          var si = document.querySelector('#si');
+          var no = document.querySelector('#no');
+          var eliminar = document.querySelector('#eliminar');
+          boton.addEventListener('click',function(e){
+            seguro.style.display= "grid";
+          })
+          no.addEventListener('click',function(e){
+            seguro.style.display= "none";
+          })
+*/
+        </script>
+      </div>
     </div>
-  </div>
-@endsection
+  @endsection
