@@ -3,7 +3,7 @@
 <div class="f2f2f2">
     <div class="modal" id="hs-modal" tabindex="-1" role="dialog" aria-labelledby="hs-modal" aria-hidden="true">
       <div class="h-100 d-flex justify-content-center align-items-center" id="salirCartel">
-        <div class="modal-dialog bg-light">
+        <div class="modal-dialog bg-light" id="cartel">
           <div class="moda-content">
             <div class="modal-header">
               <h5 class="modal-title">¿Seguro que quiere eliminar este articulo?</h5>
@@ -62,6 +62,7 @@
       <script type="text/javascript">
       $('document').ready(function(){
         var $hs_modal = $('#hs-modal');
+        var $cartel = $('#salirCartel');
 
         $('.eliminar').each(function(i,botonEliminar){
           $(botonEliminar).click(function(){
@@ -71,8 +72,9 @@
             $('#no').click(function(){
               $hs_modal.fadeOut('fast');
             })
-            $hs_modal.fadeIn().css('background','rgba(0,0,0,0.5)');
-            $('#salirCartel').click(function(clickDelMouse){
+
+            $hs_modal.fadeIn().css('background','rgba(0,0,0,0.5)').find('div.modal-dialog').css({top: -80, opacity: 0}).animate({top: -20, opacity: 1});
+            $cartel.click(function(clickDelMouse){
               if (clickDelMouse.target == this) {
                 $hs_modal.fadeOut('fast');
               };
