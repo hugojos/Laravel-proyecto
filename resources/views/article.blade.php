@@ -2,9 +2,6 @@
 @section('content')
 
 <style media="screen">
-.body{
-  background-color: rgb(246, 246, 246);
-}
 .producto{
   margin: 100px 0 0 0;
   position: relative;
@@ -15,100 +12,64 @@
   border: 1px solid #e1e7ec;
   border-radius: 7px;
 }
-
-.precio{
-  font-size: 30px;
-}
 .descripcion .rating-star i{
   font-size: 20px;
 }
-.descripcion i{
-  font-size: 30px;
-  margin: 3px;
-}
-
       /*---------------CARROUSEL----------------*/
-
 .carrousel {
   overflow: hidden;
   position: relative;
   width: 55%;
   height: auto;
-  margin: 0 auto;
-}
-.carrousel-images {
-  display: flex;
-  transition: all .6s;
-}
-.carrousel-images img {
-  max-height: 449px;
-  max-width: 384px;
-}
-img {
-  object-fit: cover;
-}
-
-.img-carrousel {
-  width:100%;
-}
-.carrousel button {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto auto;
-  height: 30px;
-
-}
-
-.carrousel button.prev {
-  left: 30px;
-}
-.carrousel button.next {
-  right: 30px;
-}
-.jumbotron {
-  padding: 2rem 2rem;
-}
-
-a i{
-  color: black;
-}
-.seguro {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000000;
-}
-.cartel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 30px;
-  background-color: #f2f2f2;
-}
-.cartel div {
-  display: flex;
-  justify-content: space-around;
-}
-.cartel button {
-  width: 40%;
-}
-</style>
-<div class="seguro" style="display:none; margin-top: -100px;">
-  <div class="cartel">
-    <p>¿Seguro que quiere eliminar este comentario?</p>
-    <hr>
-    <div class="">
-      <button type="button" id="si" name="button">Si</button>
-      <button type="button" id="no" name="button">No</button>
-
+    margin: 0 auto;
+  }
+  .carrousel-images {
+    display: flex;
+    transition: all .6s;
+  }
+  .carrousel-images img {
+    max-height: 449px;
+    max-width: 384px;
+  }
+  img {
+    object-fit: cover;
+  }
+  .carrousel button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;
+    height: 30px;
+  }
+  .carrousel button.prev {
+    left: 30px;
+  }
+  .carrousel button.next {
+    right: 30px;
+  }
+  .jumbotron {
+    padding: 2rem 2rem;
+  }
+  </style>
+  <div class="modal" id="hs-modal" tabindex="-1" role="dialog" aria-labelledby="hs-modal" aria-hidden="true">
+    <div class="h-100 d-flex justify-content-center align-items-center" id="salirCartel">
+      <div class="modal-dialog bg-light" id="cartel">
+        <div class="moda-content p-2">
+          <div class="modal-header">
+            <h5 class="modal-title">¿Seguro que quiere eliminar este comentario?</h5>
+          </div>
+          <div class="modal-body d-flex flex-wrap">
+            <div class="col-md-6 col-xs-12 mb-2" >
+              <button type="button" class="btn btn-danger btn-block" id="si" name="button">Si</button>
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <button type="button" id="no" class="btn btn-secondary btn-block" name="button">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 @if ($asd==0)
 
   <div class="producto row p-3">
@@ -116,8 +77,8 @@ a i{
 
       <div class="carrousel ">
         <div class="carrousel-images">
-          <img class="img-carrousel" src="/storage/products/{{$post->img1}}" alt="">
-          <img class="img-carrousel" src="/storage/products/{{$post->img2}}" alt="">
+          <img class="w-100" src="/storage/products/{{$post->img1}}" alt="">
+          <img class="w-100" src="/storage/products/{{$post->img2}}" alt="">
         </div>
         <button type="button" class="prev">&lt;</button>
         <button type="button" class="next">&gt;</button>
@@ -125,66 +86,56 @@ a i{
 
     </div>
     <div class="descripcion col-xs-12 col-md-6 col-xl-6">
-      <div class="rating-star" style="display:flex; justify-content: space-between;">
+      <div class="rating-star d-flex justify-content-between">
         <div class="">
-          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star h3" aria-hidden="true"></i>
           <i class="fa fa-star" aria-hidden="true"></i>
           <i class="fa fa-star" aria-hidden="true"></i>
           <i class="fa fa-star" aria-hidden="true"></i>
           <i class="fa fa-star-half-o" aria-hidden="true"></i>
         </div>
         @if (Auth::user())
-          <i class="fa fa-heart" aria-hidden="true" style="font-size:25px;
-
+          <i class="fa fa-heart" aria-hidden="true" style="
             @if($fav)
               color:red;
             @else
               color:black;
             @endif
-
-            " id="fav"></i>
+            "
+           id="fav"></i>
         @endif
         <script type="text/javascript">
         var token = document.querySelector('meta[name="csrf-token"]').content;
-        var fav = document.querySelector('#fav');
-        var xhr= new XMLHttpRequest();
-        fav.addEventListener('click',function(event){
-          if (fav.style.color=="red") {
-            fav.style.color= "black"
-            xhr.onreadystatechange = function(){
-              if (this.readyState == 4) {
-                console.log('elimino');
-              }
-            };
-            //console.log(buscador.value);
-            //console.log(event.key);
-            xhr.open("POST","/deleteFav", true);
-            //xhr.responseType = 'json';
-            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            xhr.setRequestHeader('X-CSRF-TOKEN', token);
-            xhr.send('id='+{{$post->id}});
+        var $fav = $('#fav');
+
+        $fav.click(function(){
+          if ($fav.css('color') == 'rgb(255, 0, 0)') {
+            $.ajax({
+              type: 'POST',
+              url: '/deleteFav',
+              data: {
+                id: {{$post->id}},
+                '_token': token
+              }}).done(function(){
+                $fav.css('color','black');
+              });
           } else {
-            fav.style.color = "red"
-            xhr.onreadystatechange = function(){
-              if (this.readyState == 4) {
-                console.log('agrego');
-              }
-            };
-            //console.log(buscador.value);
-            //console.log(event.key);
-            xhr.open("POST","/addFav", true);
-            //xhr.responseType = 'json';
-            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-            xhr.setRequestHeader('X-CSRF-TOKEN', token);
-            xhr.send('id='+{{$post->id}});
-          }
-        })
+            $.ajax({
+              type: 'POST',
+              url: '/addFav',
+              data: {
+                id: {{$post->id}},
+                '_token': token
+              }}).done(function(){
+                $fav.css('color','red');
+          });
+        }});
         </script>
       </div>
       <span class="text-muted aling-middle">  4.5 | {{count($comments)}} Comentario/s</span>
-      <h2 class="padding-top d-block">{{$post->title}}</h2>
-      <span class="precio" style="color:#85bb65;">${{$post->price}}</span>
-      <p>{{$post->description}}</p>
+      <h2 class="d-block">{{$post->title}}</h2>
+      <span class="h2 text-success">${{$post->price}}</span>
+      <p class="lead">{{$post->description}}</p>
       <hr>
       <div class="padding-bottom-1x mb-2">
         <span class="text-medium">Categoria: </span>
@@ -192,9 +143,9 @@ a i{
       </div>
       <div class="compartir">
         <span class="text-muted">Compartir:</span>
-        <a href="https://www.facebook.com/hugo.sajama.56" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-        <a href="http://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/hugo.sajama.56" target="_blank"><i class="fa fa-facebook-square text-dark" style="font-size:20px" aria-hidden="true"></i></a>
+        <a href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter-square text-dark" style="font-size:20px" aria-hidden="true"></i></a>
+        <a href="http://www.instagram.com"><i class="fa fa-instagram text-dark" style="font-size:20px" aria-hidden="true"></i></a>
       </div>
       <hr>
       <div class="row">
@@ -238,19 +189,19 @@ a i{
       <form class="" action="{{route('editArticle')}}" method="post">
         {{ csrf_field() }}
         {{method_field('PUT')}}
-      <h2 class="padding-top d-block"><input style="border:none; border-bottom: 1px solid black; width: 100%;" type="text" name="title" value="{{$post->title}}"></h2>
-      <span class="precio">$<input type="text" name="price" style="border:none; border-bottom: 1px solid black; width: 94%;"value="{{$post->price}}"></span>
-      <textarea name="descriptio" rows="5" cols="80" style="border:none; border-bottom: 1px solid black;resize: none;width:100%;">{{$post->description}}</textarea>
+      <h2 class="padding-top d-block"><input class="form-control" type="text" name="title" value="{{$post->title}}"></h2>
+      <span class="precio d-flex">$<input type="text" name="price" class="form-control"value="{{$post->price}}"></span>
+      <textarea name="descriptio" rows="5" cols="80" class="form-control mt-2" style="resize: none;">{{$post->description}}</textarea>
       <hr>
-      <div class="padding-bottom-1x mb-2">
+      <div class="padding-bottom-1x mb-2 d-flex align-items-center">
         <span class="text-medium">Categoria: </span>
-        <select class="" name="category">
+        <select class="form-control custom-select" name="category">
           @foreach (\App\Category::All() as $key => $value)
             <option value="{{$value->id}}" {{ $value->name == $category->name ? 'selected' : '' }}>{{$value->name}}</option>
           @endforeach
         </select>
       </div>
-      <div class="compartir">
+      <div class="">
         <span class="text-muted">Compartir:</span>
         <i class="fa fa-facebook-square" aria-hidden="true"></i>
         <i class="fa fa-twitter-square" aria-hidden="true"></i>
@@ -267,13 +218,13 @@ a i{
 <hr>
 <h3 class="text-center">Comentarios</h3>
 <hr>
-<!--Div para agregfar comentarios -->
+<!--Div para agregrar comentarios -->
 @if (!$asd == 1)
 
   <!-- CAJA DE COMENTARIOS -->
 
-    <div class="row" style="margin-bottom: 20px;">
-      <form class="" action="/articles/{{$post->id}}" method="post" style="width:80%">
+    <div class="row mb-3">
+      <form class="w-75" action="/articles/{{$post->id}}" method="post">
         {{ csrf_field() }}
         <div class="form-group">
           <label class="h5 ml-5 mt-5" for="comment">Deja tu comentario...</label><br>
@@ -305,10 +256,10 @@ a i{
 <!-------------------------------->
 
 
-    <div class="comentarios row text-left"  style="display:flex;flex-direction:column-reverse;">
+    <div class="comentarios row text-left d-flex flex-column-reverse">
       @foreach ($comments as $key => $value)
-      <div class="col-xs-10 col-md-10" style="position:relative;">
-        <div class="jumbotron m-3"style="position: relative;">
+      <div class="col-xs-10 col-md-10">
+        <div class="jumbotron m-3" style="position: relative;">
           <div class="comment-body">
             <div class="comment-header d-flex flex-wrap justify-content-between">
               <h4 class="comment-title"><a href="/users/{{$value->user_id}}" style="font-size:35px;color:black;">{{$value->user->alias}}</a></h4>
@@ -322,21 +273,23 @@ a i{
                 </div>
               </div>
             </div>
-            <p class="comment-text" id="comentario">{{$value->content}}</p>
+            <hr>
+            <p class="comment-text comentario" id="">{{$value->content}}</p>
             @if (Auth::user())
               @if (Auth::user()->id==$value->user_id)
-                <div class="" id="formedit" style="display:none">
-                  <input type="hidden" name="id" value="{{$value->id}}">
-                  <textarea name="comment" rows="3" cols="120" style="resize: none;overflow:hidden;width:100%;" id="comentarioEditado">{{$value->content}}</textarea>
-                  <i class="fa fa-check" aria-hidden="true"style="color:green" id="aceptarComentario" title="Guardar"></i>
-                  <i class="fa fa-times" aria-hidden="true" style="color:red" id="cancelarComentario" title="Cancelar"></i>
+                <div class="formEdit" style="display: none;" id="">
+                  <input type="hidden" id="comentario_id" name="id" value="{{$value->id}}">
+                  <textarea name="comment" rows="3" cols="120" class="comentarioEditado w-100" style="resize: none;overflow:hidden;" id="">{{$value->content}}</textarea>
+                  <i class="fa fa-check text-success guardarCambios" aria-hidden="true" id="" title="Guardar"></i>
+                  <i class="fa fa-times text-danger cancelarCambios" aria-hidden="true" id="" title="Cancelar"></i>
                 </div>
-                <i style="position:absolute;top:5px;right:20px;" class="fa fa-pencil" aria-hidden="true" id="editar"  title="Editar"></i>
-                <i style="position:absolute;top:5px;right:4px;" class="fa fa-trash" aria-hidden="true" id="eliminar" title="Eliminar"></i>
+                <i style="position:absolute;top:5px;right:20px;" class="fa fa-pencil editar" aria-hidden="true" id=""  title="Editar"></i>
+                <i style="position:absolute;top:5px;right:4px;" class="fa fa-trash eliminar" aria-hidden="true" id="" title="Eliminar"></i>
               @endif
             @endif
-            <div class="comment-footer" id="tiempo"><span class="text-muted">Publicado el : {{$value->created_at}}</span></div>
-            <hr>
+            <div class="comment-footer" id="tiempo">
+              <span class="text-muted">Publicado el : {{$value->created_at}}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -372,67 +325,67 @@ a i{
   console.log('fin de la transition')
   })
 
-  var editar = document.querySelectorAll('#editar');
-  var eliminar = document.querySelectorAll('#eliminar');
-  var comment = document.querySelector('#comentario');
-  var comentarioEditado = document.querySelector('#comentarioEditado');
-  var formedit = document.querySelector('#formedit');
-  var tiempo = document.querySelector('#tiempo');
-  var cancelarComentario = document.querySelectorAll('#cancelarComentario');
-  var aceptarComentario = document.querySelectorAll('#aceptarComentario');
-  var idComment = document.querySelector('#idComment');
-  var seguro = document.querySelector('.seguro');
-  editar.forEach(function(e){
-    e.addEventListener('click', function(){
-      e.style.display = "none";
-      e.previousElementSibling.previousElementSibling.style.display = "none";
-      e.previousElementSibling.style.display = "block";
-      tiempo.style.display= "none";
-    });
-    cancelarComentario.forEach(function(a){
-      a.addEventListener('click',function(){
-        a.style.display = "inline";
-        e.style.display="inline";
-        e.previousElementSibling.previousElementSibling.style.display = "block";
-        e.previousElementSibling.style.display = "none";
-        e.previousElementSibling.childNodes[3].value = a.parentNode.previousElementSibling.textContent;
-        tiempo.style.display= "block";
+  var $guardarCambios = $('.guardarCambios');
+  var $cancelarCambios = $('.cancelarCambios');
+  var $editar = $('.editar');
+  var $eliminar = $('.eliminar');
+  var $hs_modal = $('#hs-modal');
+
+  $editar.each(function(i,e){
+    $(e).click(function(){
+        $(this).hide().prev().show().siblings('.comentario').hide().siblings('#tiempo').hide();
+    })
+  });
+
+  $guardarCambios.each(function(i,e){
+    $(e).click(function(){
+      $.ajax({
+        type:'POST',
+        url: '/editarComent',
+        data: {
+          id: $(e).siblings('#comentario_id').val(),
+          comment : $(e).siblings('.comentarioEditado').val(),
+          '_token': token
+        }
+      }).done(function(){
+        $(e).parent().hide().prev().show().text($(e).siblings('.comentarioEditado').val()).siblings('.editar').show().siblings('#tiempo').show();
+        $(e).parent().next().show();
+      })
+    })
+  })
+
+  $cancelarCambios.each(function(i,e){
+    $(e).click(function(){
+      $(this).siblings('textarea').val($(this).parent().prev().text()).parent().hide().prev().show().siblings('.editar').show().siblings('#tiempo').show();
+    })
+  })
+
+  $eliminar.each(function(i,e){
+    $(e).click(function(){
+      $('#si').click(function(){
+        $.ajax({
+          type: 'POST',
+          url: '/eliminarComent',
+          data: {
+            id: $(e).siblings('.formEdit').children('#comentario_id').val(),
+            '_token': token
+          }
+        }).done(function(){
+            $(e).parents('.col-md-10').remove()
+            $hs_modal.fadeOut('fast');
+          })
       });
-    });
-    aceptarComentario.forEach(function(i){
-      i.addEventListener('click', function(){
-        e.style.display = "inline";
-        e.previousElementSibling.previousElementSibling.textContent = e.previousElementSibling.childNodes[3].value;
-        e.previousElementSibling.previousElementSibling.style.display = "block";
-        tiempo.style.display = "block";
-        e.previousElementSibling.style.display = "none";
-        xhr.open('POST','/editarComent',true);
-        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xhr.setRequestHeader('X-CSRF-TOKEN', token);
-        xhr.send('comment='+i.previousElementSibling.value+'&id='+i.previousElementSibling.previousElementSibling.value);
-        console.log(xhr.responseText)
-    });
-    eliminar.forEach(function(o){
-      o.addEventListener('click',function(){
-        seguro.style.display= "grid";
-        document.querySelector('#si').addEventListener('click',function(){
-          xhr.open('POST','/eliminarComent',true);
-          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-          xhr.setRequestHeader('X-CSRF-TOKEN', token);
-          xhr.send('id='+o.previousElementSibling.previousElementSibling.childNodes[1].value);
-          o.parentNode.parentNode.parentNode.remove()
-          seguro.style.display = "none";
-        });
-        document.querySelector('#no').addEventListener('click',function(){
-          seguro.style.display = "none";
-        })
+      $('#no').click(function(){
+        $hs_modal.fadeOut('fast');
+      })
+      $hs_modal.fadeIn().css('background','rgba(0,0,0,0.5)').children('div.modal-dialog').css({top: -80, opacity: 0}).animate({top: -20, opacity: 1});
+      $('#salirCartel').click(function(clickDelMouse){
+        if (clickDelMouse.target == this) {
+          $hs_modal.fadeOut('fast');
+        };
       });
     });
   });
-
-
-});
-
 
 </script>
 

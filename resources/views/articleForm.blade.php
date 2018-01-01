@@ -1,83 +1,37 @@
 @extends('layouts.app1')
-
 @section('content')
 <style media="screen">
-  input[type=checkbox] {
-  transform: scale(1.5);
-  margin-left: 5px;
-  }
+
   body{
     background-color: #f2f2f2;
   }
-  .container{
-    margin: 0 auto;
-    max-width: 70vw;
-    background-color: white;
-    box-shadow: 2px 2px 5px #999;
-    margin-bottom: 20px;
-  }
-  form {
-    margin-top: 100px;
-  }
-  label {
-    margin-top: 10px;
-  }
-
   .textarea{
     width: 100%;
-  }
-  h3 {
-    margin-bottom: 20px;
-  }
-  #categorias{
-    display: flex;
-    justify-content: center;
-  }
-
-  @media (max-width: 588px) {
-    .container{
-      margin: 0 auto;
-      max-width: 100vw;
-    }
-  }
-
+    resize:none;
+    overflow: hidden;
   }
 </style>
-
-
-<div class="container">
-  <form class="form" action="{{ route('add')}}" method="post" enctype="multipart/form-data" style="text-align:center;">
-
+<div class="container bg-white mt-5 mb-5">
+  <form class="text-center col-md-9 col-xs-12 m-auto" action="{{ route('add')}}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
-    {{-- <label class="custom-file">
-      <input type="file" id="file" class="custom-file-input">
-      <span class="custom-file-control"></span>
-    </label> --}}
     <div class="row">
       <div class="col-xs-12 col-md-12 col-xl-12">
-        <h3 class="mt-5 text-center">Nuevo Artículo</h3>
+        <h3 class="mt-5 text-center mb-3">Nuevo Artículo</h3>
       </div>
     </div>
 
-
-    <div class="row">
-
-
-        <div class="col-xs-12 col-md-6 col-xl-6">
-          <span class="">Titulo</span>
-          <input class="form-control col-xs-12" type="text" name="title" value="{{old('title')}}" placeholder="Titulo">
-        </div>
-        <div class="col-xs-12 col-md-6 col-xl-6">
-          <span class="">Precio</span>
-          <input type="text" name="price" value="{{old('price')}}" placeholder="Precio" class="col-xs-12 form-control"><br>
-        </div>
-
+    <div class="form-group d-flex flex-wrap">
+      <div class="col-xs-12 col-md-6 col-xl-6">
+        <span class="">Titulo</span>
+        <input class="form-control col-xs-12" type="text" name="title" value="{{old('title')}}" placeholder="Titulo">
+      </div>
+      <div class="col-xs-12 col-md-6 col-xl-6">
+        <span class="">Precio</span>
+        <input type="text" name="price" value="{{old('price')}}" placeholder="Precio" class="col-xs-12 form-control"><br>
+      </div>
     </div>
-
-
-
-    <div class="row" id="categorias">
-      <div class="categorias">
+    <div class="form-group d-flex align-items-center justify-content-around flex-wrap">
+      <div class="col-xs-12 col-md-4">
         <label for="category" class="">Categoria: </label>
         <select class="form-control col-xs-12 col-md-6 col-xl-12 custom-select" name="category">
           <option value="">Seleccionar...</option>
@@ -86,27 +40,26 @@
           @endforeach
         </select>
       </div>
+      <div class="form-check col-xs-12 col-md-6 mt-2">
+        <label class="form-check-label">
+          <input type="checkbox" name="oferta" value="1"> Es una oferta
+        </label>
+      </div>
     </div>
-
-    <label for="oferta">Es una oferta</label>
-    <input style="" id="oferta" type="checkbox" name="oferta" value="1">
-    <br>
-    <textarea style="resize:none;overflow: hidden;" class="textarea" name="description" rows="8" cols="80" placeholder="Descripcion">{{old('description')}}</textarea><br>
-
-
-    <div class="row">
+    <div class="form-group mt-5">
+      <textarea class="textarea form-control" name="description" rows="8" cols="80" placeholder="Descripcion">{{old('description')}}</textarea><br>
+    </div>
+    <div class="form-group d-flex flex-wrap">
       <div class="col-xs-12 col-md-12 col-xl-6 form-group">
         <label for="file">Subir imagen 1</label>
-        <input style="margin: 0 auto;" class="form-control-file" type="file" id="file" name="img1">
+        <input class="form-control-file m-auto" type="file" id="file" name="img1">
       </div>
       <div class="col-xs-12 col-md-12 col-xl-6 form-group">
         <label for="file1">Subir imagen 2</label>
-        <input style="margin: 0 auto;" class="form-control-file" type="file" id="file1" name="img2">
+        <input class="form-control-file m-auto" type="file" id="file1" name="img2">
       </div>
     </div>
-
     <input class="btn btn-success mt-5 mb-4" type="submit" name="" style="font-size:18px; padding:7px 40px;" value="Añadir">
-
   </form>
 </div>
 
