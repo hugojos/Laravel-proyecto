@@ -59,11 +59,11 @@
         <a class="nav-link" href="{{ url('/faqs') }}">FAQ</a>
       </li>
       @guest
-          <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" style="text-transform: uppercase">Ingresar</a></li>
-          <li class="nav-item"><a  class="nav-link" href="{{ route('register') }}" style="text-transform: uppercase;">Registrarse</a></li>
+          <li class="nav-item"><a class="nav-link text-uppercase" href="{{ route('login') }}">Ingresar</a></li>
+          <li class="nav-item"><a  class="nav-link text-uppercase" href="{{ route('register') }}">Registrarse</a></li>
       @elseif (Auth::user())
           <li class="dropdown">
-              <a href="#" class="dropdown-toggle nav-link" style="text-transform: uppercase" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+              <a href="#" class="dropdown-toggle nav-link text-uppercase" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                   {{ Auth::user()->alias}} <span class="caret"></span></a>
               <ul class="dropdown-menu nav-item background">
                   <li class="nav-item">
@@ -86,7 +86,7 @@
                     document.getElementById('logout-form').submit();">
                     Cerrar sesion
                   </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     {{ csrf_field() }}
                   </form>
                 </li>
@@ -104,9 +104,9 @@
     <!-- Aca podria ir el nombre del usuario logueado-->
     <form class="form-inline my-2 my-lg-0 none1" action="/search" method="POST">
       {{ csrf_field() }}
-      <div class="" style="margin: 0 auto; position: relative">
+      <div class="m-auto" style="position: relative">
         <input class="form-control mr-sm-2" id="buscador" type="text" placeholder="Buscar Articulos..." aria-label="Search" name="buscador" autocomplete="off">
-        <ul id="resultados" style=" position: absolute;left:0;width:100%; border-radius: 4px;">
+        <ul id="resultados" class="w-100" style="position: absolute;left:0; border-radius: 4px;">
         </ul>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </div>
