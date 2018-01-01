@@ -318,9 +318,6 @@ $('button.prev').click( function () {
       }
       $carrito.css('transform', 'translateX(' + (-$carrousel.width() * imagenActual) + 'px)');
   })
-
-
-
   var $guardarCambios = $('.guardarCambios');
   var $cancelarCambios = $('.cancelarCambios');
   var $editar = $('.editar');
@@ -335,18 +332,22 @@ $('button.prev').click( function () {
 
   $guardarCambios.each(function(i,e){
     $(e).click(function(){
-      $.ajax({
-        type:'POST',
-        url: '/editarComent',
-        data: {
-          id: $(e).siblings('#comentario_id').val(),
-          comment : $(e).siblings('.comentarioEditado').val(),
-          '_token': token
-        }
-      }).done(function(){
-        $(e).parent().hide().prev().show().text($(e).siblings('.comentarioEditado').val()).siblings('.editar').show().siblings('#tiempo').show();
-        $(e).parent().next().show();
-      })
+      if ($(this).parent().prev().text() == $(this).siblings('textarea').val()) {
+        $(this).siblings('textarea').val($(this).parent().prev().text()).parent().hide().prev().show().siblings('.editar').show().siblings('#tiempo').show();
+      } else {
+        $.ajax({
+          type:'POST',
+          url: '/editarComent',
+          data: {
+            id: $(e).siblings('#comentario_id').val(),
+            comment : $(e).siblings('.comentarioEditado').val(),
+            '_token': token
+          }
+        }).done(function(){
+          $(e).parent().hide().prev().show().text($(e).siblings('.comentarioEditado').val()).siblings('.editar').show().siblings('#tiempo').show();
+          $(e).parent().next().show();
+        })
+      }
     })
   })
 
@@ -384,5 +385,4 @@ $('button.prev').click( function () {
   });
 
 </script>
-
 @endsection
