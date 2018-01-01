@@ -115,18 +115,12 @@
 </nav>
 
 <script type="text/javascript">
-    var token = document.querySelector('meta[name="csrf-token"]').content,
-        $buscador = $('#buscador'),
-        $ul = $('#resultados');
-    $buscador.on('input',function(e){
-      $.get('/searchGet/'+$buscador.val(),function(response){
-          $ul.children().remove();
-          response.forEach(function(i,e){
-            $ul.append('<li class="white"><a href="/articles/'+i.id+'">'+i.title+'</a></li>');
-          })
-        })
-    });
-    /*buscador.addEventListener('input',function(event){
+/* ESTO LO DEJO SIN JQUERY PORQUE ES MAS EFICIENTE*/
+    var token = document.querySelector('meta[name="csrf-token"]').content
+    var buscador = document.querySelector('#buscador'),
+        ul = document.querySelector('#resultados'),
+        xhr = new XMLHttpRequest();
+    buscador.addEventListener('input',function(event){
       xhr.onreadystatechange = function(){
         if (this.readyState == 4) {
           ul.innerHTML = "";
@@ -143,16 +137,13 @@
           }
         }
       };
-      //console.log(buscador.value);
-      //console.log(event.key);
       xhr.open("GET","/searchGet/"+buscador.value, true);
       xhr.responseType = 'json';
-      //xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
       xhr.setRequestHeader('X-CSRF-TOKEN', token);
       xhr.send();
     })
 
-*/
+
 
 
 </script>
