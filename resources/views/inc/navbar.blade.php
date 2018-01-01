@@ -115,11 +115,18 @@
 </nav>
 
 <script type="text/javascript">
-    var token = document.querySelector('meta[name="csrf-token"]').content;
-    var buscador = document.querySelector('#buscador');
-    var ul = document.querySelector('#resultados');
-    var xhr= new XMLHttpRequest();
-    buscador.addEventListener('input',function(event){
+    var token = document.querySelector('meta[name="csrf-token"]').content,
+        $buscador = $('#buscador'),
+        $ul = $('#resultados');
+    $buscador.on('input',function(e){
+      $.get('/searchGet/'+$buscador.val(),function(response){
+          $ul.children().remove();
+          response.forEach(function(i,e){
+            $ul.append('<li class="white"><a href="/articles/'+i.id+'">'+i.title+'</a></li>');
+          })
+        })
+    });
+    /*buscador.addEventListener('input',function(event){
       xhr.onreadystatechange = function(){
         if (this.readyState == 4) {
           ul.innerHTML = "";
@@ -145,7 +152,7 @@
       xhr.send();
     })
 
-
+*/
 
 
 </script>

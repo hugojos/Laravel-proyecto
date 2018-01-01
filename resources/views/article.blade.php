@@ -359,6 +359,12 @@ $('button.prev').click( function () {
 
   $eliminar.each(function(i,e){
     $(e).click(function(){
+      $hs_modal.fadeIn().css('background','rgba(0,0,0,0.5)').find('div.modal-dialog').css({top: -80, opacity: 0}).animate({top: -20, opacity: 1});
+      $('#salirCartel').click(function(clickDelMouse){
+        if (clickDelMouse.target == this) {
+          $hs_modal.fadeOut('fast');
+        };
+      });
       $('#si').click(function(){
         $.ajax({
           type: 'POST',
@@ -375,12 +381,6 @@ $('button.prev').click( function () {
       $('#no').click(function(){
         $hs_modal.fadeOut('fast');
       })
-      $hs_modal.fadeIn().css('background','rgba(0,0,0,0.5)').children('div.modal-dialog').css({top: -80, opacity: 0}).animate({top: -20, opacity: 1});
-      $('#salirCartel').click(function(clickDelMouse){
-        if (clickDelMouse.target == this) {
-          $hs_modal.fadeOut('fast');
-        };
-      });
     });
   });
 
