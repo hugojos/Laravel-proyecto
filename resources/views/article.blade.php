@@ -190,7 +190,7 @@
         {{ csrf_field() }}
         {{method_field('PUT')}}
       <h2 class="padding-top d-block"><input class="form-control" type="text" name="title" value="{{$post->title}}"></h2>
-      <span class="precio d-flex">$<input type="text" name="price" class="form-control"value="{{$post->price}}"></span>
+      <span class="precio d-flex align-items-center">$<input type="text" name="price" class="form-control"value="{{$post->price}}"></span>
       <textarea name="descriptio" rows="5" cols="80" class="form-control mt-2" style="resize: none;">{{$post->description}}</textarea>
       <hr>
       <div class="padding-bottom-1x mb-2 d-flex align-items-center">

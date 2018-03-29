@@ -11,7 +11,6 @@
 
   <style media="screen">
   .container{
-    margin-top: 130px;
     margin-bottom: 100px;
     display: flex;
     justify-content: center;
@@ -42,17 +41,17 @@
     background-color: white;
 
   }
-
   body{
     background-image: url("/images/parallax.jpg");
     background-repeat: no-repeat;
     background-size:100% 59%;
-
-
+  }
+  nav {
+    display:none!important;
   }
   </style>
 
-<div class="row">
+<div class="row mt-5">
   <div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5" id="background-form">
     <div class="row">
           <div class="col-md-12">

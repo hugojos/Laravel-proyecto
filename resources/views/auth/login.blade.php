@@ -36,7 +36,9 @@
     .height {
       min-height: 100vh;
     }
-
+    nav {
+      display:none!important;
+    }
 </style>
 <div class="row height" style="display:flex;justify-content:center;">
   <div class="container col-xs-12 col-md-6 col-lg-6 col-xl-5" style="max-height:500px;">
@@ -130,7 +132,7 @@
       document.querySelector('#errorPassword').innerText = "La contraseña no puede estar vacia."
     } else if (password.value.length < 6) {
       error++
-      document.querySelector('#errorPassword').innerText = "La contraseña debe ser mayor a 6 caracteres";
+      document.querySelect or('#errorPassword').innerText = "La contraseña debe ser mayor a 6 caracteres";
     } else{
       document.querySelector('#errorPassword').innerText = "";
     }
